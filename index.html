@@ -502,22 +502,258 @@
         Story Editor
       -->
       <div id='d_story' style="display:none">
-        <h1 class="text-center">
-          <i>
-            Not supported yet. Coming soon!
-          </i>
-        </h1>
+        <table class='table table-dark' id='t_upload'>
+          <thead class='thead thead-dark'>
+            <tr>
+              <th colspan=5 class="text-center">
+                Story Settings
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th colspan=5 class="text-secondary">
+                Presets
+              </th>
+            </tr>
+            <tr>
+              <th>
+                Reset to default
+              </th>
+              <td>
+                <input type="checkbox" id="inp-default" value="0" onClick="">
+              </td>
+              <th>
+                One run complete
+              </th>
+              <td>
+                <input type="checkbox" id="inp-fullrun" value="0" onClick="">
+              </td>
+              <td>
+                <!-- Padding -->
+              </td>
+            </tr>
+            <tr>
+              <th colspan=5 class="text-secondary">
+                Wins/Loops
+              </th>
+            </tr>
+            <tr>
+              <th>
+                Total Wins
+              </th>
+              <td>
+                <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-wins" value="0" onChange='updateTotalWins(value)'>
+              </td>
+              <th>
+                Win Streak
+              </th>
+              <td>
+                <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-streak" value="0" onChange='updateStreak(value)'>
+              </td>
+              <td>
+                <!-- Padding -->
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Total Loops
+              </th>
+              <td>
+                <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-loops" value="0" onChange='updateLoops(value)'>
+              </td>
+              <th>
+                Completed Loops
+              </th>
+              <td>
+                <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-loopno" value="0" disabled>
+              </td>
+              <td>
+                <!-- Padding -->
+              </td>
+            </tr>
+            <tr>
+              <th class="text-secondary" colspan=5>
+                Chapters
+              </th>
+            </tr>
+            <tr>
+              <th>
+                Story
+              </th>
+              <th id='s1-title'>
+                Story 1
+              </th>
+              <th id='s2-title'>
+                Story 2
+              </th>
+              <th id='s3-title'>
+                Story 3
+              </th>
+              <th id='s4-title'>
+                Story 4
+              </th>
+            </tr>
+            <tr>
+              <th>
+                Cleared
+              </th>
+              <td>
+                <input type="checkbox" class="form-control-input" id="inp-1-clr" value="0" onClick="updateWonChapters(0)">
+                <input type="checkbox" class="form-control-input" id="inp-2-clr" value="0" onClick="updateWonChapters(1)">
+                <input type="checkbox" class="form-control-input" id="inp-3-clr" value="0" onClick="updateWonChapters(2)">
+                <input type="checkbox" class="form-control-input" id="inp-4-clr" value="0" onClick="updateWonChapters(3)">
+                <input type="checkbox" class="form-control-input" id="inp-5-clr" value="0" onClick="updateWonChapters(4)">
+              </td>
+              <td>
+                <input type="checkbox" class="form-control-input" id="inp-6-clr" value="0" onClick="updateWonChapters(5)">
+                <input type="checkbox" class="form-control-input" id="inp-7-clr" value="0" onClick="updateWonChapters(6)">
+                <input type="checkbox" class="form-control-input" id="inp-8-clr" value="0" onClick="updateWonChapters(7)">
+                <input type="checkbox" class="form-control-input" id="inp-9-clr" value="0" onClick="updateWonChapters(8)">
+                <input type="checkbox" class="form-control-input" id="inp-10-clr" value="0" onClick="updateWonChapters(9)">
+              </td>
+              <td>
+                <input type="checkbox" class="form-control-input" id="inp-11-clr" value="0" onClick="updateWonChapters(10)">
+                <input type="checkbox" class="form-control-input" id="inp-12-clr" value="0" onClick="updateWonChapters(11)">
+                <input type="checkbox" class="form-control-input" id="inp-13-clr" value="0" onClick="updateWonChapters(12)">
+                <input type="checkbox" class="form-control-input" id="inp-14-clr" value="0" onClick="updateWonChapters(13)">
+                <input type="checkbox" class="form-control-input" id="inp-15-clr" value="0" onClick="updateWonChapters(14)">
+              </td>
+              <td>
+                <input type="checkbox" class="form-control-input" id="inp-16-clr" value="0" onClick="updateWonChapters(15)">
+                <input type="checkbox" class="form-control-input" id="inp-17-clr" value="0" onClick="updateWonChapters(16)">
+                <input type="checkbox" class="form-control-input" id="inp-18-clr" value="0" onClick="updateWonChapters(17)">
+                <input type="checkbox" class="form-control-input" id="inp-19-clr" value="0" onClick="updateWonChapters(18)">
+                <input type="checkbox" class="form-control-input" id="inp-20-clr" value="0" onClick="updateWonChapters(19)">
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <p>
+                  Locked
+                </p>
+              </th>
+              <td>
+                <input type="checkbox" class="form-control-input" id="inp-1-lck" value="0" onClick="updateLockedChapters(0)">
+                <input type="checkbox" class="form-control-input" id="inp-2-lck" value="0" onClick="updateLockedChapters(1)">
+                <input type="checkbox" class="form-control-input" id="inp-3-lck" value="0" onClick="updateLockedChapters(2)">
+                <input type="checkbox" class="form-control-input" id="inp-4-lck" value="0" onClick="updateLockedChapters(3)">
+                <input type="checkbox" class="form-control-input" id="inp-5-lck" value="0" onClick="updateLockedChapters(4)">
+              </td>
+              <td>
+                <input type="checkbox" class="form-control-input" id="inp-6-lck" value="0" onClick="updateLockedChapters(5)">
+                <input type="checkbox" class="form-control-input" id="inp-7-lck" value="0" onClick="updateLockedChapters(6)">
+                <input type="checkbox" class="form-control-input" id="inp-8-lck" value="0" onClick="updateLockedChapters(7)">
+                <input type="checkbox" class="form-control-input" id="inp-9-lck" value="0" onClick="updateLockedChapters(8)">
+                <input type="checkbox" class="form-control-input" id="inp-10-lck" value="0" onClick="updateLockedChapters(9)">
+              </td>
+              <td>
+                <input type="checkbox" class="form-control-input" id="inp-11-lck" value="0" onClick="updateLockedChapters(10)">
+                <input type="checkbox" class="form-control-input" id="inp-12-lck" value="0" onClick="updateLockedChapters(11)">
+                <input type="checkbox" class="form-control-input" id="inp-13-lck" value="0" onClick="updateLockedChapters(12)">
+                <input type="checkbox" class="form-control-input" id="inp-14-lck" value="0" onClick="updateLockedChapters(13)">
+                <input type="checkbox" class="form-control-input" id="inp-15-lck" value="0" onClick="updateLockedChapters(14)">
+              </td>
+              <td>
+                <input type="checkbox" class="form-control-input" id="inp-16-lck" value="0" onClick="updateLockedChapters(15)">
+                <input type="checkbox" class="form-control-input" id="inp-17-lck" value="0" onClick="updateLockedChapters(16)">
+                <input type="checkbox" class="form-control-input" id="inp-18-lck" value="0" onClick="updateLockedChapters(17)">
+                <input type="checkbox" class="form-control-input" id="inp-19-lck" value="0" onClick="updateLockedChapters(18)">
+                <input type="checkbox" class="form-control-input" id="inp-20-lck" value="0" onClick="updateLockedChapters(19)">
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       
       <!--
         Versus Editor
       -->
       <div id='d_versus' style="display:none">
-        <h1 class="text-center">
-          <i>
-            Not supported yet. Coming soon!
-          </i>
-        </h1>
+        <table class='table table-dark' id='t_gtwing'>
+          <thead class='thead thead-dark'>
+            <tr>
+              <th class='text-center' colspan=5>
+                Versus Settings
+              </th>
+            </tr>
+          </thead>
+            <tr>
+              <th>
+                General
+              </th>
+              <th>
+                Games Played
+              </th>
+              <td>
+                <input class='form-control form-control-sm' type="number" id="s_vs_games_played" name="s_vs_games_played" value=0 min="0" max="4294967295">
+              </td>
+              <th>
+                Versus Stars
+              </th>
+              <td>
+                <input class='form-control form-control-sm' type="number" id="s_vs_stars" name="s_vs_stars" value=0 min="0" max="4294967295">
+              </td>
+            </tr>
+            <tr>
+              <th rowspan=2>
+                Medals
+              </th>
+              <th>
+                Gold
+              </th>
+              <td>
+                <input class='form-control form-control-sm' type="number" id="s_vs_games_played" name="s_vs_games_played" value=0 min="0" max="4294967295">
+              </td>
+              <th>
+                Silver
+              </th>
+              <td>
+                <input class='form-control form-control-sm' type="number" id="s_vs_stars" name="s_vs_stars" value=0 min="0" max="4294967295">
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Bronze
+              </th>
+              <td>
+                <input class='form-control form-control-sm' type="number" id="s_vs_games_played" name="s_vs_games_played" value=0 min="0" max="4294967295">
+              </td>
+              <th>
+                Plain
+              </th>
+              <td>
+                <input class='form-control form-control-sm' type="number" id="s_vs_stars" name="s_vs_stars" value=0 min="0" max="4294967295">
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Grade
+              </th>
+              <td colspan=4>
+                No Versus Grade (Next Grade: Hawk1 in 200 medals)
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Aura
+              </th>
+              <th>
+                Smooth/Rough
+              </th>
+              <td>
+                <input type="range" class="form-range" id="s_smooth_rough">
+              </td>
+              <th>
+                Cool/Wild
+              </th>
+              <td>
+                <input type="range" class="form-range" id="s_cool_wild">
+              </td>
+            </tr>
+          <tbody>
+          </tbody>
+        </table>
       </div>
 
       <!--
