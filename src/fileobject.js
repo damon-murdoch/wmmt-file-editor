@@ -115,26 +115,3 @@ function download()
     // Do nothing
   }
 }
-
-// getFileObject(element: Element): FileObject
-// Given a file upload element, checks for 
-// if a file has been uploaded. If it 
-// has, return a FileObject for the 
-// file. Otherwise, return null.
-function getFileObject(element)
-{
-  // Get the file content from the provided element
-  let file = document.getElementById(element).files[0];
-
-  // If a file has been uploaded
-  if (file !== undefined)
-  {
-    // Get the file contents
-    upload(file);
-  }
-  else // No file uploaded
-  {
-    // Return null result
-    return null;
-  }
-}

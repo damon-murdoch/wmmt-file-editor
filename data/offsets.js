@@ -15,6 +15,16 @@
   settings
 */
 
+// Table of games
+
+GAMES = {
+  wmmt5: "Maximum Tune 5",
+  wmmt5dxp: "Maximum Tune 5DX/DX+",
+  wmmt6: "Maximum Tune 6/6R",
+}
+
+// Table of hex offsets
+
 OFFSETS = {
   game: {
     wmmt5: {
@@ -613,22 +623,6 @@ OFFSETS = {
 
         }
       },
-      miles: {
-        indexes: {
-
-        }, 
-        values: {
-
-        }
-      },
-      gtwing: {
-        indexes: {
-
-        }, 
-        values: {
-
-        }
-      },
       versus: {
         indexes: {
 
@@ -638,14 +632,6 @@ OFFSETS = {
         }
       },
       settings: {
-        indexes: {
-
-        }, 
-        values: {
-
-        }
-      },
-      ministick: {
         indexes: {
 
         }, 
@@ -1525,94 +1511,7 @@ OFFSETS = {
         values: {
 
         }
-      }, 
-      miles: {
-        indexes: {
-          'miles': 0x0,
-          'games': 0x4 // Games Played
-        },
-        values: {
-          
-        }
-      }, 
-      gtwing: {
-        indexes: {
-
-          // Pillar
-
-          "pillar-type": 0x18,
-          "pillar-material": 0x1C,
-      
-          // Main Wing
-
-          "main-wing-type": 0x20,
-          "main-wing-colour": 0x24,
-      
-          // Decoration
-
-          "wing-tip-type": 0x28,
-          "wing-material": 0x2C,
-        },
-        values: {
-
-          // Pillar
-
-          "pillar-type": [
-            [0x00, "None (No GT Wing)"],
-            [0x01, "Tall Outside Pillars"],
-            [0x02, "Tall Inside Pillars"],
-            [0x03, "Mid Outside Pillars"],
-            [0x04, "Mid Inside Pillars"],
-            [0x05, "Short Outside Pillars"],
-            [0x06, "Short Inside Pillars"],
-          ],
-
-          "pillar-material": [
-            [0x00, "Black"],
-            [0x01, "Silver"],
-          ],
-
-          // Main Wing
-          
-          "main-wing-type": [
-            [0x00, "None (No GT Wing)"],
-            [0x01, "Standard Wing"],
-            [0x02, "Curved Wing"],
-            [0x03, "3D Wing"],
-            [0x04, "Angled Wing"],
-            [0x05, "Double Wing"],
-            [0x06, "Triple Wing"],
-          ],
-
-          "main-wing-colour": [
-            [0x00, "Red"],
-            [0x01, "Orange"],
-            [0x02, "Yellow"],
-            [0x03, "Green"],
-            [0x04, "Purple"],
-            [0x05, "Light Blue"],
-            [0x06, "Blue"],
-            [0x07, "Black"],
-            [0x08, "Silver"],
-            [0x09, "White"],
-          ],
-
-          // Decoration
-          
-          "wing-tip-type": [
-            [0x00, "None (No GT Wing)"],
-            [0x01, "Standard"],
-            [0x02, "Curved"],
-            [0x03, "Large"],
-            [0x04, "Large Curved"],
-          ],
-
-          "wing-material": [
-            [0x00, "Glossy"],
-            [0x01, "Matte"],
-          ],
-        }
-      }, 
+      },
       versus: {
         indexes: {
 
@@ -1719,144 +1618,7 @@ OFFSETS = {
           ]
         }
       },
-      ministick: {
-        indexes: {
-          "sticker-1-type": [0x0, 0x8],
-          "sticker-1-colour": [0x0, 0xC],
-      
-          // Sticker 2
-          "sticker-2-type": [0x1, 0x8],
-          "sticker-2-colour": [0x1, 0xC],
-      
-          // Sticker 3
-          "sticker-3-type": [0x2, 0x8],
-          "sticker-3-colour": [0x2, 0xC],
-      
-          // Sticker 4
-          "sticker-4-type": [0x3, 0x8],
-          "sticker-4-colour": [0x3, 0xC],
-      
-          // Sticker 5
-          "sticker-5-type": [0x4, 0x8],
-          "sticker-5-colour": [0x4, 0xC],
-      
-          // Sticker 6
-          "sticker-6-type": [0x5, 0x8],
-          "sticker-6-colour": [0x5, 0xC],
-      
-          // Sticker 7
-          "sticker-7-type": [0x7, 0x8],
-          "sticker-7-colour": [0x7, 0xC],
-      
-          // Sticker 8
-          "sticker-8-type": [0x8, 0x8],
-          "sticker-8-colour": [0x8, 0xC],
-      
-          // Sticker 9
-          "sticker-9-type": [0x9, 0x8],
-          "sticker-9-colour": [0x9, 0xC],
-      
-          // Sticker 10
-          "sticker-10-type": [0x6, 0x8],
-          "sticker-10-colour": [0x6, 0xC],
-        },
-        values: {
-          "sticker-type": [
-            [0x00, "Default (None)"],
-            [0x01, "R"],
-            [0x02, "V"],
-            [0x03, "G"],
-            [0x04, "WM"],
-            [0x05, "00"],
-            [0x06, "Z"],
-            [0x07, "S"],
-            [0x08, "165"],
-            [0x09, "Horse"],
-            [0x0A, "Bull"],
-            [0x0B, "Wing"],
-            [0x0C, "Hawk"],
-            [0x0D, "Unicorn"],
-            [0x0E, "Star"],
-            [0x0F, "Bee"],
-            [0x10, "Tribal"],
-            [0x11, "Club"],
-            [0x12, "Angel"],
-            [0x13, "Devil"],
-            [0x14, "Heart"],
-            [0x15, "Rose"],
-            [0x16, "Crescent"],
-            [0x17, "Tribal2"],
-            [0x18, "Anchor"],
-            [0x19, "Spade"],
-            [0x1A, "Star2"],
-            [0x1B, "Bat"],
-            [0x1C, "Hibiscus"],
-            [0x1D, "Pawprint"],
-            [0x1E, "Cat"],
-            [0x1F, "Heart2"],
-            [0x20, "Lizard"],
-            [0x21, "C1"],
-            [0x22, "Zexsol"],
-            [0x23, "RIMO Works"],
-            [0x24, "ArukaSpeed"],
-            [0x25, "Checkered R"],
-            [0x26, "YM Speed"],
-            [0x27, "RGO"],
-            [0x28, "FLAT"],
-            [0x29, "ACE"],
-            [0x2A, "Speed Shop"],
-            [0x2B, "Tominaga"],
-            [0x2C, "??"],
-            [0x2D, "Wolf"],
-            [0x2E, "Diamond"],
-            [0x2F, "Devil Z"],
-            [0x30, "Dice"],
-            [0x31, "Pac Man"],
-            [0x32, "Dragon"],
-            [0x33, "Heart3"],
-            [0x34, "Monkey"],
-            [0x35, "Yin & Yang"],
-            [0x36, "8 Ball"],
-            [0x37, "Gum"],
-            [0x38, "Power Up"],
-            [0x39, "Cupid"],
-            [0x3A, "??"],
-            [0x3B, "Monkey2"],
-            [0x3C, "Rainbow"],
-            [0x3D, "Fish"],
-            [0x3E, "Spider"],
-            [0x3F, "Arrow"],
-            [0x40, "Scorpion"],
-            [0x41, "Snowflake"],
-            [0x42, "Devil2"],
-            [0x43, "Square"],
-            [0x44, "Shark"],
-            [0x45, "Crown"],
-            [0x46, "Dragon"],
-            [0x47, "Shield"],
-            [0x48, "Butterfly"],
-            [0x49, "Smiley"],
-            [0x4A, "Frog"],
-            [0x4B, "Devil3"],
-            [0x4C, "Mask"],
-            [0x4D, "Eye"],
-            [0x4E, "Bear"],
-            [0x4F, "Mushroom"],
-          ],
-          "sticker-colour": [
-            [0x00, "Red"],
-            [0x01, "Orange"],
-            [0x02, "Yellow"],
-            [0x03, "Green"],
-            [0x04, "Purple"],
-            [0x05, "Light Blue"],
-            [0x06, "Blue"],
-            [0x07, "Black"],
-            [0x08, "Silver"],
-            [0x09, "White"],
-          ],
-        }
-      }
+
     }, 
     wmmt6: {
       name: "MT56/6R",
@@ -2601,7 +2363,263 @@ OFFSETS = {
       },
     }, 
     any: {
-      name: "Any"
+      name: "Any",
+      miles: {
+        indexes: {
+          'miles': 0x0,
+          'games': 0x4 // Games Played
+        },
+        values: {
+          
+        }
+      }, 
+      gtwing: {
+        indexes: {
+
+          // Pillar
+
+          "pillar-type": 0x18,
+          "pillar-material": 0x1C,
+      
+          // Main Wing
+
+          "main-wing-type": 0x20,
+          "main-wing-colour": 0x24,
+      
+          // Decoration
+
+          "wing-tip-type": 0x28,
+          "wing-material": 0x2C,
+        },
+        values: {
+
+          // Pillar
+
+          "pillar-type": [
+            [0x00, "None (No GT Wing)"],
+            [0x01, "Tall Outside Pillars"],
+            [0x02, "Tall Inside Pillars"],
+            [0x03, "Mid Outside Pillars"],
+            [0x04, "Mid Inside Pillars"],
+            [0x05, "Short Outside Pillars"],
+            [0x06, "Short Inside Pillars"],
+          ],
+
+          "pillar-material": [
+            [0x00, "Black"],
+            [0x01, "Silver"],
+          ],
+
+          // Main Wing
+          
+          "main-wing-type": [
+            [0x00, "None (No GT Wing)"],
+            [0x01, "Standard Wing"],
+            [0x02, "Curved Wing"],
+            [0x03, "3D Wing"],
+            [0x04, "Angled Wing"],
+            [0x05, "Double Wing"],
+            [0x06, "Triple Wing"],
+          ],
+
+          "main-wing-colour": [
+            [0x00, "Red"],
+            [0x01, "Orange"],
+            [0x02, "Yellow"],
+            [0x03, "Green"],
+            [0x04, "Purple"],
+            [0x05, "Light Blue"],
+            [0x06, "Blue"],
+            [0x07, "Black"],
+            [0x08, "Silver"],
+            [0x09, "White"],
+          ],
+
+          // Decoration
+          
+          "wing-tip-type": [
+            [0x00, "None (No GT Wing)"],
+            [0x01, "Standard"],
+            [0x02, "Curved"],
+            [0x03, "Large"],
+            [0x04, "Large Curved"],
+          ],
+
+          "wing-material": [
+            [0x00, "Glossy"],
+            [0x01, "Matte"],
+          ],
+        }
+      }, 
+      ministick: {
+        indexes: {
+          "sticker-1-type": [0x0, 0x8],
+          "sticker-1-colour": [0x0, 0xC],
+      
+          // Sticker 2
+          "sticker-2-type": [0x1, 0x8],
+          "sticker-2-colour": [0x1, 0xC],
+      
+          // Sticker 3
+          "sticker-3-type": [0x2, 0x8],
+          "sticker-3-colour": [0x2, 0xC],
+      
+          // Sticker 4
+          "sticker-4-type": [0x3, 0x8],
+          "sticker-4-colour": [0x3, 0xC],
+      
+          // Sticker 5
+          "sticker-5-type": [0x4, 0x8],
+          "sticker-5-colour": [0x4, 0xC],
+      
+          // Sticker 6
+          "sticker-6-type": [0x5, 0x8],
+          "sticker-6-colour": [0x5, 0xC],
+      
+          // Sticker 7
+          "sticker-7-type": [0x7, 0x8],
+          "sticker-7-colour": [0x7, 0xC],
+      
+          // Sticker 8
+          "sticker-8-type": [0x8, 0x8],
+          "sticker-8-colour": [0x8, 0xC],
+      
+          // Sticker 9
+          "sticker-9-type": [0x9, 0x8],
+          "sticker-9-colour": [0x9, 0xC],
+      
+          // Sticker 10
+          "sticker-10-type": [0x6, 0x8],
+          "sticker-10-colour": [0x6, 0xC],
+        },
+        values: {
+          "sticker-type": [
+            [0x00, "Default (None)"],
+            [0x01, "R"],
+            [0x02, "V"],
+            [0x03, "G"],
+            [0x04, "WM"],
+            [0x05, "00"],
+            [0x06, "Z"],
+            [0x07, "S"],
+            [0x08, "165"],
+            [0x09, "Horse"],
+            [0x0A, "Bull"],
+            [0x0B, "Wing"],
+            [0x0C, "Hawk"],
+            [0x0D, "Unicorn"],
+            [0x0E, "Star"],
+            [0x0F, "Bee"],
+            [0x10, "Tribal"],
+            [0x11, "Club"],
+            [0x12, "Angel"],
+            [0x13, "Devil"],
+            [0x14, "Heart"],
+            [0x15, "Rose"],
+            [0x16, "Crescent"],
+            [0x17, "Tribal2"],
+            [0x18, "Anchor"],
+            [0x19, "Spade"],
+            [0x1A, "Star2"],
+            [0x1B, "Bat"],
+            [0x1C, "Hibiscus"],
+            [0x1D, "Pawprint"],
+            [0x1E, "Cat"],
+            [0x1F, "Heart2"],
+            [0x20, "Lizard"],
+            [0x21, "C1"],
+            [0x22, "Zexsol"],
+            [0x23, "RIMO Works"],
+            [0x24, "ArukaSpeed"],
+            [0x25, "Checkered R"],
+            [0x26, "YM Speed"],
+            [0x27, "RGO"],
+            [0x28, "FLAT"],
+            [0x29, "ACE"],
+            [0x2A, "Speed Shop"],
+            [0x2B, "Tominaga"],
+            [0x2C, "??"],
+            [0x2D, "Wolf"],
+            [0x2E, "Diamond"],
+            [0x2F, "Devil Z"],
+            [0x30, "Dice"],
+            [0x31, "Pac Man"],
+            [0x32, "Dragon"],
+            [0x33, "Heart3"],
+            [0x34, "Monkey"],
+            [0x35, "Yin & Yang"],
+            [0x36, "8 Ball"],
+            [0x37, "Gum"],
+            [0x38, "Power Up"],
+            [0x39, "Cupid"],
+            [0x3A, "??"],
+            [0x3B, "Monkey2"],
+            [0x3C, "Rainbow"],
+            [0x3D, "Fish"],
+            [0x3E, "Spider"],
+            [0x3F, "Arrow"],
+            [0x40, "Scorpion"],
+            [0x41, "Snowflake"],
+            [0x42, "Devil2"],
+            [0x43, "Square"],
+            [0x44, "Shark"],
+            [0x45, "Crown"],
+            [0x46, "Dragon"],
+            [0x47, "Shield"],
+            [0x48, "Butterfly"],
+            [0x49, "Smiley"],
+            [0x4A, "Frog"],
+            [0x4B, "Devil3"],
+            [0x4C, "Mask"],
+            [0x4D, "Eye"],
+            [0x4E, "Bear"],
+            [0x4F, "Mushroom"],
+          ],
+          "sticker-colour": [
+            [0x00, "Red"],
+            [0x01, "Orange"],
+            [0x02, "Yellow"],
+            [0x03, "Green"],
+            [0x04, "Purple"],
+            [0x05, "Light Blue"],
+            [0x06, "Blue"],
+            [0x07, "Black"],
+            [0x08, "Silver"],
+            [0x09, "White"],
+          ],
+        }
+      }
+    }
+  }
+}
+
+// Table of string values
+
+STRINGS = {
+  game: {
+    wmmt5: {
+
+    },
+    wmmt5dxp: {
+      name: {
+        bit_width: 0x10, 
+        widetext: true
+      }, 
+      title: {
+        bit_width: 0x10, 
+        widetext: false
+      }, 
+      sticker: {
+        bit_width: 0x10, 
+        widetext: true
+      }, 
+      region: {
+        bit_width: 0x3, 
+        widetext: false
+      }
+    },
+    wmmt6: {
+
     }
   }
 }
