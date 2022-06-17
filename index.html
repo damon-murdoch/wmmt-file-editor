@@ -62,7 +62,7 @@
               Select File
             </th>
             <td colspan=2>
-              <input name="file" type="file" accept=".car" id="i_file" onChange='handleUpload()'/>
+              <input name="file" type="file" accept=".sav,.car,.gtwing,.ministicker" id="i_file" onChange='handleUpload()'/>
             </td>
             <td>
               <a href='#' onClick='handleDownload()'>
@@ -123,7 +123,7 @@
       <!-- 
         Car Editor
       -->
-      <div id='d_cars' style="display:none">
+      <div id='d_car'>
         <table class='table table-dark' id='t_cars'>
           <thead class='thead thead-dark'>
             <tr>
@@ -197,7 +197,7 @@
                 Rims Type
               </th>
               <td>
-                <select id="s_car_rims_type" disabled>
+                <select id="s_car_rims" disabled>
                   <option>
                     Default
                   </option>
@@ -295,7 +295,7 @@
                 Body Sticker Type
               </th>
               <td>
-                <select id="s_car_bs_type" disabled>
+                <select id="s_car_bs" disabled>
                   <option>
                     Default
                   </option>
@@ -317,7 +317,7 @@
                 Side Sticker Type
               </th>
               <td>
-                <select id="s_car_ss_type" disabled>
+                <select id="s_car_ss" disabled>
                   <option>
                     Default
                   </option>
@@ -339,7 +339,7 @@
                 Roof Sticker Type
               </th>
               <td>
-                <select id="s_car_rs_type" disabled>
+                <select id="s_car_rs" disabled>
                   <option>
                     Default
                   </option>
@@ -366,7 +366,7 @@
                 Plate Frame Type
               </th>
               <td>
-                <select id="s_car_pf_type" disabled>
+                <select id="s_car_pf" disabled>
                   <option>
                     Default
                   </option>
@@ -433,7 +433,7 @@
                 Window Sticker Type
               </th>
               <td>
-                <select id="s_car_ws_type" disabled>
+                <select id="s_car_ws" disabled>
                   <option>
                     Default
                   </option>
@@ -443,7 +443,7 @@
                 Rival Marker
               </th>
               <td>
-                <select id="s_car_rm_type" disabled>
+                <select id="s_car_rm" disabled>
                   <option>
                     Default
                   </option>
@@ -501,7 +501,7 @@
       <!--
         Story Editor
       -->
-      <div id='d_story' style="display:none">
+      <div id='d_story'>
         <table class='table table-dark' id='t_upload'>
           <thead class='thead thead-dark'>
             <tr>
@@ -669,7 +669,7 @@
       <!--
         Versus Editor
       -->
-      <div id='d_versus' style="display:none">
+      <div id='d_versus'>
         <table class='table table-dark' id='t_gtwing'>
           <thead class='thead thead-dark'>
             <tr>
@@ -759,7 +759,7 @@
       <!--
         Settings Editor
       -->
-      <div id='d_settings' style="display:none">
+      <div id='d_settings'>
         <table class='table table-dark' id='t_gtwing'>
           <thead class='thead thead-dark'>
             <tr>
@@ -831,8 +831,8 @@
                 Type
               </th>
               <td>
-                <select name='s_nameplate_type' id='s_nameplate_type' onChange='' disabled>
-                  <option id='o_nameplate_type_default'>
+                <select name='s_nameplate' id='s_nameplate' onChange='' disabled>
+                  <option id='o_nameplate_default'>
                     Not Available
                   </option>
                 </select>
@@ -856,8 +856,8 @@
                 Type
               </th>
               <td>
-                <select name='s_frame_type' id='s_frame_type' onChange='' disabled>
-                  <option id='o_frame_type_default'>
+                <select name='s_frame' id='s_frame' onChange='' disabled>
+                  <option id='o_frame_default'>
                     Not Available
                   </option>
                 </select>
@@ -906,7 +906,7 @@
       <!--
         Miles Editor
       -->
-      <div id='d_miles' style="display:none">
+      <div id='d_miles'>
         <table class='table table-dark' id='t_gtwing'>
           <thead class='thead thead-dark'>
             <tr>
@@ -939,7 +939,7 @@
       <!--
         GT Wing Editor
       -->
-      <div id='d_gtwing' style="display:none">
+      <div id='d_gtwing'>
         <table class='table table-dark' id='t_gtwing'>
           <thead class='thead thead-dark'>
             <tr>
@@ -957,7 +957,7 @@
                 Type
               </th>
               <td>
-                <select name="s_pillar_type" id="s_pillar_type" onChange="setField('pillar_type', value)">
+                <select name="s_pillar" id="s_pillar" onChange="setField('pillar', value)">
                   <option id='o_default'>
                     Default
                   </option>
@@ -982,7 +982,7 @@
                 Type
               </th>
               <td>
-                <select name="s_main_wing_type" id="s_main_wing_type" onChange="setField('main_wing_type', value)">
+                <select name="s_main_wing" id="s_main_wing" onChange="setField('main_wing', value)">
                   <option id='o_default'>
                     Default
                   </option>
@@ -1007,7 +1007,7 @@
                 Wing Tip Style
               </th>
               <td>
-                <select name="s_wing_tip_type" id="s_wing_tip_type" onChange="setField('wing_tip_type', value)">
+                <select name="s_wing_tip" id="s_wing_tip" onChange="setField('wing_tip', value)">
                   <option id='o_default'>
                     Default
                   </option>
@@ -1031,7 +1031,7 @@
       <!--
         Mini Sticker Editor
       -->
-      <div id='d_ministicker' style="display:none">
+      <div id='d_ministicker'>
         <table class='table table-dark' id='t_ministicker'>
           <thead class='thead thead-dark'>
             <tr>
@@ -1046,14 +1046,14 @@
                 Sticker 1
               </th>
               <td>
-                <select name="s_sticker_1_type" id="s_sticker_1_type" onChange="setField('sticker_1_type', value)">
+                <select name="mini_sticker_1" id="mini_sticker_1" onChange="setField('mini_sticker_1', value)">
                   <option id='o_default'>
                     Mini Sticker Style
                   </option>
                 </select>
               </td>
               <td>
-                <select name="s_sticker_1_colour" id="s_sticker_1_colour" onChange="setField('sticker_1_colour', value)">
+                <select name="mini_sticker_1_colour" id="mini_sticker_1_colour" onChange="setField('mini_sticker_1_colour', value)">
                   <option id='o_default'>
                     Mini Sticker Colour
                   </option>
@@ -1065,14 +1065,14 @@
                 Sticker 2
               </th>
               <td>
-                <select name="s_sticker_2_type" id="s_sticker_2_type" onChange="setField('sticker_2_type', value)">
+                <select name="mini_sticker_2" id="mini_sticker_2" onChange="setField('mini_sticker_2', value)">
                   <option id='o_default'>
                     Mini Sticker Style
                   </option>
                 </select>
               </td>
               <td>
-                <select name="s_sticker_2_colour" id="s_sticker_2_colour" onChange="setField('sticker_2_colour', value)">
+                <select name="mini_sticker_2_colour" id="mini_sticker_2_colour" onChange="setField('mini_sticker_2_colour', value)">
                   <option id='o_default'>
                     Mini Sticker Colour
                   </option>
@@ -1084,14 +1084,14 @@
                 Sticker 3
               </th>
               <td>
-                <select name="s_sticker_3_type" id="s_sticker_3_type" onChange="setField('sticker_3_type', value)">
+                <select name="mini_sticker_3" id="mini_sticker_3" onChange="setField('mini_sticker_3', value)">
                   <option id='o_default'>
                     Mini Sticker Style
                   </option>
                 </select>
               </td>
               <td>
-                <select name="s_sticker_3_colour" id="s_sticker_3_colour" onChange="setField('sticker_3_colour', value)">
+                <select name="mini_sticker_3_colour" id="mini_sticker_3_colour" onChange="setField('mini_sticker_3_colour', value)">
                   <option id='o_default'>
                     Mini Sticker Colour
                   </option>
@@ -1103,14 +1103,14 @@
                 Sticker 4
               </th>
               <td>
-                <select name="s_sticker_4_type" id="s_sticker_4_type" onChange="setField('sticker_4_type', value)">
+                <select name="mini_sticker_4" id="mini_sticker_4" onChange="setField('mini_sticker_4', value)">
                   <option id='o_default'>
                     Mini Sticker Style
                   </option>
                 </select>
               </td>
               <td>
-                <select name="s_sticker_4_colour" id="s_sticker_4_colour" onChange="setField('sticker_4_colour', value)">
+                <select name="mini_sticker_4_colour" id="mini_sticker_4_colour" onChange="setField('mini_sticker_4_colour', value)">
                   <option id='o_default'>
                     Mini Sticker Colour
                   </option>
@@ -1122,14 +1122,14 @@
                 Sticker 5
               </th>
               <td>
-                <select name="s_sticker_5_type" id="s_sticker_5_type" onChange="setField('sticker_5_type', value)">
+                <select name="mini_sticker_5" id="mini_sticker_5" onChange="setField('mini_sticker_5', value)">
                   <option id='o_default'>
                     Mini Sticker Style
                   </option>
                 </select>
               </td>
               <td>
-                <select name="s_sticker_5_colour" id="s_sticker_5_colour" onChange="setField('sticker_5_colour', value)">
+                <select name="mini_sticker_5_colour" id="mini_sticker_5_colour" onChange="setField('mini_sticker_5_colour', value)">
                   <option id='o_default'>
                     Mini Sticker Colour
                   </option>
@@ -1141,14 +1141,14 @@
                 Sticker 6
               </th>
               <td>
-                <select name="s_sticker_6_type" id="s_sticker_6_type" onChange="setField('sticker_6_type', value)">
+                <select name="mini_sticker_6" id="mini_sticker_6" onChange="setField('mini_sticker_6', value)">
                   <option id='o_default'>
                     Mini Sticker Style
                   </option>
                 </select>
               </td>
               <td>
-                <select name="s_sticker_6_colour" id="s_sticker_6_colour" onChange="setField('sticker_6_colour', value)">
+                <select name="mini_sticker_6_colour" id="mini_sticker_6_colour" onChange="setField('mini_sticker_6_colour', value)">
                   <option id='o_default'>
                     Mini Sticker Colour
                   </option>
@@ -1160,14 +1160,14 @@
                 Sticker 7
               </th>
               <td>
-                <select name="s_sticker_7_type" id="s_sticker_7_type" onChange="setField('sticker_7_type', value)">
+                <select name="mini_sticker_7" id="mini_sticker_7" onChange="setField('mini_sticker_7', value)">
                   <option id='o_default'>
                     Mini Sticker Style
                   </option>
                 </select>
               </td>
               <td>
-                <select name="s_sticker_7_colour" id="s_sticker_7_colour" onChange="setField('sticker_7_colour', value)">
+                <select name="mini_sticker_7_colour" id="mini_sticker_7_colour" onChange="setField('mini_sticker_7_colour', value)">
                   <option id='o_default'>
                     Mini Sticker Colour
                   </option>
@@ -1179,14 +1179,14 @@
                 Sticker 8
               </th>
               <td>
-                <select name="s_sticker_8_type" id="s_sticker_8_type" onChange="setField('sticker_8_type', value)">
+                <select name="mini_sticker_8" id="mini_sticker_8" onChange="setField('mini_sticker_8', value)">
                   <option id='o_default'>
                     Mini Sticker Style
                   </option>
                 </select>
               </td>
               <td>
-                <select name="s_sticker_8_colour" id="s_sticker_8_colour" onChange="setField('sticker_8_colour', value)">
+                <select name="sticker_8_colour" id="sticker_8_colour" onChange="setField('mini_sticker_8_colour', value)">
                   <option id='o_default'>
                     Mini Sticker Colour
                   </option>
@@ -1198,14 +1198,14 @@
                 Sticker 9
               </th>
               <td>
-                <select name="s_sticker_9_type" id="s_sticker_9_type" onChange="setField('sticker_9_type', value)">
+                <select name="sticker_9" id="sticker_9" onChange="setField('mini_sticker_9', value)">
                   <option id='o_default'>
                     Mini Sticker Style
                   </option>
                 </select>
               </td>
               <td>
-                <select name="s_sticker_9_colour" id="s_sticker_9_colour" onChange="setField('sticker_9_colour', value)">
+                <select name="sticker_9_colour" id="sticker_9_colour" onChange="setField('mini_sticker_9_colour', value)">
                   <option id='o_default'>
                     Mini Sticker Colour
                   </option>
@@ -1217,14 +1217,14 @@
                 Sticker 10
               </th>
               <td>
-                <select name="s_sticker_10_type" id="s_sticker_10_type" onChange="setField('sticker_10_type', value)">
+                <select name="mini_sticker_10" id="mini_sticker_10" onChange="setField('mini_sticker_10', value)">
                   <option id='o_default'>
                     Mini Sticker Style
                   </option>
                 </select>
               </td>
               <td>
-                <select name="s_sticker_10_colour" id="s_sticker_10_colour" onChange="setField('sticker_10_colour', value)">
+                <select name="mini_sticker_10_colour" id="mini_sticker_10_colour" onChange="setField('mini_sticker_10_colour', value)">
                   <option id='o_default'>
                     Mini Sticker Colour
                   </option>
@@ -1243,7 +1243,7 @@
       <!-- 
         Custom Name 
       -->
-      <div id='d_name' style="display:none">
+      <div id='d_name'>
         <h1 class="text-center">
           <i>
             Not supported yet. Coming soon!
@@ -1254,7 +1254,7 @@
       <!-- 
         Custom Title 
       -->
-      <div id='d_title' style="display:none">
+      <div id='d_title'>
         <h1 class="text-center">
           <i>
             Not supported yet. Coming soon!
@@ -1265,7 +1265,7 @@
       <!-- 
         Custom Sticker 
       -->
-      <div id='d_sticker' style="display:none">
+      <div id='d_sticker'>
         <h1 class="text-center">
           <i>
             Not supported yet. Coming soon!
@@ -1276,7 +1276,7 @@
       <!-- 
         Custom Region 
       -->
-      <div id='d_region' style="display:none">
+      <div id='d_region'>
         <h1 class="text-center">
           <i>
             Not supported yet. Coming soon!
@@ -1286,8 +1286,16 @@
     </div>
   </body>
   <div>
-    <!-- Main program source file -->
+    <!-- Data Offsets file -->
+    <script type='text/javascript' src='data/offsets.js'>
+    </script>
+
+    <!-- Index source file -->
     <script type='text/javascript' src='index.js'>
+    </script>
+
+    <!-- Main program source file -->
+    <script type='text/javascript' src='src/main.js'>
     </script>
 
     <!-- File Object source file -->

@@ -19,7 +19,7 @@
 
 GAMES = {
   wmmt5: "Maximum Tune 5",
-  wmmt5dxp: "Maximum Tune 5DX/DX+",
+  wmmt5dx: "Maximum Tune 5DX/DX+",
   wmmt6: "Maximum Tune 6/6R",
 }
 
@@ -29,7 +29,7 @@ OFFSETS = {
   game: {
     wmmt5: {
       name: "MT5",
-      cars: {
+      car: {
         indexes: {
           'region': 0x20,
           'car-model': 0x2C,
@@ -41,12 +41,12 @@ OFFSETS = {
           'hood': 0x44,
           'wing': 0x50,
           'mirror': 0x54,
-          'body-sticker-type': 0x58,
-          'japan-sticker-type': 0x59,
+          'body-sticker': 0x58,
+          'japan-sticker': 0x59,
           'body-sticker-colour': 0x5C,
           'neon': 0x7C,
           'trunk': 0x80,
-          'plate-frame-type': 0x84,
+          'plate-frame': 0x84,
           'plate-frame-colour': 0x8A,
           'plate-number': 0x8C,
           'power': 0x98,
@@ -299,8 +299,8 @@ OFFSETS = {
             [0x10, "Watanabe GR-8"],
             [0x11, "RAYS VR TE37"], 
             [0x12, "RAYS VR CE28N"], 
-            [0x13, "RAYS VR GT-TypeM"], 
-            [0x14, "RAYS GT-Type C"], 
+            [0x13, "RAYS VR GTM"], 
+            [0x14, "RAYS GT C"], 
             [0x15, "RAYS GABBANA"], 
             [0x16, "RAYS Gram Lights 57F"], 
             [0x17, "RAYS BL-70-SX"], 
@@ -379,7 +379,7 @@ OFFSETS = {
             [0x01, "Aero Mirror"],
             [0x02, "Carbon Mirror"],
           ],
-          'body-sticker-type': [
+          'body-sticker': [
             [0x00, "No Sticker"], 
             [0x01, "Racing Stripe 1 (10 Variants)"], 
             [0x02, "Fire Pattern 1 (10 Variants)"], 
@@ -424,7 +424,7 @@ OFFSETS = {
             [0x29, "Competition 3 (10 Variants)"], 
             [0x2A, "Two Tone ? (10 Variants)"],
           ],
-          'japan-sticker-type': [
+          'japan-sticker': [
             [0x00, "No Sticker"], 
             [0x01, "Japan Challenge Stickers 1 (10 Variants)"], 
             [0x02, "Japan Challenge Stickers 2 (10 Variants)"], 
@@ -473,7 +473,7 @@ OFFSETS = {
             [0x00, "Stock Trunk"],
             [0x01, "Carbon Trunk"],
           ],
-          'plate-frame-type': [
+          'plate-frame': [
             [0x00, "Stock"], 
             [0x01, "Illumination 1 (6 Variants)"],
             [0x02, "Striped 1 (8 Variants)"], 
@@ -640,9 +640,9 @@ OFFSETS = {
         }
       },
     }, 
-    wmmt5dxp: {
+    wmmt5dx: {
       name: "MT5DX/DX+",
-      cars: {
+      car: {
         indexes: {
           'region': 0x28, 
           'car-id': 0x30,
@@ -655,25 +655,25 @@ OFFSETS = {
           'hood': 0x4C, 
           'wing': 0x58,
           'mirror': 0x5C, 
-          'body-sticker-type': 0x60, 
+          'body-sticker': 0x60, 
           'body-sticker-colour': 0x64, 
-          'side-sticker-type': 0x80, 
+          'side-sticker': 0x80, 
           'side-sticker-colour': 0x84,
-          'roof-sticker-type': 0x88,
+          'roof-sticker': 0x88,
           'roof-sticker-colour': 0x8C,
           'neon': 0x90,
           'trunk': 0x94, 
-          'plate-frame-type': 0x98, 
+          'plate-frame': 0x98, 
           'plate-frame-colour': 0x9C, 
           'plate-number': 0xA0, 
-          'japan-sticker-type': 0xA4, 
+          'japan-sticker': 0xA4, 
           'japan-sticker-colour': 0xA8, 
           'power': 0xAC, 
           'handling': 0xB8, 
           'rank': 0xBC, 
           'window-sticker-toggle': 0xC0,
           'window-sticker-font': 0xD0,
-          'window-sticker-type': 0xD4,
+          'window-sticker': 0xD4,
           'window-sticker-colour': 0xD8,
           'rival-marker': 0xDC,
           'rival-marker-colour': 0xE0
@@ -951,8 +951,8 @@ OFFSETS = {
             [0x10, "Watanabe GR-8"],
             [0x11, "RAYS VR TE37"], 
             [0x12, "RAYS VR CE28N"], 
-            [0x13, "RAYS VR GT-TypeM"], 
-            [0x14, "RAYS GT-Type C"], 
+            [0x13, "RAYS VR GTM"], 
+            [0x14, "RAYS GT C"], 
             [0x15, "RAYS GABBANA"], 
             [0x16, "RAYS Gram Lights 57F"], 
             [0x17, "RAYS BL-70-SX"], 
@@ -1055,7 +1055,7 @@ OFFSETS = {
             [0x01, "Aero Mirror"], 
             [0x02, "Carbon Mirror"], 
           ], 
-          'body-sticker-type': [
+          'body-sticker': [
             [0x00, "No Sticker"], 
             [0x01, "Racing Stripe 1 (10 Variants)"], 
             [0x02, "Fire Pattern 1 (10 Variants)"], 
@@ -1112,7 +1112,7 @@ OFFSETS = {
             [0x08, "Sticker Option 9"], 
             [0x09, "Sticker Option 10"], 
           ], 
-          'side-sticker-type': [
+          'side-sticker': [
             [0x00, "Default"], 
           ], 
           'side-sticker-colour': [
@@ -1127,7 +1127,7 @@ OFFSETS = {
             [0x08, "Sticker Option 9"], 
             [0x09, "Sticker Option 10"], 
           ],
-          'roof-sticker-type': [
+          'roof-sticker': [
             [0x00, "Stock"], 
             [0x01, "Flat Colour"], 
           ],
@@ -1162,7 +1162,7 @@ OFFSETS = {
             [0x00, "Stock Trunk"],
             [0x01, "Carbon Trunk"],
           ], 
-          'plate-frame-type': [
+          'plate-frame': [
             [0x00, "Stock"], 
             [0x01, "Illumination 1 (6 Variants)"],
             [0x02, "Striped 1 (8 Variants)"], 
@@ -1195,7 +1195,7 @@ OFFSETS = {
           'plate-number': [
 
           ], 
-          'japan-sticker-type': [
+          'japan-sticker': [
             [0x00, "No Sticker"], 
             [0x01, "Japan Challenge Stickers 1 (10 Variants)"], 
             [0x02, "Japan Challenge Stickers 2 (10 Variants)"], 
@@ -1344,7 +1344,7 @@ OFFSETS = {
             [0x03, "Rounded"], 
             [0x04, "Craft"],
           ],
-          'window-sticker-type': [
+          'window-sticker': [
             [0x00, "No Sticker"],
             [0x01, "Flames"],
             [0x02, "Flames 2"],
@@ -1535,9 +1535,9 @@ OFFSETS = {
           "meter": 0x20, 
           "volume": 0x24,
           "ost": 0x28,
-          "nameplate-type": 0x2C,
+          "nameplate": 0x2C,
           "nameplate-colour": 0x30,
-          "frame-type": 0x34, 
+          "frame": 0x34, 
           "frame-colour": 0x38, 
           "terminal-bg": 0x3C
         },
@@ -1587,7 +1587,7 @@ OFFSETS = {
             [0x4, "MTR"], 
             [0x5, "MT4"], 
           ],
-          "nameplate-type": [
+          "nameplate": [
             [0x0, "Default Nameplate"]
           ],
           "nameplate-colour": [
@@ -1600,7 +1600,7 @@ OFFSETS = {
             [0x6, "Nameplate Colour 7"],
             [0x7, "Nameplate Colour 8"],
           ],
-          "frame-type": [
+          "frame": [
             [0x0, "No Frame"]
           ], 
           "frame-colour": [
@@ -1622,7 +1622,7 @@ OFFSETS = {
     }, 
     wmmt6: {
       name: "MT56/6R",
-      cars: {
+      car: {
         indexes: {
           'region': 0x28,
           'car-model': 0x34,
@@ -1636,14 +1636,14 @@ OFFSETS = {
           'mirror': 0x5C,
           'neon': 0x60,
           'trunk': 0x64,
-          'plate-frame-type': 0x68,
+          'plate-frame': 0x68,
           'plate-frame-colour': 0x6C,
           'plate-number': 0x70,
           'power': 0x74,
           'handling': 0x80,
           'rank': 0x84,
           'window-sticker-switch': 0x90,
-          'window-sticker-type': 0x98,
+          'window-sticker': 0x98,
           'rival-marker': 0x9C, // Probably, we can't test vs lol
         },
         values: {
@@ -1877,7 +1877,7 @@ OFFSETS = {
             [0x13, "Rays Gram Lights 57D (57D)"],
             [0x14, "Rays VR TE37 Saga (37SAGA)"],
             [0x15, "Rays VR TE037 DURA (37DURA)"],
-            [0x16, "Rays VR GT-Type M (GTM)"],
+            [0x16, "Rays VR GT M (GTM)"],
             [0x17, "Rays Gabbana (GABB)"],
             [0x18, "Rays VR RE30 (RE30)"],
             [0x19, "Rays Gram Lights 57F (57F)"],
@@ -2009,7 +2009,7 @@ OFFSETS = {
             [0x00, "Stock"],
             [0x01, "Carbon Trunk"], 
           ],
-          'plate-frame-type': [
+          'plate-frame': [
             [0x00, "Stock"], 
             [0x01, "Illumination 1 (6 Variants)"],
             [0x02, "Striped 1 (8 Variants)"], 
@@ -2166,7 +2166,7 @@ OFFSETS = {
             [0x00, "Disabled"], 
             [0x01, "Enabled"], 
           ],
-          'window-sticker-type': [
+          'window-sticker': [
             [0x00, "No Sticker"],
             [0x01, "Flames"],
             [0x02, "Flames 2"],
@@ -2321,22 +2321,6 @@ OFFSETS = {
 
         }
       },
-      miles: {
-        indexes: {
-
-        }, 
-        values: {
-
-        }
-      },
-      gtwing: {
-        indexes: {
-
-        }, 
-        values: {
-
-        }
-      },
       versus: {
         indexes: {
 
@@ -2346,14 +2330,6 @@ OFFSETS = {
         }
       },
       settings: {
-        indexes: {
-
-        }, 
-        values: {
-
-        }
-      },
-      ministick: {
         indexes: {
 
         }, 
@@ -2378,24 +2354,24 @@ OFFSETS = {
 
           // Pillar
 
-          "pillar-type": 0x18,
+          "pillar": 0x18,
           "pillar-material": 0x1C,
       
           // Main Wing
 
-          "main-wing-type": 0x20,
+          "main-wing": 0x20,
           "main-wing-colour": 0x24,
       
           // Decoration
 
-          "wing-tip-type": 0x28,
+          "wing-tip": 0x28,
           "wing-material": 0x2C,
         },
         values: {
 
           // Pillar
 
-          "pillar-type": [
+          "pillar": [
             [0x00, "None (No GT Wing)"],
             [0x01, "Tall Outside Pillars"],
             [0x02, "Tall Inside Pillars"],
@@ -2412,7 +2388,7 @@ OFFSETS = {
 
           // Main Wing
           
-          "main-wing-type": [
+          "main-wing": [
             [0x00, "None (No GT Wing)"],
             [0x01, "Standard Wing"],
             [0x02, "Curved Wing"],
@@ -2437,7 +2413,7 @@ OFFSETS = {
 
           // Decoration
           
-          "wing-tip-type": [
+          "wing-tip": [
             [0x00, "None (No GT Wing)"],
             [0x01, "Standard"],
             [0x02, "Curved"],
@@ -2451,49 +2427,49 @@ OFFSETS = {
           ],
         }
       }, 
-      ministick: {
+      ministicker: {
         indexes: {
-          "sticker-1-type": [0x0, 0x8],
+          "sticker-1": [0x0, 0x8],
           "sticker-1-colour": [0x0, 0xC],
       
           // Sticker 2
-          "sticker-2-type": [0x1, 0x8],
+          "sticker-2": [0x1, 0x8],
           "sticker-2-colour": [0x1, 0xC],
       
           // Sticker 3
-          "sticker-3-type": [0x2, 0x8],
+          "sticker-3": [0x2, 0x8],
           "sticker-3-colour": [0x2, 0xC],
       
           // Sticker 4
-          "sticker-4-type": [0x3, 0x8],
+          "sticker-4": [0x3, 0x8],
           "sticker-4-colour": [0x3, 0xC],
       
           // Sticker 5
-          "sticker-5-type": [0x4, 0x8],
+          "sticker-5": [0x4, 0x8],
           "sticker-5-colour": [0x4, 0xC],
       
           // Sticker 6
-          "sticker-6-type": [0x5, 0x8],
+          "sticker-6": [0x5, 0x8],
           "sticker-6-colour": [0x5, 0xC],
       
           // Sticker 7
-          "sticker-7-type": [0x7, 0x8],
+          "sticker-7": [0x7, 0x8],
           "sticker-7-colour": [0x7, 0xC],
       
           // Sticker 8
-          "sticker-8-type": [0x8, 0x8],
+          "sticker-8": [0x8, 0x8],
           "sticker-8-colour": [0x8, 0xC],
       
           // Sticker 9
-          "sticker-9-type": [0x9, 0x8],
+          "sticker-9": [0x9, 0x8],
           "sticker-9-colour": [0x9, 0xC],
       
           // Sticker 10
-          "sticker-10-type": [0x6, 0x8],
+          "sticker-10": [0x6, 0x8],
           "sticker-10-colour": [0x6, 0xC],
         },
         values: {
-          "sticker-type": [
+          "sticker": [
             [0x00, "Default (None)"],
             [0x01, "R"],
             [0x02, "V"],
@@ -2600,7 +2576,7 @@ STRINGS = {
     wmmt5: {
 
     },
-    wmmt5dxp: {
+    wmmt5dx: {
       name: {
         bit_width: 0x10, 
         widetext: true

@@ -10,15 +10,52 @@ document.file = {
   // Size of the file uploaded
   size: null,
 
+  // Type of the file uploaded
+  type: null,
+
   // File contents buffer
   data: null
+}
+
+// If the data file is loaded, get the value at the 
+// given offset in the file (default to little endian)
+function getValueAt(offset, littleEndian = true)
+{
+  // If the document.data is defined
+  if (document.file.data !== null)
+  {
+    // Return the uint32 value at the given offset and endianness
+    return document.file.data.getUint32(offset, littleEndian);
+  }
+  else // Data not defined
+  {
+    // Null return
+    return null;
+  }
+}
+
+// If the data file is loaded, set the value at the 
+// given offset in the file (default to little endian)
+function setValueAt(offset, value, littleEndian = true)
+{
+  // If the document.data is defined
+  if (document.file.data !== null)
+  {
+    // Set the uint32 value at the given offset and endianness
+    document.file.data.setUint32(offset, value, littleEndian);
+  }
+  else // Data not defined
+  {
+    // Null return
+    return null;
+  }
 }
 
 // upload(file: File): Void
 // Given a file, loads the contents
 // of the file into the document.file 
 // variable.
-function upload(file)
+function upload(file, callback)
 {
   // Filename for the file
   document.file.filename = file.name;
@@ -39,11 +76,65 @@ function upload(file)
 
       // Create the uint8array buffer
       document.file.data = new DataView(array.buffer);
+
+      // If the file extension is 'sav'
+      if (document.file.extension == 'sav')
+      {
+        // Use the filename to determine filetype
+        switch(document.file.filename)
+        {
+          // Settings
+          case 'opensettings.sav':
+            document.file.type = 'settings';
+            break;
+
+          // Story
+          case 'openprogress.sav':
+            document.file.type = 'story';
+            break;
+
+          // Mileage
+          case 'openmileage.sav':
+            document.file.type = 'miles';
+            break;
+
+          // Versus
+          case 'openversus.sav':
+            document.file.type = 'versus';
+            break;
+          default: // Unknown filename
+            throw ("UnknownFileNameException: " + document.file.filename);
+        }
+      }
+      else // File extension is not 'sav'
+      {
+        // Use the extension to determine filetype
+        switch(document.file.extension)
+        {
+          // Car File
+          case 'car': 
+          document.file.type = 'car';
+            break;
+          // Custom GT Wing
+          case 'gtwing': 
+            document.file.type = 'gtwing';
+            break;
+          // Mini Sticker
+          case 'ministicker':
+            document.file.type = 'ministicker';
+            break;
+          default: // Unknown file extension
+            throw ("UnknownExtensionException: " + document.file.extension);
+        }
+      }
+
+      // Run the callback function
+      callback(null);
     }
     catch(err) // Failed to load object
     {
-      // Write error to terminal
-      console.error("Error:",err);
+      // Pass the error to the callback
+      callback(err);
     }
   };
 
