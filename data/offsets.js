@@ -32,23 +32,23 @@ OFFSETS = {
       car: {
         indexes: {
           'region': 0x20,
-          'car-model': 0x2C,
-          'colour-stock':0x30,
-          'colour-custom': 0x34,
+          'model': 0x2C,
+          'colour_stock':0x30,
+          'colour_custom': 0x34,
           'rims': 0x38,
-          'colour-rims': 0x3C,
+          'colour_rims': 0x3C,
           'aero': 0x40,
           'hood': 0x44,
           'wing': 0x50,
           'mirror': 0x54,
-          'body-sticker': 0x58,
-          'japan-sticker': 0x59,
-          'body-sticker-colour': 0x5C,
+          'body_sticker': 0x58,
+          'japan_sticker': 0x59,
+          'body_sticker_colour': 0x5C,
           'neon': 0x7C,
           'trunk': 0x80,
-          'plate-frame': 0x84,
-          'plate-frame-colour': 0x8A,
-          'plate-number': 0x8C,
+          'plate_frame': 0x84,
+          'plate_frame_colour': 0x8A,
+          'plate_number': 0x8C,
           'power': 0x98,
           'handling': 0x9C,
           'title': 0xA0,
@@ -104,7 +104,7 @@ OFFSETS = {
             [0x2D, "URY"],
             [0x2E, "VNM"]
           ],
-          'car-model': [
+          'model': [
             // PRE MT5
             [0x00, "CORVETTE ZR1 (C6)"], 
             [0x01, "CORVETTE ZR1 (C6) Taxi"], 
@@ -224,7 +224,7 @@ OFFSETS = {
             [0x71, "SUBARU LEVORG [VMG]"],
             [0x72, "Mazda Miata (Test, Big Wheels)"],
           ],
-          'colour-stock':[
+          'colour_stock':[
             [0x00, "Stock Colour 1"],
             [0x01, "Stock Colour 2"],
             [0x02, "Stock Colour 3"],
@@ -236,7 +236,7 @@ OFFSETS = {
             [0x08, "Stock Colour 9"],
             [0x09, "Stock Colour 10"],
           ],
-          'colour-custom': [
+          'colour_custom': [
             [0x00, "No Custom Colour"],
             [0x01, "Custom Colour 1"],
             [0x02, "Custom Colour 2"],
@@ -327,7 +327,7 @@ OFFSETS = {
             [0x2C, "ENKEI RACING GT GO1 RR"], 
             [0x2D, "ENKEI RACING ES TARMAC"], 
           ],
-          'colour-rims': [
+          'colour_rims': [
             // Not all colours work for all rims!
             [0x00, "Default Colour"], 
             [0x01, "Rims Colour 2"], 
@@ -375,11 +375,11 @@ OFFSETS = {
             [0x09, "No Wing"],
           ],
           'mirror': [
-            [0x00, "Stock Mirror"],
+            [0x00, "Stock"],
             [0x01, "Aero Mirror"],
             [0x02, "Carbon Mirror"],
           ],
-          'body-sticker': [
+          'body_sticker': [
             [0x00, "No Sticker"], 
             [0x01, "Racing Stripe 1 (10 Variants)"], 
             [0x02, "Fire Pattern 1 (10 Variants)"], 
@@ -424,7 +424,7 @@ OFFSETS = {
             [0x29, "Competition 3 (10 Variants)"], 
             [0x2A, "Two Tone ? (10 Variants)"],
           ],
-          'japan-sticker': [
+          'japan_sticker': [
             [0x00, "No Sticker"], 
             [0x01, "Japan Challenge Stickers 1 (10 Variants)"], 
             [0x02, "Japan Challenge Stickers 2 (10 Variants)"], 
@@ -442,7 +442,7 @@ OFFSETS = {
             [0x0E, "Japan Challenge 7 Fall (1 Variant)"], 
             [0x0F, "Japan Challenge 8 Winter (1 Variant)"], 
           ],
-          'body-sticker-colour': [
+          'body_sticker_colour': [
             [0x00, "Sticker Option 1"], 
             [0x01, "Sticker Option 2"], 
             [0x02, "Sticker Option 3"], 
@@ -473,7 +473,7 @@ OFFSETS = {
             [0x00, "Stock Trunk"],
             [0x01, "Carbon Trunk"],
           ],
-          'plate-frame': [
+          'plate_frame': [
             [0x00, "Stock"], 
             [0x01, "Illumination 1 (6 Variants)"],
             [0x02, "Striped 1 (8 Variants)"], 
@@ -491,7 +491,7 @@ OFFSETS = {
             [0x0E, "Dot Pattern 3 (8 Variants)"],
             [0x0F, "Illumination 3 (6 Variants)"],
           ],
-          'plate-frame-colour': [
+          'plate_frame_colour': [
             [0x00, "Frame Option 1"], 
             [0x01, "Frame Option 2"], 
             [0x02, "Frame Option 3"], 
@@ -503,7 +503,7 @@ OFFSETS = {
             [0x08, "Frame Option 9"], 
             [0x09, "Frame Option 10"], 
           ],
-          'plate-number': [],
+          'plate_number': [],
           'power': [
             [0x00, "0 Points (Stock)"], // No mods
             [0x01, "1 Point (360 HP)"],
@@ -645,38 +645,38 @@ OFFSETS = {
       car: {
         indexes: {
           'region': 0x28, 
-          'car-id': 0x30,
-          'car-model': 0x34,    
-          'colour-stock': 0x38, 
-          'colour-custom': 0x3C,
+          'model': 0x34,    
+          'colour_stock': 0x38, 
+          'colour_custom': 0x3C,
           'rims': 0x40, 
-          'colour-rims': 0x44, 
+          'colour_rims': 0x44, 
           'aero': 0x48, 
           'hood': 0x4C, 
           'wing': 0x58,
           'mirror': 0x5C, 
-          'body-sticker': 0x60, 
-          'body-sticker-colour': 0x64, 
-          'side-sticker': 0x80, 
-          'side-sticker-colour': 0x84,
-          'roof-sticker': 0x88,
-          'roof-sticker-colour': 0x8C,
+          'body_sticker': 0x60, 
+          'body_sticker_colour': 0x64, 
+          'side_sticker': 0x80, 
+          'side_sticker_colour': 0x84,
+          'roof_sticker': 0x88,
+          'roof_sticker_colour': 0x8C,
           'neon': 0x90,
           'trunk': 0x94, 
-          'plate-frame': 0x98, 
-          'plate-frame-colour': 0x9C, 
-          'plate-number': 0xA0, 
-          'japan-sticker': 0xA4, 
-          'japan-sticker-colour': 0xA8, 
+          'plate_frame': 0x98, 
+          'plate_frame_colour': 0x9C, 
+          'plate_number': 0xA0, 
+          'japan_sticker': 0xA4, 
+          'japan_sticker_colour': 0xA8, 
           'power': 0xAC, 
           'handling': 0xB8, 
           'rank': 0xBC, 
-          'window-sticker-toggle': 0xC0,
-          'window-sticker-font': 0xD0,
-          'window-sticker': 0xD4,
-          'window-sticker-colour': 0xD8,
-          'rival-marker': 0xDC,
-          'rival-marker-colour': 0xE0
+          'window_sticker_toggle': 0xC0,
+          'window_sticker_font': 0xD0,
+          'window_sticker': 0xD4,
+          'window_sticker_colour': 0xD8,
+          'rival_marker': 0xDC,
+          'rival_marker_colour': 0xE0,
+          'last_played': 0xE4
         }, 
         values: {
           'region': [
@@ -728,10 +728,7 @@ OFFSETS = {
             [0x2D, "URY"],
             [0x2E, "VNM"]
           ], 
-          'car-id': [
-
-          ],
-          'car-model': [
+          'model': [
             [0x00, "CORVETTE ZR1 (C6)"],
             [0x01, "CORVETTE ZR1 (C6) Taxi"],
             [0x02, "CORVETTE Camaro SS RS"],
@@ -876,7 +873,7 @@ OFFSETS = {
             [0x8A, "NISSAN LEOPARD Ultima [UF31]"],
             [0x8B, "NISSAN FAIRLADY Z S130 [GS130]"],
           ], 
-          'colour-stock': [
+          'colour_stock': [
             [0x00, "Stock Colour 1"],
             [0x01, "Stock Colour 2"],
             [0x02, "Stock Colour 3"],
@@ -888,7 +885,7 @@ OFFSETS = {
             [0x08, "Stock Colour 9"],
             [0x09, "Stock Colour 10"],
           ], 
-          'colour-custom': [
+          'colour_custom': [
             [0x00, "No Custom Colour"],
             [0x01, "Custom Colour 1"],
             [0x02, "Custom Colour 2"],
@@ -1004,7 +1001,7 @@ OFFSETS = {
             [0x44, "OZ Ultraleggera"], 
             [0x45, "OZ Italia 150"], 
           ], 
-          'colour-rims': [
+          'colour_rims': [
             [0x00, "Default Colour"], 
             [0x01, "Rims Colour 2"], 
             [0x02, "Rims Colour 3"], 
@@ -1051,11 +1048,11 @@ OFFSETS = {
             [0x09, "No Wing / Custom GT Wing"],
           ],
           'mirror': [
-            [0x00, "Stock Mirror"],
+            [0x00, "Stock"],
             [0x01, "Aero Mirror"], 
             [0x02, "Carbon Mirror"], 
           ], 
-          'body-sticker': [
+          'body_sticker': [
             [0x00, "No Sticker"], 
             [0x01, "Racing Stripe 1 (10 Variants)"], 
             [0x02, "Fire Pattern 1 (10 Variants)"], 
@@ -1100,7 +1097,7 @@ OFFSETS = {
             [0x29, "Competition 3 (10 Variants)"], 
             [0x2A, "Two Tone ? (10 Variants)"], 
           ], 
-          'body-sticker-colour': [
+          'body_sticker_colour': [
             [0x00, "Sticker Option 1"], 
             [0x01, "Sticker Option 2"], 
             [0x02, "Sticker Option 3"], 
@@ -1112,10 +1109,10 @@ OFFSETS = {
             [0x08, "Sticker Option 9"], 
             [0x09, "Sticker Option 10"], 
           ], 
-          'side-sticker': [
-            [0x00, "Default"], 
+          'side_sticker': [
+            [0x00, "No Sticker"], 
           ], 
-          'side-sticker-colour': [
+          'side_sticker_colour': [
             [0x00, "Sticker Option 1"], 
             [0x01, "Sticker Option 2"], 
             [0x02, "Sticker Option 3"], 
@@ -1127,11 +1124,11 @@ OFFSETS = {
             [0x08, "Sticker Option 9"], 
             [0x09, "Sticker Option 10"], 
           ],
-          'roof-sticker': [
-            [0x00, "Stock"], 
+          'roof_sticker': [
+            [0x00, "No Sticker"], 
             [0x01, "Flat Colour"], 
           ],
-          'roof-sticker-colour': [
+          'roof_sticker_colour': [
             [0x00, "Sticker Option 1"], 
             [0x01, "Sticker Option 2"], 
             [0x02, "Sticker Option 3"], 
@@ -1159,10 +1156,10 @@ OFFSETS = {
             [0x0C, "Light Purple Dotted"], 
           ],
           'trunk': [
-            [0x00, "Stock Trunk"],
+            [0x00, "Stock"],
             [0x01, "Carbon Trunk"],
           ], 
-          'plate-frame': [
+          'plate_frame': [
             [0x00, "Stock"], 
             [0x01, "Illumination 1 (6 Variants)"],
             [0x02, "Striped 1 (8 Variants)"], 
@@ -1180,7 +1177,7 @@ OFFSETS = {
             [0x0E, "Dot Pattern 3 (8 Variants)"],
             [0x0F, "Illumination 3 (6 Variants)"],
           ], 
-          'plate-frame-colour': [
+          'plate_frame_colour': [
             [0x00, "Frame Option 1"], 
             [0x01, "Frame Option 2"], 
             [0x02, "Frame Option 3"], 
@@ -1192,10 +1189,10 @@ OFFSETS = {
             [0x08, "Frame Option 9"], 
             [0x09, "Frame Option 10"], 
           ], 
-          'plate-number': [
+          'plate_number': [
 
           ], 
-          'japan-sticker': [
+          'japan_sticker': [
             [0x00, "No Sticker"], 
             [0x01, "Japan Challenge Stickers 1 (10 Variants)"], 
             [0x02, "Japan Challenge Stickers 2 (10 Variants)"], 
@@ -1213,7 +1210,7 @@ OFFSETS = {
             [0x0E, "Japan Challenge 7 Fall (1 Variant)"], 
             [0x0F, "Japan Challenge 8 Winter (1 Variant)"], 
           ], 
-          'japan-sticker-colour': [
+          'japan_sticker_colour': [
             [0x00, "Sticker Option 1"], 
             [0x01, "Sticker Option 2"], 
             [0x02, "Sticker Option 3"], 
@@ -1333,18 +1330,18 @@ OFFSETS = {
             [0x37, "SSS1"], 
             [0x38, "SSSS"], 
           ], 
-          'window-sticker-toggle': [
+          'window_sticker_toggle': [
             [0x00, "Disabled"], 
             [0x01, "Enabled"], 
           ],
-          'window-sticker-font': [
+          'window_sticker_font': [
             [0x00, "Default"],
             [0x01, "Bold Block"], 
             [0x02, "Times New Roman"],
             [0x03, "Rounded"], 
             [0x04, "Craft"],
           ],
-          'window-sticker': [
+          'window_sticker': [
             [0x00, "No Sticker"],
             [0x01, "Flames"],
             [0x02, "Flames 2"],
@@ -1406,10 +1403,10 @@ OFFSETS = {
             [0x3A, "Zipper"],
             [0x3B, "Url 2"],
           ],
-          'window-sticker-colour': [
+          'window_sticker_colour': [
             // Not implemented in final game
           ],
-          'rival-marker': [
+          'rival_marker': [
             [0x00, "Default"],
             [0x01, "Fire"],
             [0x02, "Animal"],
@@ -1492,8 +1489,11 @@ OFFSETS = {
             [0x4E, "Love You"],
             [0x50, "Speech Bubble"],
           ],
-          'rival-marker-colour': [
+          'rival_marker_colour': [
             // Not implemented in final game
+          ], 
+          'last_played': [
+            // time_t value
           ]
         }
       }, 
@@ -1503,10 +1503,10 @@ OFFSETS = {
           'wins': 0x118, 
 
           // Win Streak
-          'win-streak': 0x138, 
+          'win_streak': 0x138, 
 
           // Current Beaten Stories
-          'current-chapters': 0x14C,
+          'current_chapters': 0x14C,
         },
         values: {
 
@@ -1528,7 +1528,7 @@ OFFSETS = {
           "view": 0x1C, 
           "transmission": 0x1D, 
           "retire": 0x1E, 
-          "navi-map": 0x1F, 
+          "navi_map": 0x1F, 
 
           // Integers
 
@@ -1536,10 +1536,10 @@ OFFSETS = {
           "volume": 0x24,
           "ost": 0x28,
           "nameplate": 0x2C,
-          "nameplate-colour": 0x30,
+          "nameplate_colour": 0x30,
           "frame": 0x34, 
-          "frame-colour": 0x38, 
-          "terminal-bg": 0x3C
+          "frame_colour": 0x38, 
+          "terminal_bg": 0x3C
         },
         values: {
 
@@ -1557,7 +1557,7 @@ OFFSETS = {
             [0x0, "Off"], 
             [0x1, "On"]
           ], 
-          "navi-map": [
+          "navi_map": [
             [0x0, "Off"], 
             [0x1, "On"]
           ], 
@@ -1590,7 +1590,7 @@ OFFSETS = {
           "nameplate": [
             [0x0, "Default Nameplate"]
           ],
-          "nameplate-colour": [
+          "nameplate_colour": [
             [0x0, "Nameplate Colour 1"],
             [0x1, "Nameplate Colour 2"],
             [0x2, "Nameplate Colour 3"],
@@ -1603,7 +1603,7 @@ OFFSETS = {
           "frame": [
             [0x0, "No Frame"]
           ], 
-          "frame-colour": [
+          "frame_colour": [
             [0x0, "Frame Colour 1"],
             [0x1, "Frame Colour 2"],
             [0x2, "Frame Colour 3"],
@@ -1613,7 +1613,7 @@ OFFSETS = {
             [0x6, "Frame Colour 7"],
             [0x7, "Frame Colour 8"],
           ], 
-          "terminal-bg": [
+          "terminal_bg": [
             // lol
           ]
         }
@@ -1621,34 +1621,35 @@ OFFSETS = {
 
     }, 
     wmmt6: {
-      name: "MT56/6R",
+      name: "MT6/6R",
       car: {
         indexes: {
           'region': 0x28,
-          'car-model': 0x34,
-          'colour-stock': 0x38,
-          'colour-custom': 0x3C,
+          'model': 0x34,
+          'colour_stock': 0x38,
+          'colour_custom': 0x3C,
           'rims': 0x40,
-          'colour-rims': 0x44,
+          'colour_rims': 0x44,
           'aero': 0x48,
           'hood': 0x4C,
           'wing': 0x58,
           'mirror': 0x5C,
           'neon': 0x60,
           'trunk': 0x64,
-          'plate-frame': 0x68,
-          'plate-frame-colour': 0x6C,
-          'plate-number': 0x70,
+          'plate_frame': 0x68,
+          'plate_frame_colour': 0x6C,
+          'plate_number': 0x70,
           'power': 0x74,
           'handling': 0x80,
           'rank': 0x84,
-          'window-sticker-switch': 0x90,
-          'window-sticker': 0x98,
-          'rival-marker': 0x9C, // Probably, we can't test vs lol
+          'window_sticker_switch': 0x90,
+          'window_sticker': 0x98,
+          'rival_marker': 0x9C, // Probably, we can't test vs lol
+          // 'last_played': ,
         },
         values: {
           'region': [],
-          'car-model': [
+          'model': [
             [0x00, "CORVETTE ZR1 (C6)"], 
             [0x01, "CORVETTE ZR1 (C6) Taxi"], 
             [0x02, "CORVETTE Camaro SS RS"],
@@ -1799,7 +1800,7 @@ OFFSETS = {
             [0x8F, "PORSCHE 928GT [928GT]"],
             [0x90, "PORSCHE 718 CAYMAN S [718CS]"],
           ],
-          'colour-stock': [
+          'colour_stock': [
             [0x00, "Stock Colour 1"],
             [0x01, "Stock Colour 2"],
             [0x02, "Stock Colour 3"],
@@ -1811,7 +1812,7 @@ OFFSETS = {
             [0x08, "Stock Colour 9"],
             [0x09, "Stock Colour 10"],
           ],
-          'colour-custom': [
+          'colour_custom': [
             [0x00, "No Custom Colour"],
             [0x01, "Custom Colour 1"],
             [0x02, "Custom Colour 2"],
@@ -1940,7 +1941,7 @@ OFFSETS = {
             [0x53, "(Unknown)"],
             [0x54, "Rays Homura 2X8GT"],
           ],
-          'colour-rims': [
+          'colour_rims': [
             [0x00, "Default Colour"], 
             [0x01, "Rims Colour 2"], 
             [0x02, "Rims Colour 3"], 
@@ -1976,7 +1977,7 @@ OFFSETS = {
             [0x08, "FRP Bonnet D"], 
           ],
           'wing': [
-            [0x00, "Stock Wing"],
+            [0x00, "Stock"],
             [0x01, "GT Wing Straight"],
             [0x02, "Exclusive Wing A"],
             [0x03, "GT Wing 3D"],
@@ -2009,7 +2010,7 @@ OFFSETS = {
             [0x00, "Stock"],
             [0x01, "Carbon Trunk"], 
           ],
-          'plate-frame': [
+          'plate_frame': [
             [0x00, "Stock"], 
             [0x01, "Illumination 1 (6 Variants)"],
             [0x02, "Striped 1 (8 Variants)"], 
@@ -2027,7 +2028,7 @@ OFFSETS = {
             [0x0E, "Dot Pattern 3 (8 Variants)"],
             [0x0F, "Illumination 3 (6 Variants)"],
           ],
-          'plate-frame-colour': [
+          'plate_frame_colour': [
             [0x00, "Frame Option 1"], 
             [0x01, "Frame Option 2"], 
             [0x02, "Frame Option 3"], 
@@ -2039,7 +2040,7 @@ OFFSETS = {
             [0x08, "Frame Option 9"], 
             [0x09, "Frame Option 10"], 
           ],
-          'plate-number': [],
+          'plate_number': [],
           'power': [
             [0x00, "0 Points (Stock)"], // No mods
             [0x01, "1 Point (360 HP)"],
@@ -2162,11 +2163,11 @@ OFFSETS = {
             [0x47, "SSSS1"], 
             [0x48, "SSSSS"], 
           ],
-          'window-sticker-switch': [
+          'window_sticker_switch': [
             [0x00, "Disabled"], 
             [0x01, "Enabled"], 
           ],
-          'window-sticker': [
+          'window_sticker': [
             [0x00, "No Sticker"],
             [0x01, "Flames"],
             [0x02, "Flames 2"],
@@ -2228,7 +2229,7 @@ OFFSETS = {
             [0x3A, "Zipper"],
             [0x3B, "Url 2"],
           ],
-          'rival-marker': [
+          'rival_marker': [
             [0x00, "Default"],
             [0x01, "Fire"],
             [0x02, "Animal"],
@@ -2311,6 +2312,7 @@ OFFSETS = {
             [0x4E, "Love You"],
             [0x50, "Speech Bubble"],
           ],
+          'last_played': []
         }
       },
       story: {
@@ -2355,17 +2357,17 @@ OFFSETS = {
           // Pillar
 
           "pillar": 0x18,
-          "pillar-material": 0x1C,
+          "pillar_material": 0x1C,
       
           // Main Wing
 
-          "main-wing": 0x20,
-          "main-wing-colour": 0x24,
+          "main_wing": 0x20,
+          "main_wing_colour": 0x24,
       
           // Decoration
 
-          "wing-tip": 0x28,
-          "wing-material": 0x2C,
+          "wing_tip": 0x28,
+          "wing_material": 0x2C,
         },
         values: {
 
@@ -2381,14 +2383,14 @@ OFFSETS = {
             [0x06, "Short Inside Pillars"],
           ],
 
-          "pillar-material": [
+          "pillar_material": [
             [0x00, "Black"],
             [0x01, "Silver"],
           ],
 
           // Main Wing
           
-          "main-wing": [
+          "main_wing": [
             [0x00, "None (No GT Wing)"],
             [0x01, "Standard Wing"],
             [0x02, "Curved Wing"],
@@ -2398,7 +2400,7 @@ OFFSETS = {
             [0x06, "Triple Wing"],
           ],
 
-          "main-wing-colour": [
+          "main_wing_colour": [
             [0x00, "Red"],
             [0x01, "Orange"],
             [0x02, "Yellow"],
@@ -2413,7 +2415,7 @@ OFFSETS = {
 
           // Decoration
           
-          "wing-tip": [
+          "wing_tip": [
             [0x00, "None (No GT Wing)"],
             [0x01, "Standard"],
             [0x02, "Curved"],
@@ -2421,7 +2423,7 @@ OFFSETS = {
             [0x04, "Large Curved"],
           ],
 
-          "wing-material": [
+          "wing_material": [
             [0x00, "Glossy"],
             [0x01, "Matte"],
           ],
@@ -2429,44 +2431,44 @@ OFFSETS = {
       }, 
       ministicker: {
         indexes: {
-          "sticker-1": [0x0, 0x8],
-          "sticker-1-colour": [0x0, 0xC],
+          "sticker_1": [0x0, 0x8],
+          "sticker_1_colour": [0x0, 0xC],
       
           // Sticker 2
-          "sticker-2": [0x1, 0x8],
-          "sticker-2-colour": [0x1, 0xC],
+          "sticker_2": [0x1, 0x8],
+          "sticker_2_colour": [0x1, 0xC],
       
           // Sticker 3
-          "sticker-3": [0x2, 0x8],
-          "sticker-3-colour": [0x2, 0xC],
+          "sticker_3": [0x2, 0x8],
+          "sticker_3_colour": [0x2, 0xC],
       
           // Sticker 4
-          "sticker-4": [0x3, 0x8],
-          "sticker-4-colour": [0x3, 0xC],
+          "sticker_4": [0x3, 0x8],
+          "sticker_4_colour": [0x3, 0xC],
       
           // Sticker 5
-          "sticker-5": [0x4, 0x8],
-          "sticker-5-colour": [0x4, 0xC],
+          "sticker_5": [0x4, 0x8],
+          "sticker_5_colour": [0x4, 0xC],
       
           // Sticker 6
-          "sticker-6": [0x5, 0x8],
-          "sticker-6-colour": [0x5, 0xC],
+          "sticker_6": [0x5, 0x8],
+          "sticker_6_colour": [0x5, 0xC],
       
           // Sticker 7
-          "sticker-7": [0x7, 0x8],
-          "sticker-7-colour": [0x7, 0xC],
+          "sticker_7": [0x7, 0x8],
+          "sticker_7_colour": [0x7, 0xC],
       
           // Sticker 8
-          "sticker-8": [0x8, 0x8],
-          "sticker-8-colour": [0x8, 0xC],
+          "sticker_8": [0x8, 0x8],
+          "sticker_8_colour": [0x8, 0xC],
       
           // Sticker 9
-          "sticker-9": [0x9, 0x8],
-          "sticker-9-colour": [0x9, 0xC],
+          "sticker_9": [0x9, 0x8],
+          "sticker_9_colour": [0x9, 0xC],
       
           // Sticker 10
-          "sticker-10": [0x6, 0x8],
-          "sticker-10-colour": [0x6, 0xC],
+          "sticker_10": [0x6, 0x8],
+          "sticker_10_colour": [0x6, 0xC],
         },
         values: {
           "sticker": [
@@ -2551,7 +2553,7 @@ OFFSETS = {
             [0x4E, "Bear"],
             [0x4F, "Mushroom"],
           ],
-          "sticker-colour": [
+          "sticker_colour": [
             [0x00, "Red"],
             [0x01, "Orange"],
             [0x02, "Yellow"],

@@ -1,59 +1,3 @@
-// Hides a menu if given, otherwise
-// hides all of the menus
-function hideMenu(menu=null)
-{
-  // Menu is specified
-  if (menu !== null)
-  {
-    // Set the display for the menu to none
-    document.getElementById(menu).style.display = 'none';
-  }
-  else // Menu unspecified
-  {
-    // Hide all of them
-    document.getElementById('d_car').style.display = 'none';
-    document.getElementById('d_story').style.display = 'none';
-    document.getElementById('d_miles').style.display = 'none';
-    document.getElementById('d_gtwing').style.display = 'none';
-    document.getElementById('d_versus').style.display = 'none';
-    document.getElementById('d_settings').style.display = 'none';
-    document.getElementById('d_ministicker').style.display = 'none';
-
-    document.getElementById('d_name').style.display = 'none';
-    document.getElementById('d_title').style.display = 'none';
-    document.getElementById('d_region').style.display = 'none';
-    document.getElementById('d_sticker').style.display = 'none';
-  }
-}
-
-// Shows a menu if given, otherwise
-// shows all of the menus
-function showMenu(menu=null)
-{
-  // Menu is specified
-  if (menu !== null)
-  {
-    // Set the display for the menu to block
-    document.getElementById(menu).style.display = 'initial';
-  }
-  else // Menu unspecified
-  {
-    // Show all of the menus
-    document.getElementById('d_car').style.display = 'initial';
-    document.getElementById('d_story').style.display = 'initial';
-    document.getElementById('d_miles').style.display = 'initial';
-    document.getElementById('d_gtwing').style.display = 'initial';
-    document.getElementById('d_versus').style.display = 'initial';
-    document.getElementById('d_settings').style.display = 'initial';
-    document.getElementById('d_ministicker').style.display = 'initial';
-
-    document.getElementById('d_name').style.display = 'initial';
-    document.getElementById('d_title').style.display = 'initial';
-    document.getElementById('d_region').style.display = 'initial';
-    document.getElementById('d_sticker').style.display = 'initial';
-  }
-}
-
 function handleUpload()
 {
     // Get the file content from the provided element
@@ -109,8 +53,11 @@ function handleUpload()
                   throw ("Unknown game: " + game_id)
               }
 
-              // Show the car menu
-              showMenu('d_car');
+              // Set the value of the game drop-down to the selected game
+              document.getElementById('game').value = document.game;
+
+              // Load the drop-downs / values and show the car menu
+              showCarMenu();
 
               break;
               
@@ -137,6 +84,29 @@ function handleDownload()
 }
 
 // Startup tasks
+
+// Get the game selector
+let select = document.getElementById('game');
+
+// Loop over all of the games
+for (game in GAMES)
+{
+  // Get the name of the game
+  let name = GAMES[game];
+
+  // Create a new option
+  let option = document.createElement('option');
+
+  // Game shorthand as id/value
+  option.id = game;
+  option.value = game;
+
+  // Game full name as text
+  option.innerHTML = name;
+
+  // Add the option to the select
+  select.appendChild(option);
+}
 
 // Hide all of the menus
 hideMenu();

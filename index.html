@@ -16,1272 +16,1317 @@
       <div id='d_cover'>
         <img src='img/cover.png' style='max-width:100%; max-height:100%; object-fit: fill;'>
       </div>
-    </div>
-    <div id='d_header' class='text-center'>
-      <h1>
-        <!-- Wangan Midnight Maximum Tune 6 Car Editor -->
-        Maximum Tune File Editor
-      </h1>
-      <h3>
-        For WMMT5/5DX/+ and 6/6R on Teknoparrot
-      </h3>
-      <h5>
-        Tool by 
-        <a href='https://www.twitter.com/SirScrubbington'>
-          SirScrubbington
-        </a>
-      </h5>
-      <h6>
-        Latest OpenParrot Release: 
-        <a href='https://github.com/damon-murdoch/OpenParrot'>
-          Download
-        </a>
-      </h6>
-      <h6>
-        Report a bug:
-        <a href='https://www.github.com/damon-murdoch/wmmt-file-editor/issues'>
-          Link
-        </a>
-      </h6>
-    </div>
-    <!--
-      File Upload
-    -->
-    <div id='d_upload'>
-      <table class='table table-dark' id='t_upload'>
-        <thead class='thead thead-dark'>
-          <tr>
-            <th colspan=5>
-              Option
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>
-              Select File
-            </th>
-            <td colspan=2>
-              <input name="file" type="file" accept=".sav,.car,.gtwing,.ministicker" id="i_file" onChange='handleUpload()'/>
-            </td>
-            <td>
-              <a href='#' onClick='handleDownload()'>
-                Download
-              </a>
-            </td>
-            <td>
-              <a href='#' onClick='resetPage()'>
-                Reset
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              Create File
-            </th>
-            <td>
-              <a href='#' onClick='createName()'>
-                Custom Name
-              </a>
-            </td>
-            <td>
-              <a href='#' onClick='createTitle()'>
-                Custom Title
-              </a>
-            </td>
-            <td>
-              <a href='#' onClick='createName()'>
-                Custom Sticker
-              </a>
-            </td>
-            <td>
-              <a href='#' onClick='createTitle()'>
-                Custom Region
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              Game Selected
-            </th>
-            <td colspan=4>
-              <select id='s_game' disabled>
-                <!-- Populated by index.js -->
-                <option>
-                  No Game Selected
-                </option>
-              </select>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <!--
-      File Editors
-    -->
-    <div>
-      <!-- 
-        Car Editor
-      -->
-      <div id='d_car'>
-        <table class='table table-dark' id='t_cars'>
-          <thead class='thead thead-dark'>
-            <tr>
-              <th class='text-center' colspan=4>
-                Car Settings
-              </th>
-            </tr>
-          </thead>
-          <tbody class='tbody tbody-dark'>
-            <tr>
-              <th class='text-secondary' colspan=4>
-                General Settings
-              </th>
-            </tr>
-            <tr>
-              <th>
-                Region
-              </th>
-              <td>
-                <select id="s_car_region" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-              <th>
-                Model
-              </th>
-              <td>
-                <select id="s_car_model" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th class='text-secondary' colspan=4>
-                Colour Settings
-              </th>
-            </tr>
-            <tr>
-              <th>
-                Stock Colour
-              </th>
-              <td>
-                <select id="s_car_colour_stock" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-              <th>
-                Custom Colour
-              </th>
-              <td>
-                <select id="s_car_colour_custom" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th class='text-secondary' colspan=4>
-                Rim Settings
-              </th>
-            </tr>
-            <tr>
-              <th>
-                Rims Type
-              </th>
-              <td>
-                <select id="s_car_rims" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-              <th>
-                Rims Colour
-              </th>
-              <td>
-                <select id="s_car_rims_colour" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th class='text-secondary' colspan=4>
-                Aero Settings
-              </th>
-            </tr>
-            <tr>
-              <th>
-                Aero Kit
-              </th>
-              <td>
-                <select id="s_car_aero" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-              <th>
-                Hood
-              </th>
-              <td>
-                <select id="s_car_hood" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Wing
-              </th>
-              <td>
-                <select id="s_car_wing" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-              <th>
-                Mirror
-              </th>
-              <td>
-                <select id="s_car_mirror" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Neon
-              </th>
-              <td>
-                <select id="s_car_neon" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-              <th>
-                Trunk
-              </th>
-              <td>
-                <select id="s_car_trunk" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th class='text-secondary' colspan=4>
-                Sticker Settings
-              </th>
-            </tr>
-            <tr>
-              <th>
-                Body Sticker Type
-              </th>
-              <td>
-                <select id="s_car_bs" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-              <th>
-                Body Sticker Colour
-              </th>
-              <td>
-                <select id="s_car_bs_colour" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Side Sticker Type
-              </th>
-              <td>
-                <select id="s_car_ss" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-              <th>
-                Side Sticker Colour
-              </th>
-              <td>
-                <select id="s_car_ss_colour" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Roof Sticker Type
-              </th>
-              <td>
-                <select id="s_car_rs" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-              <th>
-                Roof Sticker Colour
-              </th>
-              <td>
-                <select id="s_car_rs_colour" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th class='text-secondary' colspan=4>
-                License Plate Settings
-              </th>
-            </tr>
-            <tr>
-              <th>
-                Plate Frame Type
-              </th>
-              <td>
-                <select id="s_car_pf" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-              <th>
-                Plate Frame Colour
-              </th>
-              <td>
-                <select id="s_car_pf_colour" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                License Plate Number
-              </th>
-              <td>
-                <input class="form-control form-control-sm" type="number" value=0 min=0 max=9999 size=4 disabled>
-              </td>
-              <th>
-                Rank
-              </th>
-              <td>
-                <select id="s_car_rank" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th class='text-secondary' colspan=4>
-                Window Sticker / Versus Marker Settings
-              </th>
-            </tr>
-            <tr>
-              <th>
-                Window Sticker Toggle
-              </th>
-              <td>
-                <select id="s_car_ws_toggle" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-              <th>
-                Window Sticker Font
-              </th>
-              <td>
-                <select id="s_car_ws_font" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Window Sticker Type
-              </th>
-              <td>
-                <select id="s_car_ws" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-              <th>
-                Rival Marker
-              </th>
-              <td>
-                <select id="s_car_rm" disabled>
-                  <option>
-                    Default
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th class='text-secondary' colspan=4>
-                Power/Handling Settings
-              </th>
-            </tr>
-            <tr>
-              <th>
-                Simple
-              </th>
-              <td colspan=3>
-                <label class='form-check-label' for='rb-nt'> Stock Tune </label>
-                <input class='form-check-input' type='radio' name='rb-tune' id='rb-nt' onClick='setTune(1)' disabled>
-                
-                <label class='form-check-label' for='rb-nt'> Basic Tune </label>
-                <input class='form-check-input' type='radio' name='rb-tune' id='rb-bt' onClick='setTune(2)' disabled>
-                
-                <label class='form-check-label' for='rb-nt'> Full Tune </label>
-                <input class='form-check-input' type='radio' name='rb-tune' id='rb-ft' onClick='setTune(3)' disabled>
-                
-                <label class='form-check-label' for='rb-nt'> Custom Tune </label>
-                <input class='form-check-input' type='radio' name='rb-tune' id='rb-ct' onClick='setTune(4)' disabled checked>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Power
-              </th>
-              <td>
-                <select name='s_power' id='s_power' onChange='setPower(value)' disabled>
-                  <option id='o_carname'>
-                    Not Available
-                  </option>
-                </select>
-              </td>
-              <th>
-                Handling
-              </th>
-              <td>
-                <select name='s_handling' id='s_handling' onChange='setHandling(value)' disabled>
-                  <option id='o_carname'>
-                    Not Available
-                  </option>
-                </select>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div id='d_header' class='text-center'>
+        <h1>
+          <!-- Wangan Midnight Maximum Tune 6 Car Editor -->
+          Maximum Tune File Editor
+        </h1>
+        <h3>
+          For WMMT5/5DX/+ and 6/6R on Teknoparrot
+        </h3>
+        <h5>
+          Tool by 
+          <a href='https://www.twitter.com/SirScrubbington'>
+            SirScrubbington
+          </a>
+        </h5>
+        <h6>
+          Latest OpenParrot Release: 
+          <a href='https://github.com/damon-murdoch/OpenParrot'>
+            Download
+          </a>
+        </h6>
+        <h6>
+          Report a bug:
+          <a href='https://www.github.com/damon-murdoch/wmmt-file-editor/issues'>
+            Link
+          </a>
+        </h6>
       </div>
       <!--
-        Story Editor
+        File Upload
       -->
-      <div id='d_story'>
+      <div id='d_upload'>
         <table class='table table-dark' id='t_upload'>
           <thead class='thead thead-dark'>
             <tr>
-              <th colspan=5 class="text-center">
-                Story Settings
+              <th colspan=5>
+                Option
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th colspan=5 class="text-secondary">
-                Presets
-              </th>
-            </tr>
-            <tr>
               <th>
-                Reset to default
+                Select File
               </th>
-              <td>
-                <input type="checkbox" id="inp-default" value="0" onClick="">
-              </td>
-              <th>
-                One run complete
-              </th>
-              <td>
-                <input type="checkbox" id="inp-fullrun" value="0" onClick="">
+              <td colspan=2>
+                <input name="file" type="file" accept=".sav,.car,.gtwing,.ministicker" id="i_file" onChange='handleUpload()'/>
               </td>
               <td>
-                <!-- Padding -->
-              </td>
-            </tr>
-            <tr>
-              <th colspan=5 class="text-secondary">
-                Wins/Loops
-              </th>
-            </tr>
-            <tr>
-              <th>
-                Total Wins
-              </th>
-              <td>
-                <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-wins" value="0" onChange='updateTotalWins(value)'>
-              </td>
-              <th>
-                Win Streak
-              </th>
-              <td>
-                <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-streak" value="0" onChange='updateStreak(value)'>
+                <a href='#' onClick='handleDownload()'>
+                  Download
+                </a>
               </td>
               <td>
-                <!-- Padding -->
+                <a href='#' onClick='resetPage()'>
+                  Reset
+                </a>
               </td>
             </tr>
             <tr>
               <th>
-                Total Loops
+                Create File
               </th>
               <td>
-                <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-loops" value="0" onChange='updateLoops(value)'>
-              </td>
-              <th>
-                Completed Loops
-              </th>
-              <td>
-                <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-loopno" value="0" disabled>
+                <a href='#' onClick='createName()'>
+                  Custom Name
+                </a>
               </td>
               <td>
-                <!-- Padding -->
-              </td>
-            </tr>
-            <tr>
-              <th class="text-secondary" colspan=5>
-                Chapters
-              </th>
-            </tr>
-            <tr>
-              <th>
-                Story
-              </th>
-              <th id='s1-title'>
-                Story 1
-              </th>
-              <th id='s2-title'>
-                Story 2
-              </th>
-              <th id='s3-title'>
-                Story 3
-              </th>
-              <th id='s4-title'>
-                Story 4
-              </th>
-            </tr>
-            <tr>
-              <th>
-                Cleared
-              </th>
-              <td>
-                <input type="checkbox" class="form-control-input" id="inp-1-clr" value="0" onClick="updateWonChapters(0)">
-                <input type="checkbox" class="form-control-input" id="inp-2-clr" value="0" onClick="updateWonChapters(1)">
-                <input type="checkbox" class="form-control-input" id="inp-3-clr" value="0" onClick="updateWonChapters(2)">
-                <input type="checkbox" class="form-control-input" id="inp-4-clr" value="0" onClick="updateWonChapters(3)">
-                <input type="checkbox" class="form-control-input" id="inp-5-clr" value="0" onClick="updateWonChapters(4)">
+                <a href='#' onClick='createTitle()'>
+                  Custom Title
+                </a>
               </td>
               <td>
-                <input type="checkbox" class="form-control-input" id="inp-6-clr" value="0" onClick="updateWonChapters(5)">
-                <input type="checkbox" class="form-control-input" id="inp-7-clr" value="0" onClick="updateWonChapters(6)">
-                <input type="checkbox" class="form-control-input" id="inp-8-clr" value="0" onClick="updateWonChapters(7)">
-                <input type="checkbox" class="form-control-input" id="inp-9-clr" value="0" onClick="updateWonChapters(8)">
-                <input type="checkbox" class="form-control-input" id="inp-10-clr" value="0" onClick="updateWonChapters(9)">
+                <a href='#' onClick='createName()'>
+                  Custom Sticker
+                </a>
               </td>
               <td>
-                <input type="checkbox" class="form-control-input" id="inp-11-clr" value="0" onClick="updateWonChapters(10)">
-                <input type="checkbox" class="form-control-input" id="inp-12-clr" value="0" onClick="updateWonChapters(11)">
-                <input type="checkbox" class="form-control-input" id="inp-13-clr" value="0" onClick="updateWonChapters(12)">
-                <input type="checkbox" class="form-control-input" id="inp-14-clr" value="0" onClick="updateWonChapters(13)">
-                <input type="checkbox" class="form-control-input" id="inp-15-clr" value="0" onClick="updateWonChapters(14)">
-              </td>
-              <td>
-                <input type="checkbox" class="form-control-input" id="inp-16-clr" value="0" onClick="updateWonChapters(15)">
-                <input type="checkbox" class="form-control-input" id="inp-17-clr" value="0" onClick="updateWonChapters(16)">
-                <input type="checkbox" class="form-control-input" id="inp-18-clr" value="0" onClick="updateWonChapters(17)">
-                <input type="checkbox" class="form-control-input" id="inp-19-clr" value="0" onClick="updateWonChapters(18)">
-                <input type="checkbox" class="form-control-input" id="inp-20-clr" value="0" onClick="updateWonChapters(19)">
+                <a href='#' onClick='createTitle()'>
+                  Custom Region
+                </a>
               </td>
             </tr>
             <tr>
               <th>
-                <p>
-                  Locked
-                </p>
-              </th>
-              <td>
-                <input type="checkbox" class="form-control-input" id="inp-1-lck" value="0" onClick="updateLockedChapters(0)">
-                <input type="checkbox" class="form-control-input" id="inp-2-lck" value="0" onClick="updateLockedChapters(1)">
-                <input type="checkbox" class="form-control-input" id="inp-3-lck" value="0" onClick="updateLockedChapters(2)">
-                <input type="checkbox" class="form-control-input" id="inp-4-lck" value="0" onClick="updateLockedChapters(3)">
-                <input type="checkbox" class="form-control-input" id="inp-5-lck" value="0" onClick="updateLockedChapters(4)">
-              </td>
-              <td>
-                <input type="checkbox" class="form-control-input" id="inp-6-lck" value="0" onClick="updateLockedChapters(5)">
-                <input type="checkbox" class="form-control-input" id="inp-7-lck" value="0" onClick="updateLockedChapters(6)">
-                <input type="checkbox" class="form-control-input" id="inp-8-lck" value="0" onClick="updateLockedChapters(7)">
-                <input type="checkbox" class="form-control-input" id="inp-9-lck" value="0" onClick="updateLockedChapters(8)">
-                <input type="checkbox" class="form-control-input" id="inp-10-lck" value="0" onClick="updateLockedChapters(9)">
-              </td>
-              <td>
-                <input type="checkbox" class="form-control-input" id="inp-11-lck" value="0" onClick="updateLockedChapters(10)">
-                <input type="checkbox" class="form-control-input" id="inp-12-lck" value="0" onClick="updateLockedChapters(11)">
-                <input type="checkbox" class="form-control-input" id="inp-13-lck" value="0" onClick="updateLockedChapters(12)">
-                <input type="checkbox" class="form-control-input" id="inp-14-lck" value="0" onClick="updateLockedChapters(13)">
-                <input type="checkbox" class="form-control-input" id="inp-15-lck" value="0" onClick="updateLockedChapters(14)">
-              </td>
-              <td>
-                <input type="checkbox" class="form-control-input" id="inp-16-lck" value="0" onClick="updateLockedChapters(15)">
-                <input type="checkbox" class="form-control-input" id="inp-17-lck" value="0" onClick="updateLockedChapters(16)">
-                <input type="checkbox" class="form-control-input" id="inp-18-lck" value="0" onClick="updateLockedChapters(17)">
-                <input type="checkbox" class="form-control-input" id="inp-19-lck" value="0" onClick="updateLockedChapters(18)">
-                <input type="checkbox" class="form-control-input" id="inp-20-lck" value="0" onClick="updateLockedChapters(19)">
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      
-      <!--
-        Versus Editor
-      -->
-      <div id='d_versus'>
-        <table class='table table-dark' id='t_gtwing'>
-          <thead class='thead thead-dark'>
-            <tr>
-              <th class='text-center' colspan=5>
-                Versus Settings
-              </th>
-            </tr>
-          </thead>
-            <tr>
-              <th>
-                General
-              </th>
-              <th>
-                Games Played
-              </th>
-              <td>
-                <input class='form-control form-control-sm' type="number" id="s_vs_games_played" name="s_vs_games_played" value=0 min="0" max="4294967295">
-              </td>
-              <th>
-                Versus Stars
-              </th>
-              <td>
-                <input class='form-control form-control-sm' type="number" id="s_vs_stars" name="s_vs_stars" value=0 min="0" max="4294967295">
-              </td>
-            </tr>
-            <tr>
-              <th rowspan=2>
-                Medals
-              </th>
-              <th>
-                Gold
-              </th>
-              <td>
-                <input class='form-control form-control-sm' type="number" id="s_vs_games_played" name="s_vs_games_played" value=0 min="0" max="4294967295">
-              </td>
-              <th>
-                Silver
-              </th>
-              <td>
-                <input class='form-control form-control-sm' type="number" id="s_vs_stars" name="s_vs_stars" value=0 min="0" max="4294967295">
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Bronze
-              </th>
-              <td>
-                <input class='form-control form-control-sm' type="number" id="s_vs_games_played" name="s_vs_games_played" value=0 min="0" max="4294967295">
-              </td>
-              <th>
-                Plain
-              </th>
-              <td>
-                <input class='form-control form-control-sm' type="number" id="s_vs_stars" name="s_vs_stars" value=0 min="0" max="4294967295">
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Grade
+                Game Selected
               </th>
               <td colspan=4>
-                No Versus Grade (Next Grade: Hawk1 in 200 medals)
+                <select id='game' disabled>
+                  <!-- Populated by index.js -->
+                  <option>
+                    No Game Selected
+                  </option>
+                </select>
               </td>
             </tr>
-            <tr>
-              <th>
-                Aura
-              </th>
-              <th>
-                Smooth/Rough
-              </th>
-              <td>
-                <input type="range" class="form-range" id="s_smooth_rough">
-              </td>
-              <th>
-                Cool/Wild
-              </th>
-              <td>
-                <input type="range" class="form-range" id="s_cool_wild">
-              </td>
-            </tr>
-          <tbody>
           </tbody>
         </table>
       </div>
-
       <!--
-        Settings Editor
+        File Editors
       -->
-      <div id='d_settings'>
-        <table class='table table-dark' id='t_gtwing'>
-          <thead class='thead thead-dark'>
-            <tr>
-              <th class='text-center' colspan=5>
-                Meter / Soundtrack / Other Settings
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>
-                On/Off Settings
-              </th>
-              <td>
-                <label for="s_view">
-                  View (Front/Behind)
-                </label>
-                <input type="checkbox" name="s_view" id="s_view" disabled>
-              </td>
-              <td>
-                <label for="s_view">
-                  Transmission (Auto/Manual)
-                </label>
-                <input type="checkbox" name="s_transmission" id="s_transmission" disabled>
-              </td>
-              <td>
-                <label for="s_view">
-                  Retire (Off/On)
-                </label>
-                <input type="checkbox" name="s_view" id="s_view" disabled>
-              </td>
-              <td>
-                <label for="s_view">
-                  Navi Map (Off/On)
-                </label>
-                <input type="checkbox" name="s_transmission" id="s_transmission" disabled>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                General
-              </th>
-              <th>
-                Meter
-              </th>
-              <td>
-                <select name='s_meter' id='s_meter' onChange='' disabled>
-                  <option id='o_meter_default'>
-                    Not Available
-                  </option>
-                </select>
-              </td>
-              <th>
-                Soundtrack
-              </th>
-              <td>
-                <select name='s_ost' id='s_ost' onChange='' disabled>
-                  <option id='o_ost_default'>
-                    Not Available
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Nameplate
-              </th>
-              <th>
-                Type
-              </th>
-              <td>
-                <select name='s_nameplate' id='s_nameplate' onChange='' disabled>
-                  <option id='o_nameplate_default'>
-                    Not Available
-                  </option>
-                </select>
-              </td>
-              <th>
-                Colour
-              </th>
-              <td>
-                <select name='s_nameplate_colour' id='s_nameplate_colour' onChange='' disabled>
-                  <option id='o_nameplate_colour_default'>
-                    Not Available
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Frame
-              </th>
-              <th>
-                Type
-              </th>
-              <td>
-                <select name='s_frame' id='s_frame' onChange='' disabled>
-                  <option id='o_frame_default'>
-                    Not Available
-                  </option>
-                </select>
-              </td>
-              <th>
-                Colour
-              </th>
-              <td>
-                <select name='s_frame_colour' id='s_frame_colour' onChange='' disabled>
-                  <option id='o_frame_colour_default'>
-                    Not Available
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Unused
-              </th>
-              <th>
-                Volume
-              </th>
-              <td>
-                <select name='s_volume' id='s_volume' onChange='' disabled>
-                  <option id='o_volume_default'>
-                    Not Available
-                  </option>
-                </select>
-              </td>
-              <th>
-                Terminal Background
-
-              </th>
-              <td>
-                <select name='s_terminal_background' id='s_terminal_background' onChange='' disabled>
-                  <option id='o_terminal_background_default'>
-                    Not Available
-                  </option>
-                </select>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div>
+        <!-- 
+          Car Editor
+        -->
+        <div id='d_car'>
+          <table id='t_car' class='table table-dark'>
+            <thead class='thead thead-dark'>
+              <tr>
+                <th class='text-center' colspan=4>
+                  Car Settings
+                </th>
+              </tr>
+              <tr>
+                <td class='text-center' colspan=4>
+                  <sub>
+                    <i id='last_played'>
+                    </i>
+                  </sub>
+                </td>
+              </tr>
+            </thead>
+            <tbody class='tbody tbody-dark'>
+              <tr>
+                <th class='text-secondary' colspan=4>
+                  General Settings
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  Rank
+                </th>
+                <td>
+                  <select id="rank" onChange="updateElement('rank', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Model
+                </th>
+                <td>
+                  <select id="model" onChange="updateElement('model', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th class='text-secondary' colspan=4>
+                  Colour Settings
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  Stock Colour
+                </th>
+                <td>
+                  <select id="colour_stock" onChange="updateElement('colour_stock', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Custom Colour
+                </th>
+                <td>
+                  <select id="colour_custom" onChange="updateElement('colour_custom', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th class='text-secondary' colspan=4>
+                  Rim Settings
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  Rims Type
+                </th>
+                <td>
+                  <select id="rims" onChange="updateElement('rims', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Rims Colour
+                </th>
+                <td>
+                  <select id="colour_rims" onChange="updateElement('colour_rims', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th class='text-secondary' colspan=4>
+                  Aero Settings
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  Aero Kit
+                </th>
+                <td>
+                  <select id="aero" onChange="updateElement('aero', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Hood
+                </th>
+                <td>
+                  <select id="hood" onChange="updateElement('hood', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Wing
+                </th>
+                <td>
+                  <select id="wing" onChange="updateElement('wing', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Mirror
+                </th>
+                <td>
+                  <select id="mirror" onChange="updateElement('mirror', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Neon
+                </th>
+                <td>
+                  <select id="neon" onChange="updateElement('neon', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Trunk
+                </th>
+                <td>
+                  <select id="trunk" onChange="updateElement('trunk', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th class='text-secondary' colspan=4>
+                  Sticker Settings
+                  <sub>
+                    <i>
+                      MT5/5DX/5DX+ Only
+                    </i>
+                  </sub>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  Body Sticker Type
+                </th>
+                <td>
+                  <select id="body_sticker" onChange="updateElement('body_sticker', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Body Sticker Colour
+                </th>
+                <td>
+                  <select id="body_sticker_colour" onChange="updateElement('body_sticker_colour', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Japan Sticker Type
+                </th>
+                <td>
+                  <select id="japan_sticker" onChange="updateElement('japan_sticker', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Japan Sticker Colour
+                  <sub class='text-secondary'>
+                    <i>
+                      Uses body sticker colour in Maximum Tune 5
+                    </i>
+                  </sub>
+                </th>
+                <td>
+                  <select id="japan_sticker_colour" onChange="updateElement('japan_sticker_colour', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Side Sticker Type
+                </th>
+                <td>
+                  <select id="side_sticker" onChange="updateElement('side_sticker', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Side Sticker Colour
+                </th>
+                <td>
+                  <select id="side_sticker_colour" onChange="updateElement('side_sticker_colour', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Roof Sticker Type
+                </th>
+                <td>
+                  <select id="roof_sticker" onChange="updateElement('roof_sticker', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Roof Sticker Colour
+                </th>
+                <td>
+                  <select id="roof_sticker_colour" onChange="updateElement('roof_sticker_colour', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th class='text-secondary' colspan=4>
+                  License Plate Settings
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  Plate Frame Type
+                </th>
+                <td>
+                  <select id="plate_frame" onChange="updateElement('plate_frame', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Plate Frame Colour
+                </th>
+                <td>
+                  <select id="plate_frame_colour" onChange="updateElement('plate_frame_colour', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  License Plate Number
+                </th>
+                <td>
+                  <input class="form-control form-control-sm" id='plate_number' type="number" value=0 min=0 max=9999 size=4 onChange="updateElement('plate_number', value)" disabled>
+                </td>
+                <th>
+                  Region
+                </th>
+                <td>
+                  <select id="region" onChange="updateElement('region', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th class='text-secondary' colspan=4>
+                  Window Sticker / Versus Marker Settings
+                  <sub>
+                    <i>
+                      MT5DX Onwards only
+                    </i>
+                  </sub>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  Window Sticker Toggle
+                </th>
+                <td>
+                  <select id="window_sticker_toggle" onChange="updateElement('window_sticker_toggle', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Window Sticker Font
+                </th>
+                <td>
+                  <select id="window_sticker_font" onChange="updateElement('window_sticker_font', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Window Sticker Type
+                </th>
+                <td>
+                  <select id="window_sticker" onChange="updateElement('window_sticker', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Rival Marker
+                </th>
+                <td>
+                  <select id="rival_marker" onChange="updateElement('rival_marker', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th class='text-secondary' colspan=4>
+                  Power/Handling Settings
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  Simple
+                </th>
+                <td colspan=3>
+                  <label class='form-check-label' for='rb-nt'> Stock Tune </label>
+                  <input class='form-check-input' type='radio' name='rb-tune' id='rb-nt' onClick='setTune(1)' disabled>
+                  
+                  <label class='form-check-label' for='rb-bt'> Basic Tune </label>
+                  <input class='form-check-input' type='radio' name='rb-tune' id='rb-bt' onClick='setTune(2)' disabled>
+                  
+                  <label class='form-check-label' for='rb-ft'> Full Tune </label>
+                  <input class='form-check-input' type='radio' name='rb-tune' id='rb-ft' onClick='setTune(3)' disabled>
+                  
+                  <label class='form-check-label' for='rb-ct'> Custom Tune </label>
+                  <input class='form-check-input' type='radio' name='rb-tune' id='rb-ct' onClick='setTune(4)' disabled checked>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Power
+                </th>
+                <td>
+                  <select name='power' id='power' onChange='setPower(value)' disabled>
+                    <option id='o_power'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Handling
+                </th>
+                <td>
+                  <select name='handling' id='handling' onChange='setHandling(value)' disabled>
+                    <option id='o_handling'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--
+          Story Editor
+        -->
+        <div id='d_story'>
+          <table class='table table-dark' id='t_upload'>
+            <thead class='thead thead-dark'>
+              <tr>
+                <th colspan=5 class="text-center">
+                  Story Settings
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th colspan=5 class="text-secondary">
+                  Presets
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  Reset to default
+                </th>
+                <td>
+                  <input type="checkbox" id="inp-default" value="0" onClick="">
+                </td>
+                <th>
+                  One run complete
+                </th>
+                <td>
+                  <input type="checkbox" id="inp-fullrun" value="0" onClick="">
+                </td>
+                <td>
+                  <!-- Padding -->
+                </td>
+              </tr>
+              <tr>
+                <th colspan=5 class="text-secondary">
+                  Wins/Loops
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  Total Wins
+                </th>
+                <td>
+                  <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-wins" value="0" onChange='updateTotalWins(value)'>
+                </td>
+                <th>
+                  Win Streak
+                </th>
+                <td>
+                  <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-streak" value="0" onChange='updateStreak(value)'>
+                </td>
+                <td>
+                  <!-- Padding -->
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Total Loops
+                </th>
+                <td>
+                  <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-loops" value="0" onChange='updateLoops(value)'>
+                </td>
+                <th>
+                  Completed Loops
+                </th>
+                <td>
+                  <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-loopno" value="0" disabled>
+                </td>
+                <td>
+                  <!-- Padding -->
+                </td>
+              </tr>
+              <tr>
+                <th class="text-secondary" colspan=5>
+                  Chapters
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  Story
+                </th>
+                <th id='s1-title'>
+                  Story 1
+                </th>
+                <th id='s2-title'>
+                  Story 2
+                </th>
+                <th id='s3-title'>
+                  Story 3
+                </th>
+                <th id='s4-title'>
+                  Story 4
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  Cleared
+                </th>
+                <td>
+                  <input type="checkbox" class="form-control-input" id="inp-1-clr" value="0" onClick="updateWonChapters(0)">
+                  <input type="checkbox" class="form-control-input" id="inp-2-clr" value="0" onClick="updateWonChapters(1)">
+                  <input type="checkbox" class="form-control-input" id="inp-3-clr" value="0" onClick="updateWonChapters(2)">
+                  <input type="checkbox" class="form-control-input" id="inp-4-clr" value="0" onClick="updateWonChapters(3)">
+                  <input type="checkbox" class="form-control-input" id="inp-5-clr" value="0" onClick="updateWonChapters(4)">
+                </td>
+                <td>
+                  <input type="checkbox" class="form-control-input" id="inp-6-clr" value="0" onClick="updateWonChapters(5)">
+                  <input type="checkbox" class="form-control-input" id="inp-7-clr" value="0" onClick="updateWonChapters(6)">
+                  <input type="checkbox" class="form-control-input" id="inp-8-clr" value="0" onClick="updateWonChapters(7)">
+                  <input type="checkbox" class="form-control-input" id="inp-9-clr" value="0" onClick="updateWonChapters(8)">
+                  <input type="checkbox" class="form-control-input" id="inp-10-clr" value="0" onClick="updateWonChapters(9)">
+                </td>
+                <td>
+                  <input type="checkbox" class="form-control-input" id="inp-11-clr" value="0" onClick="updateWonChapters(10)">
+                  <input type="checkbox" class="form-control-input" id="inp-12-clr" value="0" onClick="updateWonChapters(11)">
+                  <input type="checkbox" class="form-control-input" id="inp-13-clr" value="0" onClick="updateWonChapters(12)">
+                  <input type="checkbox" class="form-control-input" id="inp-14-clr" value="0" onClick="updateWonChapters(13)">
+                  <input type="checkbox" class="form-control-input" id="inp-15-clr" value="0" onClick="updateWonChapters(14)">
+                </td>
+                <td>
+                  <input type="checkbox" class="form-control-input" id="inp-16-clr" value="0" onClick="updateWonChapters(15)">
+                  <input type="checkbox" class="form-control-input" id="inp-17-clr" value="0" onClick="updateWonChapters(16)">
+                  <input type="checkbox" class="form-control-input" id="inp-18-clr" value="0" onClick="updateWonChapters(17)">
+                  <input type="checkbox" class="form-control-input" id="inp-19-clr" value="0" onClick="updateWonChapters(18)">
+                  <input type="checkbox" class="form-control-input" id="inp-20-clr" value="0" onClick="updateWonChapters(19)">
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <p>
+                    Locked
+                  </p>
+                </th>
+                <td>
+                  <input type="checkbox" class="form-control-input" id="inp-1-lck" value="0" onClick="updateLockedChapters(0)">
+                  <input type="checkbox" class="form-control-input" id="inp-2-lck" value="0" onClick="updateLockedChapters(1)">
+                  <input type="checkbox" class="form-control-input" id="inp-3-lck" value="0" onClick="updateLockedChapters(2)">
+                  <input type="checkbox" class="form-control-input" id="inp-4-lck" value="0" onClick="updateLockedChapters(3)">
+                  <input type="checkbox" class="form-control-input" id="inp-5-lck" value="0" onClick="updateLockedChapters(4)">
+                </td>
+                <td>
+                  <input type="checkbox" class="form-control-input" id="inp-6-lck" value="0" onClick="updateLockedChapters(5)">
+                  <input type="checkbox" class="form-control-input" id="inp-7-lck" value="0" onClick="updateLockedChapters(6)">
+                  <input type="checkbox" class="form-control-input" id="inp-8-lck" value="0" onClick="updateLockedChapters(7)">
+                  <input type="checkbox" class="form-control-input" id="inp-9-lck" value="0" onClick="updateLockedChapters(8)">
+                  <input type="checkbox" class="form-control-input" id="inp-10-lck" value="0" onClick="updateLockedChapters(9)">
+                </td>
+                <td>
+                  <input type="checkbox" class="form-control-input" id="inp-11-lck" value="0" onClick="updateLockedChapters(10)">
+                  <input type="checkbox" class="form-control-input" id="inp-12-lck" value="0" onClick="updateLockedChapters(11)">
+                  <input type="checkbox" class="form-control-input" id="inp-13-lck" value="0" onClick="updateLockedChapters(12)">
+                  <input type="checkbox" class="form-control-input" id="inp-14-lck" value="0" onClick="updateLockedChapters(13)">
+                  <input type="checkbox" class="form-control-input" id="inp-15-lck" value="0" onClick="updateLockedChapters(14)">
+                </td>
+                <td>
+                  <input type="checkbox" class="form-control-input" id="inp-16-lck" value="0" onClick="updateLockedChapters(15)">
+                  <input type="checkbox" class="form-control-input" id="inp-17-lck" value="0" onClick="updateLockedChapters(16)">
+                  <input type="checkbox" class="form-control-input" id="inp-18-lck" value="0" onClick="updateLockedChapters(17)">
+                  <input type="checkbox" class="form-control-input" id="inp-19-lck" value="0" onClick="updateLockedChapters(18)">
+                  <input type="checkbox" class="form-control-input" id="inp-20-lck" value="0" onClick="updateLockedChapters(19)">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!--
+          Versus Editor
+        -->
+        <div id='d_versus'>
+          <table class='table table-dark' id='t_gtwing'>
+            <thead class='thead thead-dark'>
+              <tr>
+                <th class='text-center' colspan=5>
+                  Versus Settings
+                </th>
+              </tr>
+            </thead>
+              <tr>
+                <th>
+                  General
+                </th>
+                <th>
+                  Games Played
+                </th>
+                <td>
+                  <input class='form-control form-control-sm' type="number" id="s_vs_games_played" name="s_vs_games_played" value=0 min="0" max="4294967295">
+                </td>
+                <th>
+                  Versus Stars
+                </th>
+                <td>
+                  <input class='form-control form-control-sm' type="number" id="s_vs_stars" name="s_vs_stars" value=0 min="0" max="4294967295">
+                </td>
+              </tr>
+              <tr>
+                <th rowspan=2>
+                  Medals
+                </th>
+                <th>
+                  Gold
+                </th>
+                <td>
+                  <input class='form-control form-control-sm' type="number" id="s_vs_games_played" name="s_vs_games_played" value=0 min="0" max="4294967295">
+                </td>
+                <th>
+                  Silver
+                </th>
+                <td>
+                  <input class='form-control form-control-sm' type="number" id="s_vs_stars" name="s_vs_stars" value=0 min="0" max="4294967295">
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Bronze
+                </th>
+                <td>
+                  <input class='form-control form-control-sm' type="number" id="s_vs_games_played" name="s_vs_games_played" value=0 min="0" max="4294967295">
+                </td>
+                <th>
+                  Plain
+                </th>
+                <td>
+                  <input class='form-control form-control-sm' type="number" id="s_vs_stars" name="s_vs_stars" value=0 min="0" max="4294967295">
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Grade
+                </th>
+                <td colspan=4>
+                  No Versus Grade (Next Grade: Hawk1 in 200 medals)
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Aura
+                </th>
+                <th>
+                  Smooth/Rough
+                </th>
+                <td>
+                  <input type="range" class="form-range" id="s_smooth_rough">
+                </td>
+                <th>
+                  Cool/Wild
+                </th>
+                <td>
+                  <input type="range" class="form-range" id="s_cool_wild">
+                </td>
+              </tr>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+  
+        <!--
+          Settings Editor
+        -->
+        <div id='d_settings'>
+          <table class='table table-dark' id='t_gtwing'>
+            <thead class='thead thead-dark'>
+              <tr>
+                <th class='text-center' colspan=5>
+                  Meter / Soundtrack / Other Settings
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>
+                  On/Off Settings
+                </th>
+                <td>
+                  <label for="s_view">
+                    View (Front/Behind)
+                  </label>
+                  <input type="checkbox" name="s_view" id="s_view" disabled>
+                </td>
+                <td>
+                  <label for="s_view">
+                    Transmission (Auto/Manual)
+                  </label>
+                  <input type="checkbox" name="s_transmission" id="s_transmission" disabled>
+                </td>
+                <td>
+                  <label for="s_view">
+                    Retire (Off/On)
+                  </label>
+                  <input type="checkbox" name="s_view" id="s_view" disabled>
+                </td>
+                <td>
+                  <label for="s_view">
+                    Navi Map (Off/On)
+                  </label>
+                  <input type="checkbox" name="s_transmission" id="s_transmission" disabled>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  General
+                </th>
+                <th>
+                  Meter
+                </th>
+                <td>
+                  <select name='s_meter' id='s_meter' onChange='' disabled>
+                    <option id='o_meter_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Soundtrack
+                </th>
+                <td>
+                  <select name='s_ost' id='s_ost' onChange='' disabled>
+                    <option id='o_ost_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Nameplate
+                </th>
+                <th>
+                  Type
+                </th>
+                <td>
+                  <select name='s_nameplate' id='s_nameplate' onChange='' disabled>
+                    <option id='o_nameplate_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Colour
+                </th>
+                <td>
+                  <select name='s_nameplate_colour' id='s_nameplate_colour' onChange='' disabled>
+                    <option id='o_nameplate_colour_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Frame
+                </th>
+                <th>
+                  Type
+                </th>
+                <td>
+                  <select name='s_frame' id='s_frame' onChange='' disabled>
+                    <option id='o_frame_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Colour
+                </th>
+                <td>
+                  <select name='s_frame_colour' id='s_frame_colour' onChange='' disabled>
+                    <option id='o_frame_colour_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Unused
+                </th>
+                <th>
+                  Volume
+                </th>
+                <td>
+                  <select name='s_volume' id='s_volume' onChange='' disabled>
+                    <option id='o_volume_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Terminal Background
+  
+                </th>
+                <td>
+                  <select name='s_terminal_background' id='s_terminal_background' onChange='' disabled>
+                    <option id='o_terminal_background_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <!--
+          Miles Editor
+        -->
+        <div id='d_miles'>
+          <table class='table table-dark' id='t_gtwing'>
+            <thead class='thead thead-dark'>
+              <tr>
+                <th class='text-center' colspan=2>
+                  Miles Settings
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>
+                  Total Miles
+                </th>
+                <td>
+                  <input class='form-control form-control-sm' type="number" id="s_miles" name="s_miles" value=0 min="0" max="4294967295">
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Games Played
+                </th>
+                <td>
+                  <input class='form-control form-control-sm' type="number" id="s_games_played" name="s_games_played" value=0 min="0" max="4294967295">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <!--
+          GT Wing Editor
+        -->
+        <div id='d_gtwing'>
+          <table class='table table-dark' id='t_gtwing'>
+            <thead class='thead thead-dark'>
+              <tr>
+                <th class='text-center' colspan=5>
+                  GT Wing Settings
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>
+                  Pillar
+                </th>
+                <th>
+                  Type
+                </th>
+                <td>
+                  <select name="s_pillar" id="s_pillar" onChange="setField('pillar', value)">
+                    <option id='o_default'>
+                      Default
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Material
+                </th>
+                <td>
+                  <select name="s_pillar_material" id="s_pillar_material" onChange="setField('pillar_material', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Main Wing
+                </th>
+                <th>
+                  Type
+                </th>
+                <td>
+                  <select name="s_main_wing" id="s_main_wing" onChange="setField('main_wing', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Colour
+                </th>
+                <td>
+                  <select name="s_main_wing_colour" id="s_main_wing_colour" onChange="setField('main_wing_colour', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Decoration
+                </th>
+                <th>
+                  Wing Tip Style
+                </th>
+                <td>
+                  <select name="s_wing_tip" id="s_wing_tip" onChange="setField('wing_tip', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Wing Material
+                </th>
+                <td>
+                  <select name="s_wing_material" id="s_wing_material" onChange="setField('wing_material', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <!--
+          Mini Sticker Editor
+        -->
+        <div id='d_ministicker'>
+          <table class='table table-dark' id='t_ministicker'>
+            <thead class='thead thead-dark'>
+              <tr>
+                <th class='text-center' colspan=5>
+                  Mini Sticker Settings
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr> <!-- Sticker 1 -->
+                <th>
+                  Sticker 1
+                </th>
+                <td>
+                  <select name="mini_sticker_1" id="mini_sticker_1" onChange="setField('mini_sticker_1', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <select name="mini_sticker_1_colour" id="mini_sticker_1_colour" onChange="setField('mini_sticker_1_colour', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr> <!-- Sticker 2 -->
+                <th>
+                  Sticker 2
+                </th>
+                <td>
+                  <select name="mini_sticker_2" id="mini_sticker_2" onChange="setField('mini_sticker_2', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <select name="mini_sticker_2_colour" id="mini_sticker_2_colour" onChange="setField('mini_sticker_2_colour', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr> <!-- Sticker 3 -->
+                <th>
+                  Sticker 3
+                </th>
+                <td>
+                  <select name="mini_sticker_3" id="mini_sticker_3" onChange="setField('mini_sticker_3', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <select name="mini_sticker_3_colour" id="mini_sticker_3_colour" onChange="setField('mini_sticker_3_colour', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr> <!-- Sticker 4 -->
+                <th>
+                  Sticker 4
+                </th>
+                <td>
+                  <select name="mini_sticker_4" id="mini_sticker_4" onChange="setField('mini_sticker_4', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <select name="mini_sticker_4_colour" id="mini_sticker_4_colour" onChange="setField('mini_sticker_4_colour', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr> <!-- Sticker 5 -->
+                <th>
+                  Sticker 5
+                </th>
+                <td>
+                  <select name="mini_sticker_5" id="mini_sticker_5" onChange="setField('mini_sticker_5', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <select name="mini_sticker_5_colour" id="mini_sticker_5_colour" onChange="setField('mini_sticker_5_colour', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr> <!-- Sticker 6 -->
+                <th>
+                  Sticker 6
+                </th>
+                <td>
+                  <select name="mini_sticker_6" id="mini_sticker_6" onChange="setField('mini_sticker_6', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <select name="mini_sticker_6_colour" id="mini_sticker_6_colour" onChange="setField('mini_sticker_6_colour', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr> <!-- Sticker 7 -->
+                <th>
+                  Sticker 7
+                </th>
+                <td>
+                  <select name="mini_sticker_7" id="mini_sticker_7" onChange="setField('mini_sticker_7', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <select name="mini_sticker_7_colour" id="mini_sticker_7_colour" onChange="setField('mini_sticker_7_colour', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr> <!-- Sticker 1 -->
+                <th>
+                  Sticker 8
+                </th>
+                <td>
+                  <select name="mini_sticker_8" id="mini_sticker_8" onChange="setField('mini_sticker_8', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <select name="sticker_8_colour" id="sticker_8_colour" onChange="setField('mini_sticker_8_colour', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr> <!-- Sticker 9 -->
+                <th>
+                  Sticker 9
+                </th>
+                <td>
+                  <select name="sticker_9" id="sticker_9" onChange="setField('mini_sticker_9', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <select name="sticker_9_colour" id="sticker_9_colour" onChange="setField('mini_sticker_9_colour', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr> <!-- Sticker 10 -->
+                <th>
+                  Sticker 10
+                </th>
+                <td>
+                  <select name="mini_sticker_10" id="mini_sticker_10" onChange="setField('mini_sticker_10', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <select name="mini_sticker_10_colour" id="mini_sticker_10_colour" onChange="setField('mini_sticker_10_colour', value)">
+                    <option id='o_default'>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-
+  
       <!--
-        Miles Editor
+        File Creators
       -->
-      <div id='d_miles'>
-        <table class='table table-dark' id='t_gtwing'>
-          <thead class='thead thead-dark'>
-            <tr>
-              <th class='text-center' colspan=2>
-                Miles Settings
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>
-                Total Miles
-              </th>
-              <td>
-                <input class='form-control form-control-sm' type="number" id="s_miles" name="s_miles" value=0 min="0" max="4294967295">
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Games Played
-              </th>
-              <td>
-                <input class='form-control form-control-sm' type="number" id="s_games_played" name="s_games_played" value=0 min="0" max="4294967295">
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!--
-        GT Wing Editor
-      -->
-      <div id='d_gtwing'>
-        <table class='table table-dark' id='t_gtwing'>
-          <thead class='thead thead-dark'>
-            <tr>
-              <th class='text-center' colspan=5>
-                GT Wing Settings
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>
-                Pillar
-              </th>
-              <th>
-                Type
-              </th>
-              <td>
-                <select name="s_pillar" id="s_pillar" onChange="setField('pillar', value)">
-                  <option id='o_default'>
-                    Default
-                  </option>
-                </select>
-              </td>
-              <th>
-                Material
-              </th>
-              <td>
-                <select name="s_pillar_material" id="s_pillar_material" onChange="setField('pillar_material', value)">
-                  <option id='o_default'>
-                    Default
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Main Wing
-              </th>
-              <th>
-                Type
-              </th>
-              <td>
-                <select name="s_main_wing" id="s_main_wing" onChange="setField('main_wing', value)">
-                  <option id='o_default'>
-                    Default
-                  </option>
-                </select>
-              </td>
-              <th>
-                Colour
-              </th>
-              <td>
-                <select name="s_main_wing_colour" id="s_main_wing_colour" onChange="setField('main_wing_colour', value)">
-                  <option id='o_default'>
-                    Default
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Decoration
-              </th>
-              <th>
-                Wing Tip Style
-              </th>
-              <td>
-                <select name="s_wing_tip" id="s_wing_tip" onChange="setField('wing_tip', value)">
-                  <option id='o_default'>
-                    Default
-                  </option>
-                </select>
-              </td>
-              <th>
-                Wing Material
-              </th>
-              <td>
-                <select name="s_wing_material" id="s_wing_material" onChange="setField('wing_material', value)">
-                  <option id='o_default'>
-                    Default
-                  </option>
-                </select>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!--
-        Mini Sticker Editor
-      -->
-      <div id='d_ministicker'>
-        <table class='table table-dark' id='t_ministicker'>
-          <thead class='thead thead-dark'>
-            <tr>
-              <th class='text-center' colspan=5>
-                Mini Sticker Settings
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr> <!-- Sticker 1 -->
-              <th>
-                Sticker 1
-              </th>
-              <td>
-                <select name="mini_sticker_1" id="mini_sticker_1" onChange="setField('mini_sticker_1', value)">
-                  <option id='o_default'>
-                    Mini Sticker Style
-                  </option>
-                </select>
-              </td>
-              <td>
-                <select name="mini_sticker_1_colour" id="mini_sticker_1_colour" onChange="setField('mini_sticker_1_colour', value)">
-                  <option id='o_default'>
-                    Mini Sticker Colour
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr> <!-- Sticker 2 -->
-              <th>
-                Sticker 2
-              </th>
-              <td>
-                <select name="mini_sticker_2" id="mini_sticker_2" onChange="setField('mini_sticker_2', value)">
-                  <option id='o_default'>
-                    Mini Sticker Style
-                  </option>
-                </select>
-              </td>
-              <td>
-                <select name="mini_sticker_2_colour" id="mini_sticker_2_colour" onChange="setField('mini_sticker_2_colour', value)">
-                  <option id='o_default'>
-                    Mini Sticker Colour
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr> <!-- Sticker 3 -->
-              <th>
-                Sticker 3
-              </th>
-              <td>
-                <select name="mini_sticker_3" id="mini_sticker_3" onChange="setField('mini_sticker_3', value)">
-                  <option id='o_default'>
-                    Mini Sticker Style
-                  </option>
-                </select>
-              </td>
-              <td>
-                <select name="mini_sticker_3_colour" id="mini_sticker_3_colour" onChange="setField('mini_sticker_3_colour', value)">
-                  <option id='o_default'>
-                    Mini Sticker Colour
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr> <!-- Sticker 4 -->
-              <th>
-                Sticker 4
-              </th>
-              <td>
-                <select name="mini_sticker_4" id="mini_sticker_4" onChange="setField('mini_sticker_4', value)">
-                  <option id='o_default'>
-                    Mini Sticker Style
-                  </option>
-                </select>
-              </td>
-              <td>
-                <select name="mini_sticker_4_colour" id="mini_sticker_4_colour" onChange="setField('mini_sticker_4_colour', value)">
-                  <option id='o_default'>
-                    Mini Sticker Colour
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr> <!-- Sticker 5 -->
-              <th>
-                Sticker 5
-              </th>
-              <td>
-                <select name="mini_sticker_5" id="mini_sticker_5" onChange="setField('mini_sticker_5', value)">
-                  <option id='o_default'>
-                    Mini Sticker Style
-                  </option>
-                </select>
-              </td>
-              <td>
-                <select name="mini_sticker_5_colour" id="mini_sticker_5_colour" onChange="setField('mini_sticker_5_colour', value)">
-                  <option id='o_default'>
-                    Mini Sticker Colour
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr> <!-- Sticker 6 -->
-              <th>
-                Sticker 6
-              </th>
-              <td>
-                <select name="mini_sticker_6" id="mini_sticker_6" onChange="setField('mini_sticker_6', value)">
-                  <option id='o_default'>
-                    Mini Sticker Style
-                  </option>
-                </select>
-              </td>
-              <td>
-                <select name="mini_sticker_6_colour" id="mini_sticker_6_colour" onChange="setField('mini_sticker_6_colour', value)">
-                  <option id='o_default'>
-                    Mini Sticker Colour
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr> <!-- Sticker 7 -->
-              <th>
-                Sticker 7
-              </th>
-              <td>
-                <select name="mini_sticker_7" id="mini_sticker_7" onChange="setField('mini_sticker_7', value)">
-                  <option id='o_default'>
-                    Mini Sticker Style
-                  </option>
-                </select>
-              </td>
-              <td>
-                <select name="mini_sticker_7_colour" id="mini_sticker_7_colour" onChange="setField('mini_sticker_7_colour', value)">
-                  <option id='o_default'>
-                    Mini Sticker Colour
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr> <!-- Sticker 1 -->
-              <th>
-                Sticker 8
-              </th>
-              <td>
-                <select name="mini_sticker_8" id="mini_sticker_8" onChange="setField('mini_sticker_8', value)">
-                  <option id='o_default'>
-                    Mini Sticker Style
-                  </option>
-                </select>
-              </td>
-              <td>
-                <select name="sticker_8_colour" id="sticker_8_colour" onChange="setField('mini_sticker_8_colour', value)">
-                  <option id='o_default'>
-                    Mini Sticker Colour
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr> <!-- Sticker 9 -->
-              <th>
-                Sticker 9
-              </th>
-              <td>
-                <select name="sticker_9" id="sticker_9" onChange="setField('mini_sticker_9', value)">
-                  <option id='o_default'>
-                    Mini Sticker Style
-                  </option>
-                </select>
-              </td>
-              <td>
-                <select name="sticker_9_colour" id="sticker_9_colour" onChange="setField('mini_sticker_9_colour', value)">
-                  <option id='o_default'>
-                    Mini Sticker Colour
-                  </option>
-                </select>
-              </td>
-            </tr>
-            <tr> <!-- Sticker 10 -->
-              <th>
-                Sticker 10
-              </th>
-              <td>
-                <select name="mini_sticker_10" id="mini_sticker_10" onChange="setField('mini_sticker_10', value)">
-                  <option id='o_default'>
-                    Mini Sticker Style
-                  </option>
-                </select>
-              </td>
-              <td>
-                <select name="mini_sticker_10_colour" id="mini_sticker_10_colour" onChange="setField('mini_sticker_10_colour', value)">
-                  <option id='o_default'>
-                    Mini Sticker Colour
-                  </option>
-                </select>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!--
-      File Creators
-    -->
-    <div>
-      <!-- 
-        Custom Name 
-      -->
-      <div id='d_name'>
-        <h1 class="text-center">
-          <i>
-            Not supported yet. Coming soon!
-          </i>
-        </h1>
-      </div>
-      
-      <!-- 
-        Custom Title 
-      -->
-      <div id='d_title'>
-        <h1 class="text-center">
-          <i>
-            Not supported yet. Coming soon!
-          </i>
-        </h1>
-      </div>
-      
-      <!-- 
-        Custom Sticker 
-      -->
-      <div id='d_sticker'>
-        <h1 class="text-center">
-          <i>
-            Not supported yet. Coming soon!
-          </i>
-        </h1>
-      </div>
-      
-      <!-- 
-        Custom Region 
-      -->
-      <div id='d_region'>
-        <h1 class="text-center">
-          <i>
-            Not supported yet. Coming soon!
-          </i>
-        </h1>
+      <div>
+        <!-- 
+          Custom Name 
+        -->
+        <div id='d_name'>
+          <h1 class="text-center">
+            <i>
+              Not supported yet. Coming soon!
+            </i>
+          </h1>
+        </div>
+        
+        <!-- 
+          Custom Title 
+        -->
+        <div id='d_title'>
+          <h1 class="text-center">
+            <i>
+              Not supported yet. Coming soon!
+            </i>
+          </h1>
+        </div>
+        
+        <!-- 
+          Custom Sticker 
+        -->
+        <div id='d_sticker'>
+          <h1 class="text-center">
+            <i>
+              Not supported yet. Coming soon!
+            </i>
+          </h1>
+        </div>
+        
+        <!-- 
+          Custom Region 
+        -->
+        <div id='d_region'>
+          <h1 class="text-center">
+            <i>
+              Not supported yet. Coming soon!
+            </i>
+          </h1>
+        </div>
       </div>
     </div>
   </body>
@@ -1290,16 +1335,20 @@
     <script type='text/javascript' src='data/offsets.js'>
     </script>
 
-    <!-- Index source file -->
-    <script type='text/javascript' src='index.js'>
-    </script>
-
     <!-- Main program source file -->
     <script type='text/javascript' src='src/main.js'>
     </script>
 
+    <!-- Car Specific source file -->
+    <script type='text/javascript' src='src/editors/car.js'>
+    </script>
+
     <!-- File Object source file -->
     <script type='text/javascript' src='src/fileobject.js'>
+    </script>
+
+    <!-- Index source file -->
+    <script type='text/javascript' src='index.js'>
     </script>
   </div>
 </html>

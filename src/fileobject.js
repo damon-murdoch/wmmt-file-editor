@@ -192,11 +192,11 @@ function download()
   }
 
   // If a car has been uploaded
-  if (document.file.buffer)
+  if (document.file.data)
   {
     // Get the UINT8 array, convert to blob data and download the file
     downloadBlob(
-      document.file.buffer, // Binary Values
+      document.file.data, // Binary Values
       document.file.filename, // Filename of the uploaded file
       'application/octet-stream' // MIMETYPE for Binary Files
     );
