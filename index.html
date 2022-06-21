@@ -126,36 +126,26 @@
           <table id='t_car' class='table table-dark'>
             <thead class='thead thead-dark'>
               <tr>
-                <th class='text-center' colspan=4>
+                <th class='text-center' colspan=2>
                   Car Settings
                 </th>
-              </tr>
-              <tr>
-                <td class='text-center' colspan=4>
-                  <sub>
-                    <i id='last_played'>
-                    </i>
-                  </sub>
-                </td>
               </tr>
             </thead>
             <tbody class='tbody tbody-dark'>
               <tr>
-                <th class='text-secondary' colspan=4>
+                <th class='text-secondary' colspan=2>
                   General Settings
                 </th>
               </tr>
               <tr>
                 <th>
-                  Rank
+                  Last Played
                 </th>
                 <td>
-                  <select id="rank" onChange="updateElement('rank', value)" disabled>
-                    <option>
-                      Not Available
-                    </option>
-                  </select>
+                  <input class='form-control form-control-sm' type="text" id='last_played' name='last_played' disabled>
                 </td>
+              </tr>
+              <tr>
                 <th>
                   Model
                 </th>
@@ -168,7 +158,19 @@
                 </td>
               </tr>
               <tr>
-                <th class='text-secondary' colspan=4>
+                <th>
+                  Rank
+                </th>
+                <td>
+                  <select id="rank" onChange="updateElement('rank', value)" disabled>
+                    <option>
+                      Not Available
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th class='text-secondary' colspan=2>
                   Colour Settings
                 </th>
               </tr>
@@ -183,6 +185,8 @@
                     </option>
                   </select>
                 </td>
+              </tr>
+              <tr>
                 <th>
                   Custom Colour
                 </th>
@@ -195,7 +199,7 @@
                 </td>
               </tr>
               <tr>
-                <th class='text-secondary' colspan=4>
+                <th class='text-secondary' colspan=2>
                   Rim Settings
                 </th>
               </tr>
@@ -210,6 +214,8 @@
                     </option>
                   </select>
                 </td>
+              </tr>
+              <tr>
                 <th>
                   Rims Colour
                 </th>
@@ -222,13 +228,13 @@
                 </td>
               </tr>
               <tr>
-                <th class='text-secondary' colspan=4>
+                <th class='text-secondary' colspan=2>
                   Aero Settings
                 </th>
               </tr>
               <tr>
                 <th>
-                  Aero Kit
+                  Aero
                 </th>
                 <td>
                   <select id="aero" onChange="updateElement('aero', value)" disabled>
@@ -237,6 +243,8 @@
                     </option>
                   </select>
                 </td>
+              </tr>
+              <tr>
                 <th>
                   Hood
                 </th>
@@ -259,6 +267,8 @@
                     </option>
                   </select>
                 </td>
+              </tr>
+              <tr>
                 <th>
                   Mirror
                 </th>
@@ -281,6 +291,8 @@
                     </option>
                   </select>
                 </td>
+              </tr>
+              <tr>
                 <th>
                   Trunk
                 </th>
@@ -293,7 +305,7 @@
                 </td>
               </tr>
               <tr>
-                <th class='text-secondary' colspan=4>
+                <th class='text-secondary' colspan=2>
                   Sticker Settings
                   <sub>
                     <i>
@@ -313,6 +325,8 @@
                     </option>
                   </select>
                 </td>
+              </tr>
+              <tr>
                 <th>
                   Body Sticker Colour
                 </th>
@@ -335,6 +349,8 @@
                     </option>
                   </select>
                 </td>
+              </tr>
+              <tr>
                 <th>
                   Japan Sticker Colour
                   <sub class='text-secondary'>
@@ -362,6 +378,8 @@
                     </option>
                   </select>
                 </td>
+              </tr>
+              <tr>
                 <th>
                   Side Sticker Colour
                 </th>
@@ -384,6 +402,8 @@
                     </option>
                   </select>
                 </td>
+              </tr>
+              <tr>
                 <th>
                   Roof Sticker Colour
                 </th>
@@ -396,7 +416,7 @@
                 </td>
               </tr>
               <tr>
-                <th class='text-secondary' colspan=4>
+                <th class='text-secondary' colspan=2>
                   License Plate Settings
                 </th>
               </tr>
@@ -411,6 +431,8 @@
                     </option>
                   </select>
                 </td>
+              </tr>
+              <tr>
                 <th>
                   Plate Frame Colour
                 </th>
@@ -429,6 +451,8 @@
                 <td>
                   <input class="form-control form-control-sm" id='plate_number' type="number" value=0 min=0 max=9999 size=4 onChange="updateElement('plate_number', value)" disabled>
                 </td>
+              </tr>
+              <tr>
                 <th>
                   Region
                 </th>
@@ -441,7 +465,7 @@
                 </td>
               </tr>
               <tr>
-                <th class='text-secondary' colspan=4>
+                <th class='text-secondary' colspan=2>
                   Window Sticker / Versus Marker Settings
                   <sub>
                     <i>
@@ -461,6 +485,8 @@
                     </option>
                   </select>
                 </td>
+              </tr>
+              <tr>
                 <th>
                   Window Sticker Font
                 </th>
@@ -483,6 +509,8 @@
                     </option>
                   </select>
                 </td>
+              </tr>
+              <tr>
                 <th>
                   Rival Marker
                 </th>
@@ -495,15 +523,15 @@
                 </td>
               </tr>
               <tr>
-                <th class='text-secondary' colspan=4>
+                <th class='text-secondary' colspan=2>
                   Power/Handling Settings
                 </th>
               </tr>
               <tr>
-                <th>
-                  Simple
-                </th>
-                <td colspan=3>
+                <td colspan=2>
+                  <label class='form-check-label' for='rb-dt'> Current Tune </label>
+                  <input class='form-check-input' type='radio' name='rb-tune' id='rb-dt' onClick='setTune(0)' disabled>
+                  
                   <label class='form-check-label' for='rb-nt'> Stock Tune </label>
                   <input class='form-check-input' type='radio' name='rb-tune' id='rb-nt' onClick='setTune(1)' disabled>
                   
@@ -514,7 +542,7 @@
                   <input class='form-check-input' type='radio' name='rb-tune' id='rb-ft' onClick='setTune(3)' disabled>
                   
                   <label class='form-check-label' for='rb-ct'> Custom Tune </label>
-                  <input class='form-check-input' type='radio' name='rb-tune' id='rb-ct' onClick='setTune(4)' disabled checked>
+                  <input class='form-check-input' type='radio' name='rb-tune' id='rb-ct' onClick='setTune(4)' disabled>
                 </td>
               </tr>
               <tr>
@@ -528,6 +556,8 @@
                     </option>
                   </select>
                 </td>
+              </tr>
+              <tr>
                 <th>
                   Handling
                 </th>

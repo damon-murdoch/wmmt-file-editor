@@ -55,19 +55,29 @@ function showCarMenu()
   populateDropdown('rival_marker');
 
   // Tuning Setting Combo Boxes
+  setDisabled('rb-dt', false);
   setDisabled('rb-nt', false);
   setDisabled('rb-bt', false);
   setDisabled('rb-ft', false);
   setDisabled('rb-ct', false);
 
+  // Get the current power/handling
+  document.current_rank = getValue('rank');
+  document.current_power = getValue('power');
+  document.current_handling = getValue('handling');
+
   // Populate the tune drop-downs
   populateDropdown('power');
   populateDropdown('handling');
 
+  // Use current tune by default
+  setTune(0);
+
   // Get the last time played for the car
   let last_played = new Date(1000 * getValue('last_played'));
 
-  document.getElementById('last_played').innerHTML = "Last Played: " + last_played.toDateString();
+  // Set the last played time element on the form to the last played time
+  document.getElementById('last_played').value = last_played.toDateString();
 
   // Show the car menu
   showMenu('d_car');
@@ -89,6 +99,13 @@ function setTune(value)
   switch(value)
   {
     case 0: // Leave as is
+
+      // Set the car's rank back to previous
+      updateElement('rank', document.current_rank);
+
+      // Both power and handling back to previous
+      updateElement('power', document.current_power);
+      updateElement('handling', document.current_handling);
 
       // Disable the power/handling dropdowns
       setDisabled('power', true);
