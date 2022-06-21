@@ -34,7 +34,7 @@ function handleUpload()
               // First two bytes of the car file identify the game
               switch(game_id)
               {
-                case 16440: // MT5
+                case 1672: // MT5
                   document.game = 'wmmt5';
                   break;
 

@@ -169,8 +169,8 @@ function setTune(value)
         updateElement('rank', 0x08);
 
         // Both power and handling 16 pts 
-        updateElement('power', 0x0B);
-        updateElement('handling', 0x0B);
+        updateElement('power', 0x11);
+        updateElement('handling', 0x11);
       }
       else // Otherwise, game is wmmt5/5dx (830hp)
       {
