@@ -1,5 +1,45 @@
 // Car-Specific stuff goes in here :)
 
+// Configures the plate number input on the menu
+function setupPlateNumber()
+{
+  // Get the license plate number object
+  let plate_number = document.getElementById('plate_number');
+
+  // Get the current license plate number from the file
+  plate_number.value = getValue('plate_number');
+  plate_number.disabled = false;
+}
+
+// Configures the tuning settings on the menu
+function setupTune()
+{
+  // Tuning Setting Combo Boxes
+  setDisabled('rb-dt', false);
+  setDisabled('rb-nt', false);
+  setDisabled('rb-bt', false);
+  setDisabled('rb-ft', false);
+  setDisabled('rb-ct', false);
+
+  // Get the current power/handling
+  document.current_rank = getValue('rank');
+  document.current_power = getValue('power');
+  document.current_handling = getValue('handling');
+
+  // Use current tune by default
+  setTune(0);
+}
+
+// Configures the last played date on the menu
+function setupLastPlayed()
+{
+  // Get the last time played for the car
+  let last_played = new Date(1000 * getValue('last_played'));
+
+  // Set the last played time element on the form to the last played time
+  document.getElementById('last_played').value = last_played.toDateString();
+}
+
 // showCarMenu(void): Void
 // Populates the drop-downs for the
 // car menu and displays the menu.
@@ -38,14 +78,7 @@ function showCarMenu()
   // License Plate 
   populateDropdown('plate_frame');
   populateDropdown('plate_frame_colour');
-  
-  // Get the license plate number object
-  let plate_number = document.getElementById('plate_number');
-
-  // Get the current license plate number from the file
-  plate_number.value = getValue('plate_number');
-  plate_number.disabled = false;
-
+  setupPlateNumber();
   populateDropdown('region');
 
   // Window Sticker / Versus Marker
@@ -54,30 +87,15 @@ function showCarMenu()
   populateDropdown('window_sticker');
   populateDropdown('rival_marker');
 
-  // Tuning Setting Combo Boxes
-  setDisabled('rb-dt', false);
-  setDisabled('rb-nt', false);
-  setDisabled('rb-bt', false);
-  setDisabled('rb-ft', false);
-  setDisabled('rb-ct', false);
-
-  // Get the current power/handling
-  document.current_rank = getValue('rank');
-  document.current_power = getValue('power');
-  document.current_handling = getValue('handling');
+  // Setup tune
+  setupTune();
 
   // Populate the tune drop-downs
   populateDropdown('power');
   populateDropdown('handling');
 
-  // Use current tune by default
-  setTune(0);
-
-  // Get the last time played for the car
-  let last_played = new Date(1000 * getValue('last_played'));
-
-  // Set the last played time element on the form to the last played time
-  document.getElementById('last_played').value = last_played.toDateString();
+  // Last played time
+  setupLastPlayed();
 
   // Show the car menu
   showMenu('d_car');
