@@ -1,3 +1,13 @@
+// resetPage(void): Void
+// Hard reloads the current
+// page and empties all of the
+// input fields.
+function resetPage()
+{
+    // Page hard reload (clear cache)
+    window.location.reload(true);
+}
+
 function uploadFile()
 {
     // Get the file content from the provided element
@@ -83,57 +93,28 @@ function downloadFile()
   download();
 }
 
-function downloadString(id)
+function downloadName()
 {
-  // Get the id of the element provided
-  let element = document.getElementById(id);
-
-  // Get the value of the input element
-  let value = element.value;
-
-  // Generate the binary data for the string file
-  let bytes = getStringByteArray(value);
-
-  console.log(bytes);
-
-  // Call the download function
+  // Call downloadString for the name properties
+  downloadString('custom_name', 'custom.name', 0x10, true);
 }
 
-// String button click tasks
-function createName()
+function downloadTitle()
 {
-  // Hide the menu
-  hideMenu();
-
-  // Show the name menu
-  showMenu('d_name');
+  // call downloadString for the title properties
+  downloadString('custom_title', 'custom.title', 0x10, false)
 }
 
-function createTitle()
+function downloadSticker()
 {
-  // Hide the menu
-  hideMenu();
-  
-  // Show the name menu
-  showMenu('d_title');
+  // Call downloadString for the sticker properties
+  downloadString('custom_sticker', 'custom.sticker', 0x10, true)
 }
 
-function createSticker()
+function downloadRegion()
 {
-  // Hide the menu
-  hideMenu();
-  
-  // Show the name menu
-  showMenu('d_sticker');
-}
-
-function createRegion()
-{
-  // Hide the menu
-  hideMenu();
-  
-  // Show the name menu
-  showMenu('d_region');
+  // Call downloadString for the region properties
+  downloadString('custom_region', 'custom.region', 0x3, false)
 }
 
 // Startup tasks

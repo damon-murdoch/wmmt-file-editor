@@ -33,10 +33,7 @@ function validateInput(id)
   element.value = new_str.join("");
 }
 
-// getStringByteArray(str: String)
-// Given a string object, converts
-// the string to a binary array.
-function getStringByteArray(str)
+function getWideTextString(str)
 {
   // Byte array object
   let array = [];
@@ -48,6 +45,74 @@ function getStringByteArray(str)
     array.push(WIDETEXT_CHARSET[str[i]]);
   }
 
-  // Return the array
-  return array;
+  // Join the array back into a string
+  return array.join("");
+}
+
+function downloadString(id, filename, size, useWideText = false)
+{
+  // Get the id of the element provided
+  let element = document.getElementById(id);
+
+  // Get the value of the input element
+  let string = element.value;
+
+  // If this value should use wide text
+  if (useWideText)
+  {
+    // Generate the binary data for the string file
+    string = getWideTextString(string);
+  }
+
+  // For encoding the wide text string
+  const encoder = new TextEncoder();
+
+  // 16 byte wide uint8array (For all string sizes)
+  let encodedString = new Uint8Array(size);
+
+  // Fill the string with zeros
+  encodedString.fill(0x0); 
+
+  // Add the encoded string to the uint8array
+  encodedString.set(encoder.encode(string)); 
+
+  // Download the encoded string with the given filename
+  download(encodedString, filename);
+}
+
+// String button click tasks
+function createName()
+{
+  // Hide the menu
+  hideMenu();
+
+  // Show the name menu
+  showMenu('d_name');
+}
+
+function createTitle()
+{
+  // Hide the menu
+  hideMenu();
+  
+  // Show the name menu
+  showMenu('d_title');
+}
+
+function createSticker()
+{
+  // Hide the menu
+  hideMenu();
+  
+  // Show the name menu
+  showMenu('d_sticker');
+}
+
+function createRegion()
+{
+  // Hide the menu
+  hideMenu();
+  
+  // Show the name menu
+  showMenu('d_region');
 }

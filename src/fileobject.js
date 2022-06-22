@@ -145,8 +145,22 @@ function upload(file, callback)
 // download(Void): Void
 // If the document.file is 
 // declared, 
-function download()
+function download(data = null, filename = null)
 {
+  // If data is not provided
+  if (data == null)
+  {
+    // Use the document file data
+    data = document.file.data;
+  }
+
+  // Filename is not provided
+  if (filename == null)
+  {
+    // Use the document file filename
+    filename = document.file.filename
+  }
+
   // downloadBlob(data: Uint8array, filename: String, mimetype: String)
   function downloadBlob(data, filename, mimetype) 
   {
@@ -192,17 +206,18 @@ function download()
   }
 
   // If a car has been uploaded
-  if (document.file.data)
+  if (data)
   {
     // Get the UINT8 array, convert to blob data and download the file
     downloadBlob(
-      document.file.data, // Binary Values
-      document.file.filename, // Filename of the uploaded file
+      data, // Binary Values
+      filename, // Filename of the uploaded file
       'application/octet-stream' // MIMETYPE for Binary Files
     );
   }
   else // No car uploaded
   {
     // Do nothing
+    console.log("No data to download: Skipping ...");
   }
 }
