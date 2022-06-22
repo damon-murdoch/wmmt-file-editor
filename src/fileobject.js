@@ -19,13 +19,25 @@ document.file = {
 
 // If the data file is loaded, get the value at the 
 // given offset in the file (default to little endian)
-function getValueAt(offset, littleEndian = true)
+function getValueAt(offset, bytes, littleEndian = true)
 {
   // If the document.data is defined
   if (document.file.data !== null)
   {
-    // Return the uint32 value at the given offset and endianness
-    return document.file.data.getUint32(offset, littleEndian);
+    switch(bytes)
+    {
+      case 1: // 8 bits
+        // Return the uint32 value at the given offset and endianness
+        return document.file.data.getUint8(offset, littleEndian);
+      case 2: // 16 bits
+        // Return the uint32 value at the given offset and endianness
+        return document.file.data.getUint16(offset, littleEndian);
+      case 4: // 32 bits
+        // Return the uint32 value at the given offset and endianness
+        return document.file.data.getUint32(offset, littleEndian);
+      default:
+        throw "InvalidByteCountException";
+    }
   }
   else // Data not defined
   {
@@ -36,18 +48,28 @@ function getValueAt(offset, littleEndian = true)
 
 // If the data file is loaded, set the value at the 
 // given offset in the file (default to little endian)
-function setValueAt(offset, value, littleEndian = true)
+function setValueAt(offset, value, bytes, littleEndian = true)
 {
   // If the document.data is defined
   if (document.file.data !== null)
   {
-    // Set the uint32 value at the given offset and endianness
-    document.file.data.setUint32(offset, value, littleEndian);
-  }
-  else // Data not defined
-  {
-    // Null return
-    return null;
+    switch(bytes)
+    {
+      case 1: // 8 bits
+        // Set the uint32 value at the given offset and endianness
+        document.file.data.setUint8(offset, value, littleEndian);
+        break;
+      case 2: // 16 bits
+        // Set the uint32 value at the given offset and endianness
+        document.file.data.setUint16(offset, value, littleEndian);
+        break;
+      case 4: // 32 bits
+        // Set the uint32 value at the given offset and endianness
+        document.file.data.setUint32(offset, value, littleEndian);
+        break;
+      default:
+        throw "InvalidByteCountException";
+    }
   }
 }
 

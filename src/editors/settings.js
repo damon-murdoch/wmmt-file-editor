@@ -4,13 +4,28 @@
 function showSettingsMenu()
 {
   // Booleans
-  
-  document.getElementById('view').checked = getValue('view');
-  document.getElementById('transmission').checked = getValue('transmission');
-  document.getElementById('retire').checked = getValue('retire');
-  document.getElementById('navi_map').checked = getValue('navi_map');
 
-  // Integers
+  // View Switch (Behind / In Front)
+  const view = document.getElementById('view');
+  view.checked = getValue('view', 1);
+  view.disabled = false;
+
+  // Transmission Switch (Auto/Manual)
+  const transmission = document.getElementById('transmission');
+  transmission.checked = getValue('transmission', 1);
+  transmission.disabled = false;
+
+  // Retire Switch (Off/On)
+  const retire = document.getElementById('retire');
+  retire.checked = getValue('retire', 1);
+  retire.disabled = false;
+
+  // Navi Map (Off/On)
+  const navi_map = document.getElementById('navi_map');
+  navi_map.checked = getValue('navi_map', 1);
+  navi_map.disabled = false;
+
+  // Selects
   
   populateDropdown('meter');
   populateDropdown('volume');

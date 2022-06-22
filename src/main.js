@@ -1,12 +1,12 @@
 // Bulk of the worker functions will go in this file
 
-function setProperty(game, filetype, property, value)
+function setProperty(game, filetype, property, value, bytes)
 {
   // If the index property is defined for the game and filetype
   if (OFFSETS.game[game][filetype].indexes[property] !== null)
   {
     // Set the value at the offset to the given value
-    setValueAt(OFFSETS.game[game][filetype].indexes[property], value);
+    setValueAt(OFFSETS.game[game][filetype].indexes[property], value, bytes);
   }
   else // Property is not defined
   {
@@ -14,13 +14,13 @@ function setProperty(game, filetype, property, value)
   }
 }
 
-function getProperty(game, filetype, property)
+function getProperty(game, filetype, property, bytes)
 {
   // If the index property is defined for the game and filetype
   if (OFFSETS.game[game][filetype].indexes[property] !== null)
   {
     // Return the value at the offset to the given value
-    return getValueAt(OFFSETS.game[game][filetype].indexes[property]);
+    return getValueAt(OFFSETS.game[game][filetype].indexes[property], bytes);
   }
   else // Property is not defined
   {
@@ -107,28 +107,28 @@ function showMenu(menu=null)
   }
 }
 
-function setValue(id, value)
+function setValue(id, value, bytes = 4)
 {
   // Attempt to update the selected property
-  setProperty(document.game, document.file.type, id, value);
+  setProperty(document.game, document.file.type, id, value, bytes);
 }
 
-function getValue(id)
+function getValue(id, bytes = 4)
 {
   // Return the selected property
-  return getProperty(document.game, document.file.type, id);
+  return getProperty(document.game, document.file.type, id, bytes);
 }
 
-function updateElement(id, value)
+function updateElement(id, value, bytes = 4)
 {
   // Get the element from the form
   let elem = document.getElementById(id);
 
   // Update the binary data in the file
-  setValue(id, value);
+  setValue(id, value, bytes);
 
   // Update the element value (if required)
-  elem.value = getValue(id);
+  elem.value = getValue(id, bytes);
 }
 
 // Populates the drop-down with a given set of values
@@ -165,7 +165,7 @@ function populateDropdown(id, property=id)
       }
 
       // Get the current value from the file
-      let value = getValue(id);
+      let value = getValue(id, bytes);
 
       // Set the selected option to the value
       select.value = value;
