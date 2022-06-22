@@ -107,28 +107,28 @@ function showMenu(menu=null)
   }
 }
 
-function setValue(id, value, property=id)
+function setValue(id, value)
 {
   // Attempt to update the selected property
-  setProperty(document.game, document.file.type, property, value);
+  setProperty(document.game, document.file.type, id, value);
 }
 
-function getValue(id, property=id)
+function getValue(id)
 {
   // Return the selected property
-  return getProperty(document.game, document.file.type, property);
+  return getProperty(document.game, document.file.type, id);
 }
 
-function updateElement(id, value, property=id)
+function updateElement(id, value)
 {
   // Get the element from the form
   let elem = document.getElementById(id);
 
   // Update the binary data in the file
-  setValue(id, value, property);
+  setValue(id, value);
 
   // Update the element value (if required)
-  elem.value = getValue(id, property);
+  elem.value = getValue(id);
 }
 
 // Populates the drop-down with a given set of values
@@ -165,7 +165,7 @@ function populateDropdown(id, property=id)
       }
 
       // Get the current value from the file
-      let value = getValue(id, property);
+      let value = getValue(id);
 
       // Set the selected option to the value
       select.value = value;

@@ -1,4 +1,14 @@
-function handleUpload()
+// resetPage(void): Void
+// Hard reloads the current
+// page and empties all of the
+// input fields.
+function resetPage()
+{
+    // Page hard reload (clear cache)
+    window.location.reload(true);
+}
+
+function uploadFile()
 {
     // Get the file content from the provided element
     let file = document.getElementById('i_file').files[0];
@@ -53,20 +63,51 @@ function handleUpload()
                   throw ("Unknown game: " + game_id)
               }
 
-              // Set the value of the game drop-down to the selected game
-              document.getElementById('game').value = document.game;
-
-              // Load the drop-downs / values and show the car menu
+              // Show the car menu
               showCarMenu();
 
               break;
+            
+            // Mileage file
+            case 'miles': 
+
+              // No specific game for miles
+              document.game = 'any';
+
+              // Show the miles menu
+              showMilesMenu();
               
+              break;
+
+            // Custom GT Wing file
+            case 'gtwing': 
+              // No specific game for gt wing
+              document.game = 'any';
+
+              // Show the GT wing menu
+              showGTWingMenu();
+
+              break;
+            
+            case 'ministicker': {
+               // No specific game for mini sticker
+              document.game = 'any';
+
+              // Show the GT wing menu
+              showMiniStickerMenu();
+
+              break;
+            }
+
             default: // Not implemented yet
               throw ("Not implemented: " + document.file.type);
           }
         }
       });
-  
+
+      // No specific game (all files are the same format)
+      document.getElementById('game').value = document.game;
+
       // Success
       return true;
     }
@@ -77,10 +118,34 @@ function handleUpload()
     }
 }
 
-function handleDownload()
+function downloadFile()
 {
   // Call the download function
   download();
+}
+
+function downloadName()
+{
+  // Call downloadString for the name properties
+  downloadString('custom_name', 'custom.name', 0x10, true);
+}
+
+function downloadTitle()
+{
+  // call downloadString for the title properties
+  downloadString('custom_title', 'custom.title', 0x10, false)
+}
+
+function downloadSticker()
+{
+  // Call downloadString for the sticker properties
+  downloadString('custom_sticker', 'custom.sticker', 0x10, true)
+}
+
+function downloadRegion()
+{
+  // Call downloadString for the region properties
+  downloadString('custom_region', 'custom.region', 0x3, false)
 }
 
 // Startup tasks
