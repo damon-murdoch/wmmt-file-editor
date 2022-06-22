@@ -17,7 +17,7 @@
 
 // Table of games
 
-GAMES = {
+const GAMES = {
   any: "Multiple Games", 
   wmmt5: "Maximum Tune 5",
   wmmt5dx: "Maximum Tune 5DX/DX+",
@@ -26,7 +26,7 @@ GAMES = {
 
 // Table of hex offsets
 
-OFFSETS = {
+const OFFSETS = {
   game: {
     wmmt5: {
       name: "MT5",
@@ -2397,47 +2397,47 @@ OFFSETS = {
       }, 
       ministicker: {
         indexes: {
-          "sticker_1": [0x0, 0x8],
-          "sticker_1_colour": [0x0, 0xC],
+          "mini_sticker_1": 0x08,
+          "mini_sticker_1_colour": 0x0C,
       
           // Sticker 2
-          "sticker_2": [0x1, 0x8],
-          "sticker_2_colour": [0x1, 0xC],
+          "mini_sticker_2": 0x18,
+          "mini_sticker_2_colour": 0x1C,
       
           // Sticker 3
-          "sticker_3": [0x2, 0x8],
-          "sticker_3_colour": [0x2, 0xC],
+          "mini_sticker_3": 0x28,
+          "mini_sticker_3_colour": 0x2C,
       
           // Sticker 4
-          "sticker_4": [0x3, 0x8],
-          "sticker_4_colour": [0x3, 0xC],
+          "mini_sticker_4": 0x38,
+          "mini_sticker_4_colour": 0x3C,
       
           // Sticker 5
-          "sticker_5": [0x4, 0x8],
-          "sticker_5_colour": [0x4, 0xC],
+          "mini_sticker_5": 0x48,
+          "mini_sticker_5_colour": 0x4C,
       
           // Sticker 6
-          "sticker_6": [0x5, 0x8],
-          "sticker_6_colour": [0x5, 0xC],
+          "mini_sticker_6": 0x58,
+          "mini_sticker_6_colour": 0x5C,
       
           // Sticker 7
-          "sticker_7": [0x7, 0x8],
-          "sticker_7_colour": [0x7, 0xC],
+          "mini_sticker_7": 0x68,
+          "mini_sticker_7_colour": 0x6C,
       
           // Sticker 8
-          "sticker_8": [0x8, 0x8],
-          "sticker_8_colour": [0x8, 0xC],
+          "mini_sticker_8": 0x78,
+          "mini_sticker_8_colour": 0x7C,
       
           // Sticker 9
-          "sticker_9": [0x9, 0x8],
-          "sticker_9_colour": [0x9, 0xC],
+          "mini_sticker_9": 0x88,
+          "mini_sticker_9_colour": 0x8C,
       
           // Sticker 10
-          "sticker_10": [0x6, 0x8],
-          "sticker_10_colour": [0x6, 0xC],
+          "mini_sticker_10": 0x98,
+          "mini_sticker_10_colour": 0x9C,
         },
         values: {
-          "sticker": [
+          "mini_sticker": [
             [0x00, "Default (None)"],
             [0x01, "R"],
             [0x02, "V"],
@@ -2519,7 +2519,7 @@ OFFSETS = {
             [0x4E, "Bear"],
             [0x4F, "Mushroom"],
           ],
-          "sticker_colour": [
+          "mini_sticker_colour": [
             [0x00, "Red"],
             [0x01, "Orange"],
             [0x02, "Yellow"],
@@ -2537,39 +2537,8 @@ OFFSETS = {
   }
 }
 
-// Table of string values
-
-STRINGS = {
-  game: {
-    wmmt5: {
-
-    },
-    wmmt5dx: {
-      name: {
-        bit_width: 0x10, 
-        widetext: true,
-      },
-      title: {
-        bit_width: 0x10, 
-        widetext: false
-      }, 
-      sticker: {
-        bit_width: 0x10, 
-        widetext: true
-      }, 
-      region: {
-        bit_width: 0x3, 
-        widetext: false
-      }
-    },
-    wmmt6: {
-
-    }
-  }
-}
-
 // ASCII to UTF-8 Conversion Table
-WIDETEXT_CHARSET = {
+const WIDETEXT_CHARSET = {
   '!': '！', '"': '＂', '#': '＃', '$': '＄', 
   '%': '％', '&': '＆', "'": '＇', '(': '（', 
   ':': '：', ')': '）', '*': '＊', '+': '＋', 
@@ -2597,4 +2566,4 @@ WIDETEXT_CHARSET = {
 }
 
 // List of allowed characters (half-width and wide text)
-ALLOWED_CHARSET = Object.keys(WIDETEXT_CHARSET);
+const ALLOWED_CHARSET = Object.keys(WIDETEXT_CHARSET);

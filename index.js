@@ -63,10 +63,7 @@ function uploadFile()
                   throw ("Unknown game: " + game_id)
               }
 
-              // Set the value of the game drop-down to the selected game
-              document.getElementById('game').value = document.game;
-
-              // Load the drop-downs / values and show the car menu
+              // Show the car menu
               showCarMenu();
 
               break;
@@ -77,19 +74,40 @@ function uploadFile()
               // No specific game for miles
               document.game = 'any';
 
-              // No specific game (all files are the same format)
-              document.getElementById('game').value = document.game;
-
+              // Show the miles menu
               showMilesMenu();
               
               break;
+
+            // Custom GT Wing file
+            case 'gtwing': 
+              // No specific game for gt wing
+              document.game = 'any';
+
+              // Show the GT wing menu
+              showGTWingMenu();
+
+              break;
+            
+            case 'ministicker': {
+               // No specific game for mini sticker
+              document.game = 'any';
+
+              // Show the GT wing menu
+              showMiniStickerMenu();
+
+              break;
+            }
 
             default: // Not implemented yet
               throw ("Not implemented: " + document.file.type);
           }
         }
       });
-  
+
+      // No specific game (all files are the same format)
+      document.getElementById('game').value = document.game;
+
       // Success
       return true;
     }
