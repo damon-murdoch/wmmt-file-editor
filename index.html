@@ -1006,7 +1006,7 @@
                   Total Miles
                 </th>
                 <td>
-                  <input class='form-control form-control-sm' type="number" id="s_miles" name="s_miles" value=0 min="0" max="4294967295">
+                  <input class='form-control form-control-sm' type="number" id="miles" name="miles" value=0 min="0" max="4294967295" onChange="setValue(id, value)">
                 </td>
               </tr>
               <tr>
@@ -1014,7 +1014,7 @@
                   Games Played
                 </th>
                 <td>
-                  <input class='form-control form-control-sm' type="number" id="s_games_played" name="s_games_played" value=0 min="0" max="4294967295">
+                  <input class='form-control form-control-sm' type="number" id="games" name="games" value=0 min="0" max="4294967295" onChange="setValue(id, value)">
                 </td>
               </tr>
             </tbody>
@@ -1468,9 +1468,13 @@
     <script type='text/javascript' src='src/editors/car.js'>
     </script>
 
-        <!-- String Input source file -->
-        <script type='text/javascript' src='src/editors/strings.js'>
-        </script>
+    <!-- Mileage Specific source file -->
+    <script type='text/javascript' src='src/editors/miles.js'>
+    </script>
+
+    <!-- String Input source file -->
+    <script type='text/javascript' src='src/editors/strings.js'>
+    </script>
 
     <!-- File Object source file -->
     <script type='text/javascript' src='src/fileobject.js'>

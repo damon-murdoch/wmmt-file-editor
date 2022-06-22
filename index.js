@@ -70,7 +70,20 @@ function uploadFile()
               showCarMenu();
 
               break;
+            
+            // Mileage file
+            case 'miles': 
+
+              // No specific game for miles
+              document.game = 'any';
+
+              // No specific game (all files are the same format)
+              document.getElementById('game').value = document.game;
+
+              showMilesMenu();
               
+              break;
+
             default: // Not implemented yet
               throw ("Not implemented: " + document.file.type);
           }
