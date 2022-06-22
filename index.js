@@ -52,11 +52,9 @@ function uploadFile()
               // Otherwise, error is thrown
               break;
             
+            /*
             // Story file
             case 'story': 
-
-              // Comment this out when story is done :)
-              throw "Story editor not implemented yet";
 
               // Set the game to the car's game (First two bytes used as identifier)
               document.game = getStoryGame(document.file.data.getUint16(0x0, true));
@@ -69,6 +67,22 @@ function uploadFile()
               }
 
               // Otherwise, error is thrown
+              break;
+            */
+
+            // Settings file
+            case 'settings':
+
+              // Set the game to the settings's game (First two bytes used as identifier)
+              document.game = getSettingsGame(document.file.data.getUint16(0x0, true));
+
+              // If the file is the correct size
+              if (verifySize(document.file.size, document.game, document.file.type))
+              {
+                // Show the settings menu
+                showSettingsMenu();
+              }
+
               break;
 
             // Mileage file

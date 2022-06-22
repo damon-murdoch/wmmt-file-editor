@@ -7,6 +7,7 @@
       Maximum Tune File Editor
     </title>
     
+    <!--
     <style>
       th {
         text-indent: 50px;
@@ -18,6 +19,7 @@
         margin-left:50px;
       }
     </style>
+    -->
 
     <!-- Bootstrap Stylesheet -->
     <link rel='stylesheet' href='redist/bootstrap.min.css'>
@@ -855,25 +857,25 @@
                   <label for="view">
                     View (Front/Behind)
                   </label>
-                  <input type="checkbox" name="view" id="view" disabled>
+                  <input type="checkbox" name="view" id="view" onChange='updateElement(id, checked)' disabled>
                 </td>
                 <td>
                   <label for="view">
                     Transmission (Auto/Manual)
                   </label>
-                  <input type="checkbox" name="transmission" id="transmission" disabled>
+                  <input type="checkbox" name="transmission" id="transmission" onChange='updateElement(id, checked)' disabled>
                 </td>
                 <td>
-                  <label for="view">
+                  <label for="retire">
                     Retire (Off/On)
                   </label>
-                  <input type="checkbox" name="view" id="view" disabled>
+                  <input type="checkbox" name="retire" id="retire" onChange='updateElement(id, checked)' disabled>
                 </td>
                 <td>
-                  <label for="view">
+                  <label for="navi_map">
                     Navi Map (Off/On)
                   </label>
-                  <input type="checkbox" name="transmission" id="transmission" disabled>
+                  <input type="checkbox" name="navi_map" id="navi_map" onChange='updateElement(id, checked)' disabled>
                 </td>
               </tr>
               <tr>
@@ -884,7 +886,7 @@
                   Meter
                 </th>
                 <td>
-                  <select name='meter' id='meter' onChange='' disabled>
+                  <select name='meter' id='meter' onChange='updateElement(id, value)' disabled>
                     <option id='o_meter_default'>
                       Not Available
                     </option>
@@ -894,7 +896,7 @@
                   Soundtrack
                 </th>
                 <td>
-                  <select name='ost' id='ost' onChange='' disabled>
+                  <select name='ost' id='ost' onChange='updateElement(id, value)' disabled>
                     <option id='o_ost_default'>
                       Not Available
                     </option>
@@ -909,7 +911,7 @@
                   Type
                 </th>
                 <td>
-                  <select name='nameplate' id='nameplate' onChange='' disabled>
+                  <select name='nameplate' id='nameplate' onChange='updateElement(id, value)' disabled>
                     <option id='o_nameplate_default'>
                       Not Available
                     </option>
@@ -919,7 +921,7 @@
                   Colour
                 </th>
                 <td>
-                  <select name='nameplate_colour' id='nameplate_colour' onChange='' disabled>
+                  <select name='nameplate_colour' id='nameplate_colour' onChange='updateElement(id, value)' disabled>
                     <option id='o_nameplate_colour_default'>
                       Not Available
                     </option>
@@ -934,7 +936,7 @@
                   Type
                 </th>
                 <td>
-                  <select name='frame' id='frame' onChange='' disabled>
+                  <select name='frame' id='frame' onChange='updateElement(id, value)' disabled>
                     <option id='o_frame_default'>
                       Not Available
                     </option>
@@ -944,7 +946,7 @@
                   Colour
                 </th>
                 <td>
-                  <select name='frame_colour' id='frame_colour' onChange='' disabled>
+                  <select name='frame_colour' id='frame_colour' onChange='updateElement(id, value)' disabled>
                     <option id='o_frame_colour_default'>
                       Not Available
                     </option>
@@ -959,7 +961,7 @@
                   Volume
                 </th>
                 <td>
-                  <select name='volume' id='volume' onChange='' disabled>
+                  <select name='volume' id='volume' onChange='updateElement(id, value)' disabled>
                     <option id='o_volume_default'>
                       Not Available
                     </option>
@@ -967,10 +969,9 @@
                 </td>
                 <th>
                   Terminal Background
-  
                 </th>
                 <td>
-                  <select name='terminal_background' id='terminal_background' onChange='' disabled>
+                  <select name='terminal_bg' id='terminal_bg' onChange='updateElement(id, value)' disabled>
                     <option id='o_terminal_background_default'>
                       Not Available
                     </option>
