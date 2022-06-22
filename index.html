@@ -59,13 +59,6 @@
       -->
       <div id='d_upload'>
         <table class='table table-dark' id='t_upload'>
-          <thead class='thead thead-dark'>
-            <tr>
-              <th colspan=5>
-                Option
-              </th>
-            </tr>
-          </thead>
           <tbody>
             <tr>
               <th>
@@ -541,7 +534,7 @@
               <tr>
                 <td colspan=2>
                   <label class='form-check-label' for='rb-dt'> Current Tune </label>
-                  <input class='form-check-input' type='radio' name='rb-tune' id='rb-dt' onClick='setTune(0)' checked disabled>
+                  <input class='form-check-input' type='radio' name='rb-tune' id='rb-dt' onClick='setTune(0)' disabled>
                   
                   <label class='form-check-label' for='rb-nt'> Stock Tune </label>
                   <input class='form-check-input' type='radio' name='rb-tune' id='rb-nt' onClick='setTune(1)' disabled>
@@ -553,7 +546,7 @@
                   <input class='form-check-input' type='radio' name='rb-tune' id='rb-ft' onClick='setTune(3)' disabled>
                   
                   <label class='form-check-label' for='rb-ct'> Custom Tune </label>
-                  <input class='form-check-input' type='radio' name='rb-tune' id='rb-ct' onClick='setTune(4)' disabled>
+                  <input class='form-check-input' type='radio' name='rb-tune' id='rb-ct' onClick='setTune(4)' disabled checked>
                 </td>
               </tr>
               <tr>
@@ -628,13 +621,13 @@
                   Total Wins
                 </th>
                 <td>
-                  <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-wins" value="0" onChange='updateTotalWins(value)'>
+                  <input name="total_wins" id="total_wins" type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-wins" value="0" onChange='updateElement(id, value)'>
                 </td>
                 <th>
                   Win Streak
                 </th>
                 <td>
-                  <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-streak" value="0" onChange='updateStreak(value)'>
+                  <input name="win_streak" id="win_streak" type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-streak" value="0" onChange='updateElement(id, value)'>
                 </td>
                 <td>
                   <!-- Padding -->
@@ -645,13 +638,13 @@
                   Total Loops
                 </th>
                 <td>
-                  <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-loops" value="0" onChange='updateLoops(value)'>
+                  <input name="total_loops" id="total_loops" type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-loops" value="0" onChange='updateElement(id, value)'>
                 </td>
                 <th>
                   Completed Loops
                 </th>
                 <td>
-                  <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-loopno" value="0" disabled>
+                  <!-- <input type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-loopno" value="0" disabled>-->
                 </td>
                 <td>
                   <!-- Padding -->
@@ -1468,12 +1461,24 @@
     <script type='text/javascript' src='src/editors/car.js'>
     </script>
 
+    <!-- Story Editor source file -->
+    <script type='text/javascript' src='src/editors/story.js'>
+    </script>
+    
+    <!-- Versus Editor source file -->
+    <script type='text/javascript' src='src/editors/versus.js'>
+    </script>
+
+    <!-- Settings Editor source file -->
+    <script type='text/javascript' src='src/editors/settings.js'>
+    </script>
+
     <!-- Other / Simple Editor source file -->
     <script type='text/javascript' src='src/editors/other.js'>
     </script>
 
     <!-- String Input source file -->
-    <script type='text/javascript' src='src/editors/strings.js'>
+    <script type='text/javascript' src='src/editors/string.js'>
     </script>
 
     <!-- File Object source file -->

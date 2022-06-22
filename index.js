@@ -10,15 +10,18 @@ function resetPage()
 
 function uploadFile()
 {
-    // Get the file content from the provided element
-    let file = document.getElementById('i_file').files[0];
 
-    // If a file has been uploaded
-    if (file !== undefined)
-    {
-      // Get the file contents
-      upload(file, function(err){
+  // Get the file content from the provided element
+  let file = document.getElementById('i_file').files[0];
 
+  // If a file has been uploaded
+  if (file !== undefined)
+  {
+    // Get the file contents
+    upload(file, function(err){
+
+      try
+      {
         // If error occured
         if (err)
         {
@@ -36,65 +39,82 @@ function uploadFile()
             // Car file
             case 'car':
 
-              // Populate all of the menus
+              // Set the game to the car's game (First two bytes used as identifier)
+              document.game = getCarGame(document.file.data.getUint16(0x0, true));
 
-              // Identify the game
-              game_id = document.file.data.getUint16(0x0, true)
-
-              // First two bytes of the car file identify the game
-              switch(game_id)
+              // If the file is the correct size
+              if (verifySize(document.file.size, document.game, document.file.type))
               {
-                case 1672: // MT5
-                  document.game = 'wmmt5';
-                  break;
-
-                case 34280: // MT5DX+
-                  document.game = 'wmmt5dx';
-                  break;
-
-                case 16376: // MT6
-                  document.game = 'wmmt6';
-                  break;
-
-                case 27048: // MT6R
-                  document.game = 'wmmt6'; // Same car format
-                  break;
-                default: 
-                  throw ("Unknown game: " + game_id)
+                // Show the car menu
+                showCarMenu();
               }
 
-              // Show the car menu
-              showCarMenu();
-
+              // Otherwise, error is thrown
               break;
             
+            // Story file
+            case 'story': 
+
+              // Comment this out when story is done :)
+              throw "Story editor not implemented yet";
+
+              // Set the game to the car's game (First two bytes used as identifier)
+              document.game = getStoryGame(document.file.data.getUint16(0x0, true));
+
+              // If the file is the correct size
+              if (verifySize(document.file.size, document.game, document.file.type))
+              {
+                // Show the car menu
+                showStoryMenu();
+              }
+
+              // Otherwise, error is thrown
+              break;
+
             // Mileage file
             case 'miles': 
 
               // No specific game for miles
               document.game = 'any';
 
-              // Show the miles menu
-              showMilesMenu();
+              // If the file is 
+              // the correct size
+              if (verifySize(document.file.size, document.game, document.file.type))
+              {
+                // Show the miles menu
+                showMilesMenu();
+              }
               
               break;
 
             // Custom GT Wing file
             case 'gtwing': 
+              
               // No specific game for gt wing
               document.game = 'any';
 
-              // Show the GT wing menu
-              showGTWingMenu();
+              // If the file is 
+              // the correct size
+              if (verifySize(document.file.size, document.game, document.file.type))
+              {
+                // Show the miles menu
+                showGTWingMenu();
+              }
 
               break;
             
             case 'ministicker': {
-               // No specific game for mini sticker
+
+              // No specific game for mini sticker
               document.game = 'any';
 
-              // Show the GT wing menu
-              showMiniStickerMenu();
+              // If the file is 
+              // the correct size
+              if (verifySize(document.file.size, document.game, document.file.type))
+              {
+                // Show the miles menu
+                showMiniStickerMenu();
+              }
 
               break;
             }
@@ -102,20 +122,26 @@ function uploadFile()
             default: // Not implemented yet
               throw ("Not implemented: " + document.file.type);
           }
+
+          // No specific game (all files are the same format)
+          document.getElementById('game').value = document.game;
         }
-      });
+      }
+      catch(e) // General error catch
+      {
+        // Warn user of error 
+        window.alert(e);
+      }
+    });
 
-      // No specific game (all files are the same format)
-      document.getElementById('game').value = document.game;
-
-      // Success
-      return true;
-    }
-    else // No file uploaded
-    {
-      // Failure
-      return false;
-    }
+    // Success
+    return true;
+  }
+  else // No file uploaded
+  {
+    // Failure
+    return false;
+  }
 }
 
 function downloadFile()

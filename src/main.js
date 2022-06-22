@@ -206,3 +206,20 @@ function resetDropdown(id)
   // Aselect the message to the select
   select.appendChild(option);
 }
+
+function verifySize(size, game, filetype)
+{
+  // Get the expected size of the file
+  let expected_size = OFFSETS.game[game][filetype].size;
+
+  // If the uploaded file's size does not match the expected file size
+  if (size !== expected_size)
+  {
+    throw ("Unexpected file size '" + document.file.size + "' (Expected: '" + expected_size + "')");
+  }
+  else // Return true
+  {
+    // Success status
+    return true;
+  }
+}

@@ -128,6 +128,9 @@ function upload(file, callback)
         }
       }
 
+      // Set the file size to the byte length of the file
+      document.file.size = document.file.data.byteLength;
+
       // Run the callback function
       callback(null);
     }

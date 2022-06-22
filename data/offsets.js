@@ -614,15 +614,28 @@ const OFFSETS = {
             [0x37, "SSS1"], 
             [0x38, "SSSS"], 
           ],
-        }
+        },
+        size: 0xE0
       },
       story: {
         indexes: {
+          /*
+          'play_count': 0x118,
+          'tuning_point': 0x11C, 
 
+          'clear_bits': 0x120, 
+          'clear_div_count': 0x124, 
+          'clear_count': 0x12C, 
+
+          'lose_bits': 0x130, 
+          'lose': 0x134,
+          'consecutive_wins': 0x138
+          */
         }, 
         values: {
 
-        }
+        },
+        size: 0x0
       },
       versus: {
         indexes: {
@@ -630,7 +643,8 @@ const OFFSETS = {
         }, 
         values: {
 
-        }
+        },
+        size: 0x0
       },
       settings: {
         indexes: {
@@ -638,7 +652,8 @@ const OFFSETS = {
         }, 
         values: {
 
-        }
+        },
+        size: 0x0
       },
     }, 
     wmmt5dx: {
@@ -1497,22 +1512,28 @@ const OFFSETS = {
           'last_played': [
             // time_t value
           ]
-        }
+        }, 
+        size: 0xFF
       }, 
       story: {
         indexes: {
-          // Total Wins
-          'wins': 0x118, 
+          /*
+          'play_count': 0xE4,
+          'tuning_point': 0xE8, 
+          'clear_bits': 0xEC, 
 
-          // Win Streak
-          'win_streak': 0x138, 
+          'clear_div_count': 0xF0, 
+          'clear_count': 0xF4, 
+          'lose_bits': 0xF8, 
+          'lose': 0xFC,
 
-          // Current Beaten Stories
-          'current_chapters': 0x14C,
+          'consecutive_wins': 0x104
+          */
         },
         values: {
 
-        }
+        },
+        size: 0x2000
       },
       versus: {
         indexes: {
@@ -1520,7 +1541,8 @@ const OFFSETS = {
         },
         values: {
           
-        }
+        }, 
+        size: 0x100
       }, 
       settings: {
         indexes: {
@@ -1618,9 +1640,9 @@ const OFFSETS = {
           "terminal_bg": [
             // lol
           ]
-        }
+        }, 
+        size: 0x40
       },
-
     }, 
     wmmt6: {
       name: "MT6/6R",
@@ -2279,31 +2301,48 @@ const OFFSETS = {
           ],
           // 'rival_marker': []
           'last_played': []
-        }
+        }, 
+        size: 0xE0
       },
       story: {
         indexes: {
+          /*
+          'play_count': 0xE8,
+          'tuning_point': 0xF0, 
+          'clear_bits': 0xEC, 
 
+          'clear_div_count': 0xF0, 
+          'clear_count': 0xF4, 
+          'lose_bits': 0xF8, 
+          'lose': 0xFC,
+
+          'consecutive_wins': 0x104
+          */
         }, 
         values: {
 
-        }
+        },
+        size: 0x2000
       },
+      /*
       versus: {
         indexes: {
 
         }, 
         values: {
 
-        }
+        }, 
+        size: 
       },
+      */
       settings: {
         indexes: {
 
         }, 
         values: {
 
-        }
+        }, 
+        size: 0x38
       },
     }, 
     any: {
@@ -2315,7 +2354,8 @@ const OFFSETS = {
         },
         values: {
           
-        }
+        }, 
+        size: 0x08
       }, 
       gtwing: {
         indexes: {
@@ -2393,7 +2433,8 @@ const OFFSETS = {
             [0x00, "Glossy"],
             [0x01, "Matte"],
           ],
-        }
+        }, 
+        size: 0x30
       }, 
       ministicker: {
         indexes: {
@@ -2531,7 +2572,8 @@ const OFFSETS = {
             [0x08, "Silver"],
             [0x09, "White"],
           ],
-        }
+        }, 
+        size: 0x108
       }
     }
   }

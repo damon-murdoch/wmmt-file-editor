@@ -200,3 +200,24 @@ function setTune(value)
       break;
   }
 }
+
+// Given the first two bytes of
+// a car file, identify the game
+// the car file is from.
+function getCarGame(game_id)
+{
+  // First two bytes of the car file identify the game
+  switch(game_id)
+  {
+    case 1672: // MT5
+      return 'wmmt5';
+    case 34280: // MT5DX+
+      return 'wmmt5dx';
+    case 16376: // MT6
+      return 'wmmt6';
+    case 27048: // MT6R
+      return 'wmmt6'; // Same car format
+    default: 
+      throw ("Unknown game: " + game_id)
+  }
+}
