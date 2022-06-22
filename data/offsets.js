@@ -2546,8 +2546,8 @@ STRINGS = {
     wmmt5dx: {
       name: {
         bit_width: 0x10, 
-        widetext: true
-      }, 
+        widetext: true,
+      },
       title: {
         bit_width: 0x10, 
         widetext: false
@@ -2566,3 +2566,62 @@ STRINGS = {
     }
   }
 }
+
+// ASCII to UTF-8 Conversion Table
+WIDETEXT_HEXCODES = {
+  '!': 0xEFBC81, '"': 0xEFBC82, '#': 0xEFBC83, '$': 0xEFBC84, 
+  '%': 0xEFBC85, '&': 0xEFBC86, "'": 0xEFBC87, '(': 0xEFBC88, 
+  ':': 0xEFBC89, ')': 0xEFBC8A, '*': 0xEFBC8B, '+': 0xEFBC8C, 
+  '-': 0xEFBC8D, '.': 0xEFBC8E, '/': 0xEFBC8F, '0': 0xEFBC90, 
+  '1': 0xEFBC91, '2': 0xEFBC92, '3': 0xEFBC93, '4': 0xEFBC94, 
+  '5': 0xEFBC95, '6': 0xEFBC96, '7': 0xEFBC97, '8': 0xEFBC98, 
+  '9': 0xEFBC99, ':': 0xEFBC9A, ';': 0xEFBC9B, '<': 0xEFBC9C, 
+  '=': 0xEFBC9D, '>': 0xEFBC9E, '?': 0xEFBC9F, '@': 0xEFBCA0, 
+  'A': 0xEFBCA1, 'B': 0xEFBCA2, 'C': 0xEFBCA3, 'D': 0xEFBCA4, 
+  'E': 0xEFBCA5, 'F': 0xEFBCA6, 'G': 0xEFBCA7, 'H': 0xEFBCA8, 
+  'I': 0xEFBCA9, 'J': 0xEFBCAA, 'K': 0xEFBCAB, 'L': 0xEFBCAC, 
+  'M': 0xEFBCAD, 'N': 0xEFBCAE, 'O': 0xEFBCAF, 'P': 0xEFBCB0, 
+  'Q': 0xEFBCB1, 'R': 0xEFBCB2, 'S': 0xEFBCB3, 'T': 0xEFBCB4, 
+  'U': 0xEFBCB5, 'V': 0xEFBCB6, 'W': 0xEFBCB7, 'X': 0xEFBCB8, 
+  'Y': 0xEFBCB9, 'Z': 0xEFBCBA, '[': 0xEFBCBB, '\\': 0xEFBCBC, 
+  ']': 0xEFBCBD, '^': 0xEFBCBE, '_': 0xEFBCBF, '`': 0xEFBD80, 
+  'a': 0xEFBD81, 'b': 0xEFBD82, 'c': 0xEFBD83, 'd': 0xEFBD84, 
+  'e': 0xEFBD85, 'f': 0xEFBD86, 'g': 0xEFBD87, 'h': 0xEFBD88, 
+  'i': 0xEFBD89, 'j': 0xEFBD8A, 'k': 0xEFBD8B, 'l': 0xEFBD8C, 
+  'm': 0xEFBD8D, 'n': 0xEFBD8E, 'o': 0xEFBD8F, 'p': 0xEFBD90, 
+  'q': 0xEFBD91, 'r': 0xEFBD92, 's': 0xEFBD93, 't': 0xEFBD94, 
+  'u': 0xEFBD95, 'v': 0xEFBD96, 'w': 0xEFBD97, 'x': 0xEFBD98, 
+  'y': 0xEFBD99, 'z': 0xEFBD9A, '{': 0xEFBD9B, '|': 0xEFBD9C, 
+  '}': 0xEFBD9D, '~': 0xEFBD9E, 
+}
+
+// ASCII to UTF-8 Conversion Table
+WIDETEXT_CHARSET = {
+  '!': '！', '"': '＂', '#': '＃', '$': '＄', 
+  '%': '％', '&': '＆', "'": '＇', '(': '（', 
+  ':': '：', ')': '）', '*': '＊', '+': '＋', 
+  '-': '－', '.': '．', '/': '／', '0': '０', 
+  '1': '１', '2': '２', '3': '３', '4': '４', 
+  '5': '５', '6': '６', '7': '７', '8': '８', 
+  '9': '９', ':': '：', ';': '．', '<': '', 
+  '=': '＝', '>': '', '?': '？', '@': '＠', 
+  'A': 'Ａ', 'B': 'Ｂ', 'C': 'Ｃ', 'D': 'Ｄ', 
+  'E': 'Ｅ', 'F': 'Ｆ', 'G': 'Ｇ', 'H': 'Ｈ', 
+  'I': 'Ｉ', 'J': 'Ｊ', 'K': 'Ｋ', 'L': 'Ｌ', 
+  'M': 'Ｍ', 'N': 'Ｎ', 'O': 'Ｏ', 'P': 'Ｐ', 
+  'Q': 'Ｑ', 'R': 'Ｒ', 'S': 'Ｓ', 'T': 'Ｔ', 
+  'U': 'Ｕ', 'V': 'Ｖ', 'W': 'Ｗ', 'X': 'Ｘ', 
+  'Y': 'Ｙ', 'Z': 'Ｚ', '[': '', '\\': '', 
+  ']': '', '^': '', '_': '', '`': '', 
+  'a': '', 'b': '', 'c': '', 'd': '', 
+  'e': '', 'f': '', 'g': '', 'h': '', 
+  'i': '', 'j': '', 'k': '', 'l': '', 
+  'm': '', 'n': '', 'o': '', 'p': '', 
+  'q': '', 'r': '', 's': '', 't': '', 
+  'u': '', 'v': '', 'w': '', 'x': '', 
+  'y': '', 'z': '', '{': '', '|': '', 
+  '}': '', '~': '', 
+}
+
+// List of allowed characters (half-width and wide text)
+ALLOWED_CHARSET = Object.keys(WIDETEXT_CHARSET);

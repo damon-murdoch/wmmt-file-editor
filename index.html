@@ -72,10 +72,10 @@
                 Select File
               </th>
               <td colspan=2>
-                <input name="file" type="file" accept=".sav,.car,.gtwing,.ministicker" id="i_file" onChange='handleUpload()'/>
+                <input name="file" type="file" accept=".sav,.car,.gtwing,.ministicker" id="i_file" onChange='uploadFile()'/>
               </td>
               <td>
-                <a href='#' onClick='handleDownload()'>
+                <a href='#' onClick='downloadFile()'>
                   Download
                 </a>
               </td>
@@ -105,7 +105,7 @@
                 </a>
               </td>
               <td>
-                <a href='#' onClick='createTitle()'>
+                <a href='#' onClick='createRegion()'>
                   Custom Region
                 </a>
               </td>
@@ -1329,11 +1329,31 @@
           Custom Name 
         -->
         <div id='d_name'>
-          <h1 class="text-center">
-            <i>
-              Not supported yet. Coming soon!
-            </i>
-          </h1>
+          <table class='table table-dark' id='t_ministicker'>
+            <thead class='thead thead-dark'>
+              <tr>
+                <td class='text-center' colspan=3>
+                  <b>
+                    Custom Name Settings
+                  </b>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>
+                  Custom Name
+                </th>
+                <td>
+                   <input class='form-control form-control-sm' id="custom_name" name="custom_name" type='text' minlength="0" maxlength="5" placeholder="GUEST" oninput="validateInput(id)">
+                </td>
+                <td>
+                  <a class='btn btn-success btn-sm' href='#' onClick="downloadString('custom_name')">
+                    Download
+                  </a>
+                </td>
+              </tr>
+            </tbody>
         </div>
         
         <!-- 
@@ -1383,6 +1403,10 @@
     <!-- Car Specific source file -->
     <script type='text/javascript' src='src/editors/car.js'>
     </script>
+
+        <!-- String Input source file -->
+        <script type='text/javascript' src='src/editors/strings.js'>
+        </script>
 
     <!-- File Object source file -->
     <script type='text/javascript' src='src/fileobject.js'>

@@ -1,4 +1,4 @@
-function handleUpload()
+function uploadFile()
 {
     // Get the file content from the provided element
     let file = document.getElementById('i_file').files[0];
@@ -77,10 +77,63 @@ function handleUpload()
     }
 }
 
-function handleDownload()
+function downloadFile()
 {
   // Call the download function
   download();
+}
+
+function downloadString(id)
+{
+  // Get the id of the element provided
+  let element = document.getElementById(id);
+
+  // Get the value of the input element
+  let value = element.value;
+
+  // Generate the binary data for the string file
+  let bytes = getStringByteArray(value);
+
+  console.log(bytes);
+
+  // Call the download function
+}
+
+// String button click tasks
+function createName()
+{
+  // Hide the menu
+  hideMenu();
+
+  // Show the name menu
+  showMenu('d_name');
+}
+
+function createTitle()
+{
+  // Hide the menu
+  hideMenu();
+  
+  // Show the name menu
+  showMenu('d_title');
+}
+
+function createSticker()
+{
+  // Hide the menu
+  hideMenu();
+  
+  // Show the name menu
+  showMenu('d_sticker');
+}
+
+function createRegion()
+{
+  // Hide the menu
+  hideMenu();
+  
+  // Show the name menu
+  showMenu('d_region');
 }
 
 // Startup tasks
