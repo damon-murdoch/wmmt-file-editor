@@ -42,15 +42,6 @@ function getOptions(game, filetype, property)
   }
 }
 
-// setDisabled(id: String, value: Boolean)
-// If it exists, sets the disabled property for 
-// the given element to true. Otherwise, does nothing.
-function setDisabled(id, value=true)
-{
-  // Set the element with the given id to the provided value
-  document.getElementById(id).disabled = value;
-}
-
 // Hides a menu if given, otherwise
 // hides all of the menus
 function hideMenu(menu=null)
@@ -119,6 +110,12 @@ function getValue(id, bytes = 4)
   return getProperty(document.game, document.file.type, id, bytes);
 }
 
+// updateElement(id: String, value: Int, Bytes: Int)
+// Given an element id, a value, and a byte count
+// updates the value of the element as well as 
+// the property the element is for. This allows
+// for this function to be called by other areas
+// of the program and still update both values. 
 function updateElement(id, value, bytes = 4)
 {
   // Get the element from the form
@@ -131,16 +128,73 @@ function updateElement(id, value, bytes = 4)
   elem.value = getValue(id, bytes);
 }
 
-// Populates the drop-down with a given set of values
-function populateDropdown(id, property=id)
+// populateCheckbox(id: String, bytes: Int, property: String)
+// Given an element ID, a byte count and an (optional) custom
+// property gets the current property value from the data and 
+// checks or unchecks the checkbox depending on if the data is
+// Less than or greater than zero.
+function populateCheckbox(id, bytes=1, property=id)
 {
+  // Get the element with the given id
+  const element = document.getElementById(id);
+
   try
   {
+    // Get the property value (default to 1 byte for checkbox)
+
+    // Update the checked value of the element
+    element.checked = getValue(property, bytes);
+
+    // Enable the element
+    element.enabled = true;
+  }
+  catch(e) // Failed to populate
+  {
+    console.error("Failed to populate '" + id + "':", e)
+
+    // Disable the element
+    element.disabled = true;
+  }
+}
+
+// populateInput(id: String, bytes: Int, property: String)
+// Given an element ID, a byte count and an (optional) custom
+// property gets the current property value from the data and 
+// sets the value of the input to the current value in the file.
+function populateInput(id, bytes=4, property=id)
+{
+  // Get the element with the given id
+  const element = document.getElementById(id);
+
+  try
+  {
+    // Get the property value (default to 1 byte for checkbox)
+
+    // Update the checked value of the element
+    element.value = getValue(property, bytes);
+    
+    // Enable the element
+    element.enabled = true;
+  }
+  catch(e) // Failed to populate
+  {
+    console.error("Failed to populate '" + id + "':", e)
+
+    // Disable the element
+    element.disabled = true;
+  }
+}
+
+// Populates the drop-down with a given set of values
+function populateDropdown(id, bytes=4, property=id)
+{
+  // Get the drop down element
+  let select = document.getElementById(id);
+
+  try
+  {    
     // Get the options for the given property
     let options = getOptions(document.game, document.file.type, property);
-
-    // Get the drop down element
-    let select = document.getElementById(id);
 
     // If results were returned
     if (options)
@@ -185,6 +239,9 @@ function populateDropdown(id, property=id)
   catch(e) // Failed to populate
   {
     console.error("Failed to populate '" + id + "':", e)
+
+    // Disable the element
+    select.disabled = true;
   }
 }
 

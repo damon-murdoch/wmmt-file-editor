@@ -99,55 +99,53 @@ function upload(file, callback)
       // Create the uint8array buffer
       document.file.data = new DataView(array.buffer);
 
-      // If the file extension is 'sav'
-      if (document.file.extension == 'sav')
+      // Use the extension to determine filetype
+      switch(document.file.extension)
       {
-        // Use the filename to determine filetype
-        switch(document.file.filename)
-        {
-          // Settings
-          case 'opensettings.sav':
-            document.file.type = 'settings';
-            break;
+        // Sav files
+        case 'sav': 
 
-          // Story
-          case 'openprogress.sav':
+          // If the filename includes 'opensettings'
+          if (document.file.filename.includes('opensettings'))
+          {
+            // Filetype is a settings file
+            document.file.type = 'settings';  
+          }
+          else if (document.file.filename.includes('openprogress'))
+          {
+            // Filetype is a story file
             document.file.type = 'story';
-            break;
-
-          // Mileage
-          case 'openmileage.sav':
+          }
+          else if (document.file.filename.includes('openmileage'))
+          {
+            // Filetype is a miles file
             document.file.type = 'miles';
-            break;
-
-          // Versus
-          case 'openversus.sav':
+          }
+          else if (document.file.filename.includes('openversus'))
+          {
+            // Filetype is a versus file
             document.file.type = 'versus';
-            break;
-          default: // Unknown filename
+          }
+          else // No recognised file type
+          {
             throw ("UnknownFileNameException: " + document.file.filename);
-        }
-      }
-      else // File extension is not 'sav'
-      {
-        // Use the extension to determine filetype
-        switch(document.file.extension)
-        {
-          // Car File
-          case 'car': 
-          document.file.type = 'car';
-            break;
-          // Custom GT Wing
-          case 'gtwing': 
-            document.file.type = 'gtwing';
-            break;
-          // Mini Sticker
-          case 'ministicker':
-            document.file.type = 'ministicker';
-            break;
-          default: // Unknown file extension
-            throw ("UnknownExtensionException: " + document.file.extension);
-        }
+          }
+          break;
+
+        // Car File
+        case 'car': 
+        document.file.type = 'car';
+          break;
+        // Custom GT Wing
+        case 'gtwing': 
+          document.file.type = 'gtwing';
+          break;
+        // Mini Sticker
+        case 'ministicker':
+          document.file.type = 'ministicker';
+          break;
+        default: // Unknown file extension
+          throw ("UnknownExtensionException: " + document.file.extension);
       }
 
       // Set the file size to the byte length of the file

@@ -52,6 +52,8 @@ function uploadFile()
               // Otherwise, error is thrown
               break;
             
+            // Work in progress: Story & Versus
+
             /*
             // Story file
             case 'story': 
@@ -158,34 +160,29 @@ function uploadFile()
   }
 }
 
+function downloadStr(type)
+{
+  switch(type)
+  {
+    case 'name': 
+      downloadString('custom_name', 'custom.name', 0x10, true);
+      break;
+    case 'title': 
+      downloadString('custom_title', 'custom.title', 0x10, false)
+      break;
+    case 'sticker':
+      downloadString('custom_sticker', 'custom.sticker', 0x10, true)
+      break;
+    case 'region':
+      downloadString('custom_region', 'custom.region', 0x3, false)
+      break;
+  }
+}
+
 function downloadFile()
 {
   // Call the download function
   download();
-}
-
-function downloadName()
-{
-  // Call downloadString for the name properties
-  downloadString('custom_name', 'custom.name', 0x10, true);
-}
-
-function downloadTitle()
-{
-  // call downloadString for the title properties
-  downloadString('custom_title', 'custom.title', 0x10, false)
-}
-
-function downloadSticker()
-{
-  // Call downloadString for the sticker properties
-  downloadString('custom_sticker', 'custom.sticker', 0x10, true)
-}
-
-function downloadRegion()
-{
-  // Call downloadString for the region properties
-  downloadString('custom_region', 'custom.region', 0x3, false)
 }
 
 // Startup tasks

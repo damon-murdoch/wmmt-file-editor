@@ -577,6 +577,17 @@
               </tr>
             </tbody>
           </table>
+          <div>
+            <p>
+              <sub>
+                <i>
+                  To use this file, simply replace your existing .car file with the downloaded file. 
+                  Please ensure that the downloaded file has the same name as the original file, 
+                  or it will not work. 
+                </i>
+              </sub>
+            </p>
+          </div>
         </div>
         <!--
           Story Editor
@@ -601,16 +612,35 @@
                   Reset to default
                 </th>
                 <td>
-                  <input type="checkbox" id="inp-default" value="0" onClick="">
+                  <input type="checkbox" id="inp-default" value="0" onClick="setStoryDefault()">
                 </td>
                 <th>
                   One run complete
                 </th>
                 <td>
-                  <input type="checkbox" id="inp-fullrun" value="0" onClick="">
+                  <input type="checkbox" id="inp-fullrun" value="0" onClick="setOneRunComplete()">
                 </td>
                 <td>
                   <!-- Padding -->
+                </td>
+              </tr>
+              <tr>
+                <th colspan="5" class="text-secondary">
+                  General
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  Play Count
+                </th>
+                <td>
+                  <input name="play_count" id="play_count" type="number" min="0" max="99999" class = 'form-control form-control-sm' value="0" onChange='updateElement(id, value)' disabled>
+                </td>
+                <th>
+                  Tuning Points
+                </th>
+                <td>
+                  <input name="tuning_point" id="tuning_point" type="number" min="0" max="99999" class = 'form-control form-control-sm' value="0" onChange='updateElement(id, value)' disabled>
                 </td>
               </tr>
               <tr>
@@ -620,16 +650,16 @@
               </tr>
               <tr>
                 <th>
-                  Total Wins
+                  Clear Count
                 </th>
                 <td>
-                  <input name="total_wins" id="total_wins" type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-wins" value="0" onChange='updateElement(id, value)'>
+                  <input name="clear_count" id="clear_count" type="number" min="0" max="99999" class = 'form-control form-control-sm' value="0" onChange='updateElement(id, value)' disabled>
                 </td>
                 <th>
                   Win Streak
                 </th>
                 <td>
-                  <input name="win_streak" id="win_streak" type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-streak" value="0" onChange='updateElement(id, value)'>
+                  <input name="win_streak" id="win_streak" type="number" min="0" max="99999" class = 'form-control form-control-sm' value="0" onChange='updateElement(id, value)' disabled>
                 </td>
                 <td>
                   <!-- Padding -->
@@ -637,10 +667,10 @@
               </tr>
               <tr>
                 <th>
-                  Total Loops
+                  Pages Cleared
                 </th>
                 <td>
-                  <input name="total_loops" id="total_loops" type="number" min="0" max="99999" class = 'form-control form-control-sm' id="inp-loops" value="0" onChange='updateElement(id, value)'>
+                  <input name="clear_div_count" id="clear_div_count" type="number" min="0" max="99999" class = 'form-control form-control-sm' value="0" onChange='updateElement(id, value)'>
                 </td>
                 <th>
                   Completed Loops
@@ -744,6 +774,17 @@
               </tr>
             </tbody>
           </table>
+          <div>
+            <p>
+              <sub>
+                <i>
+                  To use this file, simply replace your existing openprogress.sav file with the downloaded 
+                  file. Please ensure that the downloaded file has the same name as the original 
+                  (openprogress.sav), or it will not work. 
+                </i>
+              </sub>
+            </p>
+          </div>
         </div>
         
         <!--
@@ -834,6 +875,17 @@
             <tbody>
             </tbody>
           </table>
+          <div>
+            <p>
+              <sub>
+                <i>
+                  To use this file, simply replace your existing openversus.sav file with the downloaded 
+                  file. Please ensure that the downloaded file has the same name as the original 
+                  (openversus.sav), or it will not work. 
+                </i>
+              </sub>
+            </p>
+          </div>
         </div>
   
         <!--
@@ -980,6 +1032,17 @@
               </tr>
             </tbody>
           </table>
+          <div>
+            <p>
+              <sub>
+                <i>
+                  To use this file, simply replace your existing opensettings.sav file with the downloaded 
+                  file. Please ensure that the downloaded file has the same name as the original 
+                  (opensettings.sav), or it will not work. 
+                </i>
+              </sub>
+            </p>
+          </div>
         </div>
   
         <!--
@@ -1013,6 +1076,17 @@
               </tr>
             </tbody>
           </table>
+          <div>
+            <p>
+              <sub>
+                <i>
+                  To use this file, simply replace your existing openmileage.sav file with the downloaded 
+                  file. Please ensure that the downloaded file has the same name as the original 
+                  (openmileage.sav), or it will not work. 
+                </i>
+              </sub>
+            </p>
+          </div>
         </div>
   
         <!--
@@ -1105,6 +1179,18 @@
               </tr>
             </tbody>
           </table>
+          <div>
+            <p>
+              <sub>
+                <i>
+                  To use this file for all of your cars, place it in your game's root directory (or your profile folder, 
+                  if you use per-profile saving). To use this file for one specific car, place it in your OpenParrot_Cars 
+                  folder as the car you want to use, and rename it to share the same code. 
+                  (e.g. If your car file is named 0000000F.car, name the file 0000000F.gtwing)
+                </i>
+              </sub>
+            </p>
+          </div>
         </div>
   
         <!--
@@ -1312,6 +1398,18 @@
               </tr>
             </tbody>
           </table>
+          <div>
+            <p>
+              <sub>
+                <i>
+                  To use this file for all of your cars, place it in your game's root directory (or your profile folder, 
+                  if you use per-profile saving). To use this file for one specific car, place it in your OpenParrot_Cars 
+                  folder as the car you want to use, and rename it to share the same code. 
+                  (e.g. If your car file is named 0000000F.car, name the file 0000000F.ministicker)
+                </i>
+              </sub>
+            </p>
+          </div>
         </div>
       </div>
   
@@ -1342,13 +1440,25 @@
                    <input class='form-control form-control-sm' id="custom_name" name="custom_name" type='text' minlength="0" maxlength="5" placeholder="GUEST" oninput="validateInput(id)">
                 </td>
                 <td>
-                  <a class='btn btn-success btn-sm' href='#' onClick="downloadName()">
+                  <a class='btn btn-success btn-sm' href='#' onClick="downloadStr('name')">
                     Download
                   </a>
                 </td>
               </tr>
             </tbody>
           </table>
+          <div>
+            <p>
+              <sub>
+                <i>
+                  To use this file for all of your cars, place it in your game's root directory (or your profile folder, 
+                  if you use per-profile saving). To use this file for one specific car, place it in your OpenParrot_Cars 
+                  folder as the car you want to use, and rename it to share the same code. 
+                  (e.g. If your car file is named 0000000F.car, name the file 0000000F.name)
+                </i>
+              </sub>
+            </p>
+          </div>
         </div>
         
         <!-- 
@@ -1374,13 +1484,25 @@
                    <input class='form-control form-control-sm' id="custom_title" name="custom_title" type='text' minlength="0" maxlength="15" placeholder="Wangan Beginner" oninput="validateInput(id)">
                 </td>
                 <td>
-                  <a class='btn btn-success btn-sm' href='#' onClick="downloadTitle()">
+                  <a class='btn btn-success btn-sm' href='#' onClick="downloadStr('title')">
                     Download
                   </a>
                 </td>
               </tr>
             </tbody>
           </table>
+          <div>
+            <p>
+              <sub>
+                <i>
+                  To use this file for all of your cars, place it in your game's root directory (or your profile folder, 
+                  if you use per-profile saving). To use this file for one specific car, place it in your OpenParrot_Cars 
+                  folder as the car you want to use, and rename it to share the same code. 
+                  (e.g. If your car file is named 0000000F.car, name the file 0000000F.title)
+                </i>
+              </sub>
+            </p>
+          </div>
         </div>
         
         <!-- 
@@ -1406,13 +1528,25 @@
                    <input class='form-control form-control-sm' id="custom_sticker" name="custom_sticker" type='text' minlength="0" maxlength="5" placeholder="GUEST" oninput="validateInput(id)">
                 </td>
                 <td>
-                  <a class='btn btn-success btn-sm' href='#' onClick="downloadSticker()">
+                  <a class='btn btn-success btn-sm' href='#' onClick="downloadStr('sticker')">
                     Download
                   </a>
                 </td>
               </tr>
             </tbody>
           </table>
+          <div>
+            <p>
+              <sub>
+                <i>
+                  To use this file for all of your cars, place it in your game's root directory (or your profile folder, 
+                  if you use per-profile saving). To use this file for one specific car, place it in your OpenParrot_Cars 
+                  folder as the car you want to use, and rename it to share the same code. 
+                  (e.g. If your car file is named 0000000F.car, name the file 0000000F.sticker)
+                </i>
+              </sub>
+            </p>
+          </div>
         </div>
         
         <!-- 
@@ -1438,13 +1572,25 @@
                    <input class='form-control form-control-sm' id="custom_region" name="custom_region" type='text' minlength="0" maxlength="3" placeholder="JPN" oninput="validateInput(id)">
                 </td>
                 <td>
-                  <a class='btn btn-success btn-sm' href='#' onClick="downloadRegion()">
+                  <a class='btn btn-success btn-sm' href='#' onClick="downloadStr('region')">
                     Download
                   </a>
                 </td>
               </tr>
             </tbody>
           </table>
+          <div>
+            <p>
+              <sub>
+                <i>
+                  To use this file for all of your cars, place it in your game's root directory (or your profile folder, 
+                  if you use per-profile saving). To use this file for one specific car, place it in your OpenParrot_Cars 
+                  folder as the car you want to use, and rename it to share the same code. 
+                  (e.g. If your car file is named 0000000F.car, name the file 0000000F.region)
+                </i>
+              </sub>
+            </p>
+          </div>
         </div>
       </div>
     </div>

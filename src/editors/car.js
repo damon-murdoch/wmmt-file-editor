@@ -1,25 +1,14 @@
 // Car-Specific stuff goes in here :)
 
-// Configures the plate number input on the menu
-function setupPlateNumber()
-{
-  // Get the license plate number object
-  let plate_number = document.getElementById('plate_number');
-
-  // Get the current license plate number from the file
-  plate_number.value = getValue('plate_number');
-  plate_number.disabled = false;
-}
-
 // Configures the tuning settings on the menu
 function setupTune()
 {
   // Tuning Setting Combo Boxes
-  setDisabled('rb-dt', false);
-  setDisabled('rb-nt', false);
-  setDisabled('rb-bt', false);
-  setDisabled('rb-ft', false);
-  setDisabled('rb-ct', false);
+  document.getElementById('rb-dt').disabled = true;
+  document.getElementById('rb-nt').disabled = true;
+  document.getElementById('rb-bt').disabled = true;
+  document.getElementById('rb-ft').disabled = true;
+  document.getElementById('rb-ct').disabled = true;
 
   // Get the current power/handling
   document.current_rank = getValue('rank');
@@ -78,7 +67,7 @@ function showCarMenu()
   // License Plate 
   populateDropdown('plate_frame');
   populateDropdown('plate_frame_colour');
-  setupPlateNumber();
+  populateInput('plate_number');
   populateDropdown('region');
 
   // Window Sticker / Versus Marker
@@ -126,8 +115,8 @@ function setTune(value)
       updateElement('handling', document.current_handling);
 
       // Disable the power/handling dropdowns
-      setDisabled('power', true);
-      setDisabled('handling', true);
+      document.getElementById('power').disabled = true;
+      document.getElementById('handling').disabled = true;
       break;
 
     case 1: // No Tune
@@ -140,8 +129,8 @@ function setTune(value)
       updateElement('handling', 0x00);
 
       // Disable the power/handling dropdowns
-      setDisabled('power', true);
-      setDisabled('handling', true);
+      document.getElementById('power').disabled = true;
+      document.getElementById('handling').disabled = true;
       break;
 
     case 2: // Basic Tuning
@@ -154,8 +143,8 @@ function setTune(value)
       updateElement('handling', 0x0A);
 
       // Disable the power/handling dropdowns
-      setDisabled('power', true);
-      setDisabled('handling', true);
+      document.getElementById('power').disabled = true;
+      document.getElementById('handling').disabled = true;
       break;
 
     case 3: // Full Tune
@@ -183,15 +172,15 @@ function setTune(value)
       }
 
       // Disable the power/handling dropdowns
-      setDisabled('power', true);
-      setDisabled('handling', true);
+      document.getElementById('power').disabled = true;
+      document.getElementById('handling').disabled = true;
       break;
 
     case 4: // Custom Tune
 
       // Enable the power/handling dropdowns
-      setDisabled('power', false);
-      setDisabled('handling', false);
+      document.getElementById('power').disabled = false;
+      document.getElementById('handling').disabled = false;
       break;
 
     default: // Unknown value provided

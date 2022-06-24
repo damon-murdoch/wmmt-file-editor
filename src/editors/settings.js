@@ -6,19 +6,13 @@ function showSettingsMenu()
   // Booleans
 
   // View Switch (Behind / In Front)
-  const view = document.getElementById('view');
-  view.checked = getValue('view', 1);
-  view.disabled = false;
+  populateCheckbox('view');
 
   // Transmission Switch (Auto/Manual)
-  const transmission = document.getElementById('transmission');
-  transmission.checked = getValue('transmission', 1);
-  transmission.disabled = false;
+  populateCheckbox('transmission');
 
   // Retire Switch (Off/On)
-  const retire = document.getElementById('retire');
-  retire.checked = getValue('retire', 1);
-  retire.disabled = false;
+  populateCheckbox('retire');
 
   // Navi Map (Off/On)
   const navi_map = document.getElementById('navi_map');
@@ -28,17 +22,22 @@ function showSettingsMenu()
   // Selects
   
   populateDropdown('meter');
-  populateDropdown('volume');
   populateDropdown('ost');
-  
+
   populateDropdown('nameplate');
   populateDropdown('nameplate_colour');
   
   populateDropdown('frame');
   populateDropdown('frame_colour');
 
+  // Unused ingame
+
   populateDropdown('terminal_bg');
-  
+  populateDropdown('volume');
+
+  // Volume not editable, just for visibility
+  document.getElementById('volume').disabled = true;
+
   // Show the car menu
   showMenu('d_settings');
 }

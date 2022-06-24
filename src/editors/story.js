@@ -12,18 +12,6 @@ function setOneRunComplete()
 
 function showStoryMenu()
 {
-  // Total Wins
-  document.getElementById('total_wins').value = getValue('total_wins');
-
-  // Win Streak
-  document.getElementById('win_streak').value = getValue('win_streak');
-
-  // Total Loops
-  document.getElementById('total_loops').value = getValue('total_loops');
-
-  // Completed Loops
-  // document.getElementById('completed_loops').value = getValue('completed_loops');
-
   // Show the story menu
   showMenu('d_story');
 }

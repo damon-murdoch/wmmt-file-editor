@@ -45,10 +45,10 @@ function showMiniStickerMenu()
     let colour = sticker + '_colour';
 
     // Populate the sticker drop-down with generic options
-    populateDropdown(sticker, 'mini_sticker');
+    populateDropdown(sticker, 0x4, 'mini_sticker');
 
     // Populate the sticker colour drop-down with generic options
-    populateDropdown(colour, 'mini_sticker_colour');
+    populateDropdown(colour, 0x4, 'mini_sticker_colour');
   }
 
   // Show the mini sticker menu
