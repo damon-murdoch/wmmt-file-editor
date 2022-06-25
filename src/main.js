@@ -1,12 +1,12 @@
 // Bulk of the worker functions will go in this file
 
-function setProperty(game, filetype, property, value, bytes)
+function setProperty(game, filetype, property, value, bytes, signed)
 {
   // If the index property is defined for the game and filetype
   if (OFFSETS.game[game][filetype].indexes[property] !== null)
   {
     // Set the value at the offset to the given value
-    setValueAt(OFFSETS.game[game][filetype].indexes[property], value, bytes);
+    setValueAt(OFFSETS.game[game][filetype].indexes[property], value, bytes, signed);
   }
   else // Property is not defined
   {
@@ -14,13 +14,13 @@ function setProperty(game, filetype, property, value, bytes)
   }
 }
 
-function getProperty(game, filetype, property, bytes)
+function getProperty(game, filetype, property, bytes, signed)
 {
   // If the index property is defined for the game and filetype
   if (OFFSETS.game[game][filetype].indexes[property] !== null)
   {
     // Return the value at the offset to the given value
-    return getValueAt(OFFSETS.game[game][filetype].indexes[property], bytes);
+    return getValueAt(OFFSETS.game[game][filetype].indexes[property], bytes, signed);
   }
   else // Property is not defined
   {
@@ -98,16 +98,16 @@ function showMenu(menu=null)
   }
 }
 
-function setValue(id, value, bytes = 4)
+function setValue(id, value, bytes = 4, signed = false)
 {
   // Attempt to update the selected property
-  setProperty(document.game, document.file.type, id, value, bytes);
+  setProperty(document.game, document.file.type, id, value, bytes, signed);
 }
 
-function getValue(id, bytes = 4)
+function getValue(id, bytes = 4, signed = false)
 {
   // Return the selected property
-  return getProperty(document.game, document.file.type, id, bytes);
+  return getProperty(document.game, document.file.type, id, bytes, signed);
 }
 
 // updateElement(id: String, value: Int, Bytes: Int)
@@ -116,16 +116,16 @@ function getValue(id, bytes = 4)
 // the property the element is for. This allows
 // for this function to be called by other areas
 // of the program and still update both values. 
-function updateElement(id, value, bytes = 4)
+function updateElement(id, value, bytes = 4, signed = false)
 {
   // Get the element from the form
   let elem = document.getElementById(id);
 
   // Update the binary data in the file
-  setValue(id, value, bytes);
+  setValue(id, value, bytes, signed);
 
   // Update the element value (if required)
-  elem.value = getValue(id, bytes);
+  elem.value = getValue(id, bytes, signed);
 }
 
 // populateCheckbox(id: String, bytes: Int, property: String)

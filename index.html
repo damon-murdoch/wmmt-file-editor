@@ -791,7 +791,7 @@
           Versus Editor
         -->
         <div id='d_versus'>
-          <table class='table table-dark' id='t_gtwing'>
+          <table class='table table-dark' id='t_versus'>
             <thead class='thead thead-dark'>
               <tr>
                 <th class='text-center' colspan=5>
@@ -801,19 +801,44 @@
             </thead>
               <tr>
                 <th>
+                  Last Game
+                </th>
+                <th>
+                  Result
+                </th>
+                <td>
+                  <select name="game_result" id="game_result" onChange="updateElement(id, value)">
+                    <option id='o_default'>
+                      Default
+                    </option>
+                  </select>
+                </td>
+                <th>
+                  Player Count
+                </th>
+                <td>
+                  <select name="player_count" id="player_count" onChange="updateElement(id, value)">
+                    <option id='o_default'>
+                      Default
+                    </option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>
                   General
                 </th>
                 <th>
                   Games Played
                 </th>
                 <td>
-                  <input class='form-control form-control-sm' type="number" id="vgameplayed" name="vgameplayed" value=0 min="0" max="4294967295">
+                  <input class='form-control form-control-sm' type="number" id="games_played" name="games_played" value=0 min="0" max="4294967295" onChange="updateElement(id, value)">
                 </td>
                 <th>
                   Versus Stars
                 </th>
                 <td>
-                  <input class='form-control form-control-sm' type="number" id="vstars" name="vstars" value=0 min="0" max="4294967295">
+                  <input class='form-control form-control-sm' type="number" id="versus_stars" name="versus_stars" value=0 min="0" max="4294967295" onChange="updateElement(id, value)">
                 </td>
               </tr>
               <tr>
@@ -824,13 +849,13 @@
                   Gold
                 </th>
                 <td>
-                  <input class='form-control form-control-sm' type="number" id="vgameplayed" name="vgameplayed" value=0 min="0" max="4294967295">
+                  <input class='form-control form-control-sm' type="number" id="gold_medals" name="gold_medals" value=0 min="0" max="4294967295" onChange="updateMedals(id, value)">
                 </td>
                 <th>
                   Silver
                 </th>
                 <td>
-                  <input class='form-control form-control-sm' type="number" id="vstars" name="vstars" value=0 min="0" max="4294967295">
+                  <input class='form-control form-control-sm' type="number" id="silver_medals" name="silver_medals" value=0 min="0" max="4294967295" onChange="updateMedals(id, value)">
                 </td>
               </tr>
               <tr>
@@ -838,21 +863,30 @@
                   Bronze
                 </th>
                 <td>
-                  <input class='form-control form-control-sm' type="number" id="vgameplayed" name="vgameplayed" value=0 min="0" max="4294967295">
+                  <input class='form-control form-control-sm' type="number" id="bronze_medals" name="bronze_medals" value=0 min="0" max="4294967295" onChange="updateMedals(id, value)">
                 </td>
                 <th>
                   Plain
                 </th>
                 <td>
-                  <input class='form-control form-control-sm' type="number" id="vstars" name="vstars" value=0 min="0" max="4294967295">
+                  <input class='form-control form-control-sm' type="number" id="plain_medals" name="plain_medals" value=0 min="0" max="4294967295" onChange="updateMedals(id, value)">
                 </td>
               </tr>
               <tr>
                 <th>
                   Grade
                 </th>
-                <td colspan=4>
-                  No Versus Grade (Next Grade: Hawk1 in 200 medals)
+                <th>
+                  Current Grade
+                </th>
+                <td>
+                  <input class='form-control form-control-sm' type="text" name="current_grade" id="current_grade" disabled>
+                </td>
+                <th>
+                  Next Grade
+                </th>
+                <td>
+                  <input class='form-control form-control-sm' type="text" name="next_grade" id="next_grade" disabled>
                 </td>
               </tr>
               <tr>
@@ -863,13 +897,13 @@
                   Smooth/Rough
                 </th>
                 <td>
-                  <input type="range" class="form-range" id="smooth_rough">
+                  <input type="range" value=0 min="-16" max="16" step="1" class="form-range" id="smooth_rough" onChange="updateElement(id, value, 4, true)">
                 </td>
                 <th>
                   Cool/Wild
                 </th>
                 <td>
-                  <input type="range" class="form-range" id="cool_wild">
+                  <input type="range" value=0 min="-16" max="16" step="1" class="form-range" id="cool_wild" onChange="updateElement(id, value, 4, true)">
                 </td>
               </tr>
             <tbody>

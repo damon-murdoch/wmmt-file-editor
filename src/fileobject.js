@@ -19,7 +19,7 @@ document.file = {
 
 // If the data file is loaded, get the value at the 
 // given offset in the file (default to little endian)
-function getValueAt(offset, bytes, littleEndian = true)
+function getValueAt(offset, bytes = 4, signed = false, littleEndian = true)
 {
   // If the document.data is defined
   if (document.file.data !== null)
@@ -27,14 +27,38 @@ function getValueAt(offset, bytes, littleEndian = true)
     switch(bytes)
     {
       case 1: // 8 bits
-        // Return the uint32 value at the given offset and endianness
-        return document.file.data.getUint8(offset, littleEndian);
+        if (signed)
+        {
+          // Return the uint32 value at the given offset and endianness
+          return document.file.data.getInt8(offset, littleEndian);
+        }
+        else
+        {
+          // Return the uint32 value at the given offset and endianness
+          return document.file.data.getUint8(offset, littleEndian);
+        }
       case 2: // 16 bits
+      if (signed)
+      {
+        // Return the uint32 value at the given offset and endianness
+        return document.file.data.getInt16(offset, littleEndian);
+      }
+      else
+      {
         // Return the uint32 value at the given offset and endianness
         return document.file.data.getUint16(offset, littleEndian);
+      }
       case 4: // 32 bits
+      if (signed)
+      {
+        // Return the uint32 value at the given offset and endianness
+        return document.file.data.getInt32(offset, littleEndian);
+      }
+      else
+      {
         // Return the uint32 value at the given offset and endianness
         return document.file.data.getUint32(offset, littleEndian);
+      }
       default:
         throw "InvalidByteCountException";
     }
@@ -48,7 +72,7 @@ function getValueAt(offset, bytes, littleEndian = true)
 
 // If the data file is loaded, set the value at the 
 // given offset in the file (default to little endian)
-function setValueAt(offset, value, bytes, littleEndian = true)
+function setValueAt(offset, value, bytes = 4, signed = false, littleEndian = true)
 {
   // If the document.data is defined
   if (document.file.data !== null)
@@ -56,17 +80,41 @@ function setValueAt(offset, value, bytes, littleEndian = true)
     switch(bytes)
     {
       case 1: // 8 bits
-        // Set the uint32 value at the given offset and endianness
-        document.file.data.setUint8(offset, value, littleEndian);
+        if (signed)
+        {
+          // Return the uint32 value at the given offset and endianness
+          document.file.data.setInt8(offset, value, littleEndian);
+        }
+        else
+        {
+          // Return the uint32 value at the given offset and endianness
+          document.file.data.setUint8(offset, value, littleEndian);
+        }
         break;
       case 2: // 16 bits
-        // Set the uint32 value at the given offset and endianness
+      if (signed)
+      {
+        // Return the uint32 value at the given offset and endianness
+        document.file.data.setInt16(offset, value, littleEndian);
+      }
+      else
+      {
+        // Return the uint32 value at the given offset and endianness
         document.file.data.setUint16(offset, value, littleEndian);
-        break;
+      }
+      break;
       case 4: // 32 bits
-        // Set the uint32 value at the given offset and endianness
+      if (signed)
+      {
+        // Return the uint32 value at the given offset and endianness
+        document.file.data.setInt32(offset, value, littleEndian);
+      }
+      else
+      {
+        // Return the uint32 value at the given offset and endianness
         document.file.data.setUint32(offset, value, littleEndian);
-        break;
+      }
+      break;
       default:
         throw "InvalidByteCountException";
     }

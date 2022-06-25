@@ -1542,11 +1542,59 @@ const OFFSETS = {
         size: 0x2000
       },
       versus: {
-        indexes: {
 
+      /*
+             00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
+
+        00   80 20 A4 53 F7 7F 00 00 08 B5 B2 53 F7 7F 00 00 
+        01   00 00 00 00 00 00 00 00 CB 7F 00 00 00 00 00 00 
+        02   00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 
+        03   00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 
+        04   0A 00 00 00 00 00 00 00 0A 00 00 00 FC FF FF FF 
+        05   FD FF FF FF 00 00 00 00 00 00 00 00 0A 00 00 00 
+        06   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        07   0A 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 
+        08   00 00 00 00 00 00 00 00 70 DB A2 53 F7 7F 00 00 
+        09   38 B6 B2 53 F7 7F 00 00 00 00 00 00 00 00 00 00 
+        0A   00 9D 02 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        0B   00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 
+        0C   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        0D   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        0E   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+        0F   00 00 00 00 00 00 00 00 60 C8 38 8A 00 00 00 00
+      */
+
+        indexes: {
+          // Last game results
+          "game_result": 0x20, 
+          "player_count": 0x24, 
+
+          // Versus Stars
+          "games_played": 0x40, 
+          "versus_stars": 0x48,
+
+          // Aura
+          "smooth_rough": 0x4C, 
+          "cool_wild": 0x50, 
+
+          // Medals
+          "gold_medals": 0x54, 
+          "silver_medals": 0x58, 
+          "bronze_medals": 0x5C, 
+          "plain_medals": 0x60, 
         },
         values: {
-          
+          "result": [
+            [0x0, "Win"],
+            [0x1, "Lose"]
+          ], 
+          "player_count": [
+            [0x0, "No Players"], // Should be impossible
+            [0x1, "One Player"], // Should be impossible
+            [0x2, "Two Players"],
+            [0x3, "Three Players"],
+            [0x4, "Four Players"],
+          ], 
         }, 
         size: 0x100
       }, 
@@ -3120,6 +3168,42 @@ const OFFSETS = {
     }
   }
 }
+
+/*
+13500
+20000
+35000
+65000
+125000
+215000
+340000
+*/
+
+const MEDALS = {
+  gold: 0x5,
+  silver: 0x3,
+  bronze: 0x2, 
+  plain: 0x1
+}
+
+const GRADES = [
+  ["No Grade", 0], 
+  ["VS First Grade (Hawk1)", 200], ["First Grade Ace (Hawk2)", 400], ["First Grade Pro (Hawk3)", 600],
+  ["VS Second Grade (Snake1)", 900], ["Second Grade Ace (Snake2)", 1100], ["Second Grade Pro (Snake3)", 1300],
+  ["VS Third Grade (Pitbull1)", 1600], ["Third Grade Ace (Pitbull2)", 1800], ["Third Grade Pro (Pitbull3)", 2000],
+  ["VS Fourth Grade (Panther1)", 2450], ["Fourth Grade Ace (Panther2)", 2700], ["Fourth Grade Pro (Panther3)", 2950],
+  ["VS Fifth Grade (Bull1)", 3400], ["Fifth Grade Ace (Bull2)", 3650], ["Fifth Grade Pro (Bull3)", 3900],
+  ["VS Sixth Grade (Gorilla1)", 4500], ["Sixth Grade Ace (Gorilla2)", 4800], ["Sixth Grade Pro (Gorilla3)", 5100],
+  ["VS Seventh Grade (Wolf1)", 6000], ["Seventh Grade Ace (Wolf2)", 6400], ["Seventh Grade Pro (Wolf3)", 6800],
+  ["VS Eighth Grade (Mammoth1)", 8400], ["Eighth Grade Ace (Mammoth2)", 9000], ["Eighth Grade Pro (Mammoth3)", 9600],
+  ["VS Ninth Grade (Panda1)", 11900], ["Ninth Grade Ace (Panda2)", 12700], ["Ninth Grade Pro (Panda3)", 13500],
+  ["VS Tenth Grade (Lion1)", 16500], ["Tenth Grade Ace (Lion2)", 17500], ["Tenth Grade Pro (Lion3)", 20000],
+  ["VS Eleventh Grade (Nue1)", 25000], ["Eleventh Grade Ace (Nue2)", 30000], ["Eleventh Grade Pro (Nue3)", 35000],
+  ["VS Twelth Grade (Orchi1)", 45000], ["Twelth Grade Ace (Orchi2)", 55000], ["Twelth Grade Pro (Orchi3)", 65000],
+  ["VS Thirteenth Grade (Phoenix1)", 85000], ["Thirteenth Grade Ace (Phoenix2)", 105000], ["Thirteenth Grade Pro (Phoenix3)", 125000],
+  ["VS Fourteenth Grade (Dragon1)", 155000], ["Fourteenth Grade Ace (Dragon2)", 185000], ["Fourteenth Grade Pro (Dragon3)", 215000],
+  ["VS Fifteenth Grade (Ogre1)", 255000], ["Fifteenth Grade Ace (Ogre2)", 340000], ["Fifteenth Grade Pro (Ogre3)", 395000]
+]
 
 // ASCII to UTF-8 Conversion Table
 const WIDETEXT_CHARSET = {

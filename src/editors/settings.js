@@ -15,9 +15,7 @@ function showSettingsMenu()
   populateCheckbox('retire');
 
   // Navi Map (Off/On)
-  const navi_map = document.getElementById('navi_map');
-  navi_map.checked = getValue('navi_map', 1);
-  navi_map.disabled = false;
+  populateCheckbox('navi_map');
 
   // Selects
   

@@ -51,6 +51,23 @@ function uploadFile()
 
               // Otherwise, error is thrown
               break;
+
+
+            // Versus file
+            case 'versus':
+
+              // Set the game to the versus file's game (First two bytes used as identifier)
+              document.game = getVersusGame(document.file.data.getUint16(0x0, true));
+
+              // If the file is the correct size
+              if (verifySize(document.file.size, document.game, document.file.type))
+              {
+                // Show the car menu
+                showVersusMenu();
+              }
+
+              // Otherwise, error is thrown
+              break;
             
             // Work in progress: Story & Versus
 
