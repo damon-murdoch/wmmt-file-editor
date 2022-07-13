@@ -48,6 +48,8 @@ function getSettingsGame(game_id)
   // First two bytes of the car file identify the game
   switch(game_id)
   {
+    case 48440: // MT5
+      return 'wmmt5';
     case 9112: // MT5DX+
       return 'wmmt5dx';
     case 16632: // MT6

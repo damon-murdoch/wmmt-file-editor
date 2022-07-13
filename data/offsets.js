@@ -45,15 +45,20 @@ const OFFSETS = {
           'body_sticker': 0x58,
           'japan_sticker': 0x59,
           'body_sticker_colour': 0x5C,
+          'side_sticker_type': 0x74,
+          'side_sticker_colour': 0x78,
           'neon': 0x7C,
           'trunk': 0x80,
           'plate_frame': 0x84,
-          'plate_frame_colour': 0x8A,
+          'plate_frame_colour': 0x88,
           'plate_number': 0x8C,
           'power': 0x98,
           'handling': 0x9C,
           'title': 0xA0,
           'rank': 0xA4,
+          'window_sticker_toggle': 0xA8,
+          'window_sticker_font': 0xB8,
+          'last_played': 0xBC
         }, 
         values: {
           'region': [
@@ -505,7 +510,9 @@ const OFFSETS = {
             [0x08, "Frame Option 9"], 
             [0x09, "Frame Option 10"], 
           ],
-          'plate_number': [],
+          'plate_number': [
+
+          ],
           'power': [
             [0x00, "0 Points (Stock)"], // No mods
             [0x01, "1 Point (360 HP)"],
@@ -615,6 +622,17 @@ const OFFSETS = {
             [0x37, "SSS1"], 
             [0x38, "SSSS"], 
           ],
+          'window_sticker_toggle': [
+            [0x00, "Disabled"], 
+            [0x01, "Enabled"], 
+          ],
+          'window_sticker_font': [
+            [0x00, "Default"],
+            [0x01, "Bold Block"], 
+            [0x02, "Times New Roman"],
+            [0x03, "Rounded"], 
+            [0x04, "Craft"],
+          ],
         },
         size: 0xE0
       },
@@ -652,11 +670,172 @@ const OFFSETS = {
       settings: {
         indexes: {
 
-        }, 
+          // Booleans
+          
+          "view": 0x14, 
+          "transmission": 0x15, 
+          "retire": 0x16, 
+          "navi_map": 0x17, 
+
+          // Integers
+
+          "meter": 0x18, 
+          "volume": 0x1C,
+          "ost": 0x20,
+          "nameplate": 0x24,
+          "nameplate_colour": 0x28,
+          "terminal_bg": 0x2C,
+        },
         values: {
 
-        },
-        size: 0x0
+          // Booleans
+          
+          "view": [
+            [0x0, "Off"], 
+            [0x1, "On"]
+          ], 
+          "transmission": [
+            [0x0, "Off"], 
+            [0x1, "On"]
+          ], 
+          "retire": [
+            [0x0, "Off"], 
+            [0x1, "On"]
+          ], 
+          "navi_map": [
+            [0x0, "Off"], 
+            [0x1, "On"]
+          ], 
+
+          // Integers
+
+          "meter": [
+            [0x00, "Stock"],
+            [0x01, "Race Meter"],
+            [0x02, "Yellow Meter"],
+            [0x03, "Red Meter"],
+            [0x04, "Special Meter"],
+            [0x05, "Blue Meter"],
+            [0x06, "Carbon Meter"],
+            [0x07, "Metal 1 (Black)"],
+            [0x08, "Metal 2 (Red)"],
+            [0x09, "Cyber 1 (Blue)"],
+            [0x0A, "Cyber 2 (Red)"],
+          ], 
+          "volume": [
+            [0x0, "No Sound"],
+            [0x1, "Quiet"],
+            [0x2, "Standard"],
+            [0x3, "Loud"],
+          ],
+          "ost": [
+            [0x0, "MT4/MT5"], 
+            [0x1, "MT3/3DX/3DX+"], 
+            [0x2, "10 Outrun"], 
+          ],
+          "nameplate": [
+            [0x00, "Stock"],
+            [0x01, "Coloured (6 Variants)"],
+            [0x02, "Steel (4 Variants)"],
+            [0x03, "Carbon (4 Variants)"],
+            [0x04, "Trump (2 Variants)"],
+            [0x05, "Fire pattern (3 Variants)"],
+            [0x06, "Pegasus (1 Variant)"],
+            [0x07, "Japonism (5 Variants)"],
+            [0x08, "Camoflage (4 Variants)"],
+            [0x09, "Wood (4 Variants)"],
+            [0x0A, "Dangerous (3 Variants)"],
+            [0x0B, "Sticker (2 Variants)"],
+            [0x0C, "Don Lion (1 Variant)"],
+            [0x0D, "Casual (5 Variants)"],
+            [0x0E, "Metal (4 Variants)"],
+            [0x0F, "Tropical (4 Variants)"],
+            [0x10, "Hanafuda (2 Variants)"],
+            [0x11, "Graffiti (2 Variants)"],
+            [0x12, "Phoenix (1 Variant)"],
+            [0x13, "Lightning bolt (4 Variants)"],
+            [0x14, "ID tag (3 Variants)"],
+            [0x15, "Wall (4 Variants)"],
+            [0x16, "Animal (5 Variants)"],
+            [0x17, "Paint splash (6 Variants)"],
+            [0x18, "Ryujin (1 Variant)"],
+            [0x19, "Placeholder (6 Variants)"],
+            [0x1A, "Placeholder (6 Variants)"],
+            [0x1B, "Placeholder (6 Variants)"],
+            [0x1C, "Placeholder (6 Variants)"],
+            [0x1D, "Placeholder (6 Variants)"],
+            [0x1E, "Placeholder (1 Variant)"],
+            [0x1F, "Placeholder (6 Variants)"],
+            [0x20, "Placeholder (6 Variants)"],
+            [0x21, "Placeholder (6 Variants)"],
+            [0x22, "Placeholder (6 Variants)"],
+            [0x23, "Placeholder (6 Variants)"],
+            [0x24, "Placeholder (1 Variant)"],
+            [0x25, "Placeholder (6 Variants)"],
+            [0x26, "Placeholder (6 Variants)"],
+            [0x27, "Placeholder (6 Variants)"],
+            [0x28, "Placeholder (6 Variants)"],
+            [0x29, "Placeholder (6 Variants)"],
+            [0x2A, "Placeholder (1 Variant)"],
+            [0x2B, "Placeholder (6 Variants)"],
+            [0x2C, "Placeholder (6 Variants)"],
+            [0x2D, "Placeholder (6 Variants)"],
+            [0x2E, "Placeholder (6 Variants)"],
+            [0x2F, "Placeholder (6 Variants)"],
+            [0x30, "Placeholder (1 Variant)"],
+            [0x31, "Placeholder (6 Variants)"],
+            [0x32, "Placeholder (6 Variants)"],
+            [0x33, "Placeholder (6 Variants)"],
+            [0x34, "Placeholder (6 Variants)"],
+            [0x35, "Placeholder (6 Variants)"],
+            [0x36, "Placeholder (1 Variant)"],
+            [0x37, "First sunrise (1 Variant)"],
+            [0x38, "New Years (2 Variants)"],
+            [0x39, "Valentines (3 Variants)"],
+            [0x3A, "Oni (4 Variants)"],
+            [0x3B, "Hinamatsuri (4 Variants)"],
+            [0x3C, "Traditional (3 Variants)"],
+            [0x3D, "Petal Blossom (5 Variants)"],
+            [0x3E, "Petal Storm (4 Variants)"],
+            [0x3F, "Carp streamer (4 Variants)"],
+            [0x40, "Helmet (5 Variants)"],
+            [0x41, "Rainbow (3 Variants)"],
+            [0x42, "Rainy Day (4 Variants)"],
+            [0x43, "Kasagi no Hashi (4 Variants)"],
+            [0x44, "Tanabata (4 Variants)"],
+            [0x45, "Summer Sun (2 Variants)"],
+            [0x46, "Summer Sea (3 Variants)"],
+            [0x47, "Moon Rabbit! (3 Variants)"],
+            [0x48, "Moon Rabbit (5 Variants)"],
+            [0x49, "Bat (4 Variants)"],
+            [0x4A, "Halloween (3 Variants)"],
+            [0x4B, "Chitose (1 Variant)"],
+            [0x4C, "Chihayaburu (4 Variants)"],
+            [0x4D, "Merry X'mas (6 Variants)"],
+            [0x4E, "Santa Claus (4 Variants)"],
+            [0x4F, "Placeholder (1 Variant)"],
+            [0x50, "Placeholder (1 Variant)"],
+            [0x51, "Placeholder (1 Variant)"],
+            [0x52, "Placeholder (1 Variant)"],
+            [0x53, "Placeholder (1 Variant)"],
+            [0x54, "Placeholder (1 Variant)"],
+            [0x55, "Placeholder (1 Variant)"],
+            [0x56, "Placeholder (1 Variant)"],
+            [0x57, "Placeholder (1 Variant)"],
+            [0x58, "Placeholder (1 Variant)"],
+            [0x59, "Placeholder (1 Variant)"],
+            [0x5A, "Placeholder (1 Variant)"],
+          ],
+          "nameplate_colour": [
+            [0x0, "Nameplate Colour 1"],
+            [0x1, "Nameplate Colour 2"],
+            [0x2, "Nameplate Colour 3"],
+            [0x3, "Nameplate Colour 4"],
+            [0x4, "Nameplate Colour 5"],
+            [0x5, "Nameplate Colour 6"],
+          ],
+        }, 
+        size: 0x30
       },
     }, 
     wmmt5dx: {
@@ -2397,7 +2576,9 @@ const OFFSETS = {
             [0x08, "Frame Option 9"], 
             [0x09, "Frame Option 10"], 
           ],
-          'plate_number': [],
+          'plate_number': [
+
+          ],
           'power': [
             [0x00, "0 Points (Stock)"], // No mods
             [0x01, "1 Point (360 HP)"],
